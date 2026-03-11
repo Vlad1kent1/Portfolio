@@ -3,7 +3,9 @@ import {hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import {routing} from "../../i18n/routing";
 import { notFound } from "next/navigation";
+import { ThemeProvider } from 'next-themes'
 import "./globals.css";
+import { ibmPlexMono } from "@/lib/fonts";
 
 export const metadata = sharedMetadata;
 
@@ -22,11 +24,13 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={ibmPlexMono.variable}>
       <body className="antialiased">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
