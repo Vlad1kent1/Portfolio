@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 
-import { Button } from '@/styles';
+import { Button } from '@/components/ui';
 import { Sun, Moon } from 'lucide-react';
 
 export default function ThemeSwitcher() {
@@ -11,12 +11,13 @@ export default function ThemeSwitcher() {
 
   return (
     <Button
-      variant="icon"
+      variant="default"
+      size="icon"
       onClick={() => {
         setTheme(theme === 'light' ? 'dark' : 'light');
       }} 
     >
-      {theme === 'light' ? <Moon /> : <Sun />}
+      {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
     </Button>
   );
 }
