@@ -6,26 +6,51 @@
 
 :root {
   font-family: var(--font-ibm-plex-mono), monospace !important;
-  --surface: #1a1a1a;
-  --text: #0e0e0e;
-  --muted: oklch(0.97 0 0);
-  --contrast: #81190E;
-  --background: oklch(1 0 0);
+
+  --background: oklch(0.98 0 0);
+  --background-transparent: oklch(0.15 0 0 / 0.05);
+  
+  --surface: oklch(0.92 0 0);
+  --foreground: oklch(0.12 0 0);
+  
+  --text: oklch(0.12 0 0);
+  --text-transparent: oklch(0.12 0 0 / 0.7);
+  
+  --muted: oklch(0.55 0 0);
+  --muted-transparent: oklch(0.55 0 0 / 0.4);
+  
+  --contrast: oklch(0.62 0.25 25.7);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --surface: #ededed;
-  --text: #ffffff;
-  --muted: oklch(0.269 0 0);
-  --contrast: #81190E;
+  --background: oklch(0.08 0 0);
+  --background-transparent: oklch(1 0 0 / 0.08);
+  
+  --surface: oklch(0.15 0 0);
+  --foreground: oklch(0.98 0 0);
+  
+  --text: oklch(0.98 0 0);
+  --text-transparent: oklch(0.98 0 0 / 0.7);
+  
+  --muted: oklch(0.55 0 0);
+  --muted-transparent: oklch(0.55 0 0 / 0.4);
+  
+  --contrast: oklch(0.62 0.25 25.7); 
 }
 
 @theme {
-  --font-size-2xl: 5rem;
-  --font-size-xl: 1.875rem;
-  --font-size-lg: 1.375rem;
-  --font-size-base: 1.125rem;
-  --font-size-sm: 0.875rem;
-  --font-size-xs: 0.75rem;
+  /* Colors */
+  --color-background: var(--background);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-contrast: var(--contrast);
+  --color-surface: var(--surface);
+
+  /* Font Sizes */
+  --font-size-2xl: 5rem; /* 80px */
+  --font-size-xl: 1.875rem; /* 30px */
+  --font-size-lg: 1.375rem; /* 22px */
+  --font-size-base: 1.125rem; /* 18px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xs: 0.75rem; /* 12px */
 }

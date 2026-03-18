@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "@/i18n/navigation"; 
 import { useLocale } from "next-intl";
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui";
 
 export default function LocaleSwitcher() {
   const pathname = usePathname();
@@ -19,15 +19,15 @@ export default function LocaleSwitcher() {
 
   return (
     <Select onValueChange={switchLocale} defaultValue={locale}>
-      <SelectTrigger>
+      <SelectTrigger variant="default">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        <SelectGroup>
-          <SelectItem value="en">EN</SelectItem>
-          <SelectItem value="it">IT</SelectItem>
-          <SelectItem value="uk">UK</SelectItem>
-        </SelectGroup>
+        {Object.entries({"en": "EN", "it": "IT", "uk": "UK"} as Record<string, string>).map(([key, value]) => (        
+          <SelectItem key={key} value={key}>
+            {value}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   );
