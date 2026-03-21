@@ -1,25 +1,33 @@
 "use client"
 
 import * as React from "react"
-import { useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
+import { format, addDays, startOfToday } from "date-fns"
+import { uk, it, enUS } from "date-fns/locale"
+
 import { 
   Button, 
   Calendar,
   Popover, PopoverContent, PopoverTrigger,
 } from "@/components/ui"
-import { format, addDays, startOfToday } from "date-fns"
-import { uk, it, enUS } from "date-fns/locale"
 import { ChevronDownIcon } from "lucide-react"
 
-export function DatePicker({ className }: { className?: string }) {
+const dateFnsLocales = {
+  uk: uk,
+  it: it,
+  en: enUS,
+};
+
+function DatePicker({ className }: { className?: string }) {
   const [date, setDate] = React.useState<Date>()
   const [open, setOpen] = React.useState(false)
 
   const locale = useLocale();
+  const t = useTranslations('Date-Picker');
   const tomorrow = addDays(startOfToday(), 1)
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover modal={true} open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild className={className}>
         <Button
           variant="outline"
@@ -27,11 +35,15 @@ export function DatePicker({ className }: { className?: string }) {
           data-empty={!date}
           className="h-fit w-fit min-w-max whitespace-nowrap"
         >
-          {date ? format(date, "PPP") : <span className="text-muted">Pick a date</span>}
+          {date ? (
+            format(date, "PPP", { 
+              locale: dateFnsLocales[locale as keyof typeof dateFnsLocales] || enUS 
+            })
+          ) : <span className="text-muted">{t('placeholder')}</span>}
           <ChevronDownIcon size={14} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent portal={false} className="z-20! w-auto p-0" align="start">
         <Calendar
           mode="single"
           locale={locale === 'uk' ? uk : locale === 'it' ? it : enUS}
@@ -52,3 +64,5 @@ export function DatePicker({ className }: { className?: string }) {
     </Popover>
   )
 }
+
+export { DatePicker }

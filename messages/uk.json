@@ -1,5 +1,8 @@
 {
   "HomePage": {
     "title": "Привіт світ!"
+  },
+  "Date-Picker": {
+    "placeholder": "Виберіть дату"
   }
 }

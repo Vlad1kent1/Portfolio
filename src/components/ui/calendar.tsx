@@ -1,14 +1,15 @@
 "use client"
 
 import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
 import {
   DayPicker,
   getDefaultClassNames,
   type DayButton,
   type Locale,
 } from "react-day-picker"
-
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui"
 import { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon } from "lucide-react"
 
@@ -52,11 +53,11 @@ function Calendar({
           defaultClassNames.nav
         ),
         button_previous: cn(
-          "cursor-pointer size-(--cell-size) p-1 select-none aria-disabled:opacity-50",
+          "cursor-pointer size-(--cell-size) p-1 select-none aria-disabled:opacity-50 aria-disabled:cursor-default",
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          "cursor-pointer size-(--cell-size) p-1 select-none aria-disabled:opacity-50",
+          "cursor-pointer size-(--cell-size) p-1 select-none aria-disabled:opacity-50 aria-disabled:cursor-default",
           defaultClassNames.button_next
         ),
         month_caption: cn(

@@ -1,19 +1,19 @@
 "use client"
 
+import * as React from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { uk, it, enUS } from "date-fns/locale"
+
 import LocaleSwitcher from "@/components/layout/header/subcomponents/localeSwitcher";
 import ThemeSwitcher from '@/components/layout/header/subcomponents/themeSwitcher';
-
 import { 
   Button,
   Calendar,
   DatePicker,
   Field, FieldContent, FieldDescription, FieldLabel, FieldGroup, FieldSet, FieldLegend,
   Input,
-  Label,
+  Text,
   Popover, PopoverContent, PopoverTrigger,
-  Progress,
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
   Separator,
   Tabs, TabsContent, TabsList, TabsTrigger,
@@ -27,14 +27,19 @@ export default function Home() {
   const t = useTranslations('HomePage');
   const now = new Date();
 
+  const [openedPopover, setOpenedPopover] = React.useState(false);
+
   const formatted = new Intl.DateTimeFormat(locale, {
     dateStyle: 'full',
   }).format(now);
 
   return (
-    <div className="flex flex-col min-h-screen items-start justify-start bg-background gap-3">
-      <div className="flex flex-row items-stretch justify-between w-full h-fit border-b border-muted divide-x divide-(--muted)">      
-        <div className="flex items-center w-full  px-5">
+    <div className="relative flex flex-col min-h-screen items-start justify-start bg-background gap-3">
+      <ThemeSwitcher />
+
+      {/* Header */}
+      <div className="sticky top-0 z-40 bg-background flex flex-row items-stretch justify-between w-full h-fit border-b border-muted divide-x divide-(--muted)">      
+        <div className="flex items-center w-full px-5">
           <h1 className="w-full text-2xl font-semibold leading-10 tracking-tight text-text">
             {t('title')}
           </h1>
@@ -44,19 +49,23 @@ export default function Home() {
         </div>
         <div className='flex flex-row'>
           <LocaleSwitcher />
-          <ThemeSwitcher />
         </div>
       </div>
 
-      <div className="flex flex-col w-full gap-8 px-6 py-5">
+      {/* Content */}
+      <div className="flex flex-col w-full gap-8 px-6 pt-5 pb-24">
+        {/* Buttons */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Buttons</h5>
+          <Text size="xl_bold">Buttons</Text>
           <div className="flex flex-wrap gap-3">
             <Button variant="default" size="default">
               Default
             </Button>
             <Button variant="ghost" size="default">
               Ghost
+            </Button>
+            <Button variant="outline" size="default">
+              outline
             </Button>
             <Button variant="default" size="icon">
               <Info />
@@ -67,9 +76,10 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Calendar & DatePicker */}
         <section className="flex flex-col w-full gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Calendar &amp; DatePicker</h5>
-          <div className="flex w-full gap-6">
+          <Text size="xl_bold">Calendar &amp; DatePicker</Text>
+          <div className="flex w-full gap-3">
             <Calendar 
               locale={locale === 'uk' ? uk : locale === 'it' ? it : enUS}
             />
@@ -86,9 +96,10 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Fields & Inputs */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Fields (orientation)</h5>
-          <div className="flex flex-col gap-4">
+          <Text size="xl_bold">Fields (orientation)</Text>
+          <div className="flex flex-col gap-3">
             <form>
               <FieldGroup>
                 <FieldSet>
@@ -106,14 +117,12 @@ export default function Home() {
                 </FieldGroup>
                 </FieldSet>  
                   <Field orientation="vertical" className="max-w-xl"> 
-                    <Button type="submit" variant="default" size="default">
+                    <Button type="submit" variant="outline" size="default">
                       Submit
                     </Button>
                   </Field>
               </FieldGroup>
             </form>
-
-
 
             <Field orientation="horizontal" className="max-w-xl">
               <FieldLabel>Horizontal field</FieldLabel>
@@ -125,55 +134,66 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Inputs */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Inputs</h5>
+          <Text size="xl_bold">Inputs</Text>
           <div className="grid max-w-xl gap-3 md:grid-cols-3">
             <div className="flex flex-col gap-2">
-              <Label htmlFor="input-default">Default</Label>
+              <Text as="label">
+                Default
+              </Text>
               <Input id="input-default" placeholder="Type something..." />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="input-disabled">Disabled</Label>
+              <Text as="label">
+                Disabled
+              </Text>
               <Input id="input-disabled" placeholder="Can't type" disabled />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="input-invalid">Invalid</Label>
+              <Text as="label" htmlFor="input-invalid">
+                Invalid
+              </Text>
               <Input id="input-invalid" placeholder="Invalid value" aria-invalid="true" />
             </div>
           </div>
         </section>
 
+        {/* Popover */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Popover</h5>
-          <Popover>
+          <Text size="xl_bold">Popover</Text>
+          <Popover open={openedPopover}>
             <PopoverTrigger asChild>
-              <Button variant="default">Open popover</Button>
+              <Button variant="outline" className="max-w-xl" onClick={() => setOpenedPopover(true)}>
+                Open popover
+              </Button>
             </PopoverTrigger>
             <PopoverContent>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm">Popover content goes here.</p>
-                <Button variant="ghost" size="default">
-                  Action
-                </Button>
-              </div>
+              <p className="text-sm">Popover content goes here.</p>
+              <Button variant="ghost" size="default" onClick={() => setOpenedPopover(false)}>
+                Close popover
+              </Button>
             </PopoverContent>
           </Popover>
         </section>
 
+        {/* Select */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Progress</h5>
-          <div className="flex flex-col gap-2 max-w-xl">
-            <Progress value={25} />
-            <Progress value={50} />
-            <Progress value={75} />
-          </div>
-        </section>
-
-        <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Select</h5>
-          <div className="max-w-xs">
+          <Text size="xl_bold">Select</Text>
+          <div className="flex flex-row gap-3">
             <Select defaultValue="apple">
               <SelectTrigger>
+                <SelectValue placeholder="Pick a fruit" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="apple">Apple</SelectItem>
+                <SelectItem value="banana">Banana</SelectItem>
+                <SelectItem value="orange">Orange</SelectItem>
+              </SelectContent>
+            </Select>
+            
+            <Select defaultValue="apple">
+              <SelectTrigger variant="outline">
                 <SelectValue placeholder="Pick a fruit" />
               </SelectTrigger>
               <SelectContent>
@@ -185,20 +205,22 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Separator */}
         <section className="flex flex-col w-full gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Separator</h5>
+          <Text size="xl_bold">Separator</Text>
           <div className="w-full">
             <Separator className="my-6 w-full" />
           </div>
         </section>
 
+        {/* Tabs */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Tabs</h5>
-          <div className="flex flex-col gap-4">
+          <Text size="xl_bold">Tabs</Text>
+          <div className="flex flex-col gap-3">
             <div className="max-w-xl">
-              <p className="text-sm text-muted-foreground">Default (filled)</p>
+              <p className="text-sm text-muted-foreground">Horizontal</p>
               <Tabs defaultValue="tab1">
-                <TabsList>
+                <TabsList variant="line">
                   <TabsTrigger value="tab1">Tab 1</TabsTrigger>
                   <TabsTrigger value="tab2">Tab 2</TabsTrigger>
                   <TabsTrigger value="tab3">Tab 3</TabsTrigger>
@@ -210,18 +232,12 @@ export default function Home() {
             </div>
 
             <div className="max-w-xl">
-              <p className="text-sm text-muted-foreground">Line variant</p>
-              <Tabs defaultValue="tab1">
-                <TabsList variant="line">
-                  <TabsTrigger value="tab1" variant="default">
-                    Tab 1
-                  </TabsTrigger>
-                  <TabsTrigger value="tab2" variant="default">
-                    Tab 2
-                  </TabsTrigger>
-                  <TabsTrigger value="tab3" variant="default">
-                    Tab 3
-                  </TabsTrigger>
+              <p className="text-sm text-muted-foreground">Vertical</p>
+              <Tabs defaultValue="tab1" orientation="vertical">
+                <TabsList>
+                  <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+                  <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+                  <TabsTrigger value="tab3">Tab 3</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1">Content for Tab 1</TabsContent>
                 <TabsContent value="tab2">Content for Tab 2</TabsContent>
@@ -231,23 +247,46 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Textarea</h5>
+        {/* Textarea */}
+        <section className="flex flex-col gap-2 max-w-xl">
+          <Text size="xl_bold">Textarea</Text>
           <Textarea placeholder="Write something..." />
         </section>
 
+        {/* Tooltip */}
         <section className="flex flex-col gap-2">
-          <h5 className="text-lg font-normal text-(--text)">Tooltip</h5>
-          <TooltipProvider>
-            <div className="flex gap-3">
+          <Text size="xl_bold">Tooltip</Text>
+          <div className="flex flex-row gap-3 justify-around">
+            <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="default">Hover me</Button>
+                  <Button variant="outline" className='w-24'>Left</Button>
                 </TooltipTrigger>
-                <TooltipContent>Tooltip content</TooltipContent>
+                <TooltipContent side="left">Tooltip content</TooltipContent>
               </Tooltip>
-            </div>
-          </TooltipProvider>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="outline" className='w-24'>Top</Button>
+                </TooltipTrigger>
+                <TooltipContent side="top">Tooltip content</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="outline" className='w-24'>Bottom</Button>
+                </TooltipTrigger>
+                <TooltipContent side="bottom">Tooltip content</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="outline" className='w-24'>Right</Button>
+                </TooltipTrigger>
+                <TooltipContent side="right">Tooltip content</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </section>
       </div>
     </div>

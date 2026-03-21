@@ -1,5 +1,8 @@
 {
   "HomePage": {
     "title": "Ciao mondo!"
+  },
+  "Date-Picker": {
+    "placeholder": "Scegli una data"
   }
 }

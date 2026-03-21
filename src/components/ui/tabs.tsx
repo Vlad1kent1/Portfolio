@@ -1,10 +1,53 @@
 "use client"
 
 import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+
 import { Tabs as TabsPrimitive } from "radix-ui"
 
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
+
+const tabsListVariants = cva(
+  `group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground 
+  group-data-horizontal/tabs:h-8 
+  group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col`,
+  {
+    variants: {
+      variant: {
+        default: `bg-background`,
+        line: ``
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+const tabsTriggerVariants = cva(
+  `cursor-pointer relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center whitespace-nowrap transition-all `,
+  {
+    variants: {
+      variant: {
+        default: `
+        gap-5 px-5 py-6 text-sm font-medium text-(--text)
+        group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start 
+        disabled:pointer-events-none disabled:opacity-50 
+        [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4
+        
+        after:absolute after:bg-text after:opacity-0 after:transition-all
+        
+        group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:h-0.5 group-data-horizontal/tabs:after:bottom-1        
+        group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 
+        
+        group-data-[variant=line]/tabs-list:data-active:after:opacity-100`,
+      } 
+    },
+    defaultVariants: {
+      variant: 'default',
+    }
+  }
+)
 
 function Tabs({
   className,
@@ -16,55 +59,13 @@ function Tabs({
       data-slot="tabs"
       data-orientation={orientation}
       className={cn(
-        "group/tabs flex gap-2 data-horizontal:flex-col",
+        "group/tabs flex gap-3 data-horizontal:flex-col",
         className
       )}
       {...props}
     />
   )
 }
-
-const tabsListVariants = cva(
-  "group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col",
-  {
-    variants: {
-      variant: {
-        default: "bg-muted",
-        line: "gap-1 bg-transparent",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-)
-
-const tabsTriggerVariants = cva(
-  `relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center whitespace-nowrap transition-all `,
-  {
-    variants: {
-      variant: {
-        default: `
-        gap-1.5 px-1.5 py-0.5 text-sm font-normal  text-(--text)
-        group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start 
-        hover:text-foreground 
-        focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring 
-        disabled:pointer-events-none disabled:opacity-50 
-        group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none 
-        [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4
-        group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent 
-        data-active:bg-background data-active:text-foreground 
-        after:absolute after:bg-foreground after:opacity-0 after:transition-all
-        group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:h-0.5 
-        group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 
-        group-data-[variant=line]/tabs-list:data-active:after:opacity-100`,
-      } 
-    },
-    defaultVariants: {
-      variant: 'default',
-    }
-  }
-)
 
 function TabsList({
   className,
@@ -76,7 +77,10 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       data-variant={variant}
-      className={cn(tabsListVariants({ variant }), className)}
+      className={cn(
+        tabsListVariants({ variant }), 
+        className
+      )}
       {...props}
     />
   )
@@ -91,7 +95,10 @@ function TabsTrigger({
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
-      className={cn(tabsTriggerVariants({ variant }), className)}
+      className={cn(
+        tabsTriggerVariants({ variant }), 
+        className
+      )}
       {...props}
     />
   )
@@ -99,6 +106,7 @@ function TabsTrigger({
 
 function TabsContent({
   className,
+  
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Content>) {
   return (
@@ -110,4 +118,9 @@ function TabsContent({
   )
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent, tabsListVariants }
+export { 
+  Tabs, 
+  TabsList, 
+  TabsTrigger, 
+  TabsContent, 
+}

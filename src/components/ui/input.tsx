@@ -12,8 +12,8 @@ const inputVariants = cva(
     variants: {
       variant: {
         default: `
-          border border-text p-5
-          text-sm font-normal placeholder:text-muted
+          border border-muted p-5
+          text-sm font-medium placeholder:text-muted
           focus:bg-muted/20
           aria-invalid:border-contrast aria-invalid:ring aria-invalid:ring-contrast`,
         none: ``,
@@ -29,7 +29,8 @@ function Input({
   className, 
   type, 
   variant,
-  ...props }: React.ComponentProps<"input"> & 
+  ...props 
+}: React.ComponentProps<"input"> & 
   VariantProps<typeof inputVariants>) {
   return (
     <input

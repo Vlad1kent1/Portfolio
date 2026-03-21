@@ -8,16 +8,23 @@ import { cn } from "@/lib/utils"
 import { ChevronDownIcon } from "lucide-react"
 
 const selectTriggerVariants = cva(
-  `flex items-center justify-between gap-6 cursor-pointer whitespace-nowrap transition-all outline-none select-none `,
+  `flex items-center justify-between gap-5 cursor-pointer whitespace-nowrap transition-all outline-none select-none `,
   {
     variants: {
       variant: {
         default: `
-          text-sm font-normal px-4 py-6
+          text-text text-sm font-medium px-5 py-6 bg-backgound
           disabled:cursor-not-allowed disabled:opacity-50 
-          data-placeholder:text-muted-foreground data-[size=default]:h-8 data-[size=sm]:h-7 
-          *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 dark:bg-input/30
+          data-placeholder:text-muted
+          *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center
           [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,
+        outline: `
+          border border-muted bg-background text-text text-sm font-medium px-5 py-6
+          disabled:cursor-not-allowed disabled:opacity-50 
+          data-placeholder:text-muted
+          *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center
+          [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,
+        none: ``,
       } 
     },
     defaultVariants: {
@@ -32,7 +39,7 @@ const selectContentVariants = cva(
     variants: {
       variant: {
         default: `
-          bg-(--background) text-(--text) shadow-xs whitespace-nowrap border border-[--text]
+          bg-(--background) text-(--text) shadow-xs whitespace-nowrap border border-muted
           data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 
           data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95
           duration-200 fill-mode-forwards`,
@@ -104,7 +111,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDownIcon className="size-4 text-(--text)" />
+        <ChevronDownIcon size={14} className="text-(--text)" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
