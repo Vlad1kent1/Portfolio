@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const textareaVariants = cva(
   `w-full min-w-0 outline-none field-sizing-content
-  file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-text 
+  file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium
   disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 
   `,
   {
@@ -13,6 +13,7 @@ const textareaVariants = cva(
       variant: {
         default: `
           border border-muted p-5
+          min-h-[calc(1lh+2.75rem)]
           text-sm font-medium placeholder:text-muted
           focus:bg-muted/20
           aria-invalid:border-contrast aria-invalid:ring aria-invalid:ring-contrast`,

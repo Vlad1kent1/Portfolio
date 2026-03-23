@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const inputVariants = cva(
   `w-full min-w-0 transition-all outline-none 
-  file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-text 
+  file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium 
   disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 
   `,
   {

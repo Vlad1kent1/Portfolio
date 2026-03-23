@@ -4,7 +4,7 @@ import { getMessages } from "next-intl/server";
 import {routing} from "../../i18n/routing";
 import { notFound } from "next/navigation";
 import { ThemeProvider } from 'next-themes'
-import "./globals.css";
+import "../globals.css";
 import { ibmPlexMono } from "@/lib/fonts";
 
 export const metadata = sharedMetadata;
@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={ibmPlexMono.variable}>
       <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
           </NextIntlClientProvider>

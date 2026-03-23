@@ -13,13 +13,13 @@ const selectTriggerVariants = cva(
     variants: {
       variant: {
         default: `
-          text-text text-sm font-medium px-5 py-6 bg-backgound
+          text-sm font-medium px-5 py-6 bg-backgound
           disabled:cursor-not-allowed disabled:opacity-50 
           data-placeholder:text-muted
           *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center
           [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,
         outline: `
-          border border-muted bg-background text-text text-sm font-medium px-5 py-6
+          border border-muted bg-background text-sm font-medium px-5 py-6
           disabled:cursor-not-allowed disabled:opacity-50 
           data-placeholder:text-muted
           *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center

@@ -18,7 +18,7 @@ const popoverContentVariants = cva(
         default: `
           bg-background gap-3 p-5 
           border border-muted
-          text-sm font-medium text-text
+          text-sm font-medium
           data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 
           data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95`,
         none: ``,

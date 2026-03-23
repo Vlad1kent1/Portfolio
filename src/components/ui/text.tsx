@@ -36,7 +36,7 @@ const textVariants = cva(
 interface TextProps 
   extends React.HTMLAttributes<HTMLElement>, 
     VariantProps<typeof textVariants> {
-  as?: "p" | "span" | "div" | "h1" | "h2" | "h3" | "label"
+  as?: React.ElementType;
   htmlFor?: string
 }
 
@@ -52,7 +52,7 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
     return (
       <Component
         htmlFor={htmlFor}
-        ref={ref as any}
+        ref={ref}
         className={cn(textVariants({ variant, size, className }))}
         {...props}
       />

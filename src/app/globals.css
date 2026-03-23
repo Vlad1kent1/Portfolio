@@ -4,6 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+  html, body {
+    background-color: var(--background);
+    color: var(--text);
+  }
+}
+
 :root {
   font-family: var(--font-ibm-plex-mono), monospace !important;
 
@@ -55,4 +62,3 @@
   --font-size-sm: 0.875rem; /* 14px */
   --font-size-xs: 0.75rem; /* 12px */
 }
-
