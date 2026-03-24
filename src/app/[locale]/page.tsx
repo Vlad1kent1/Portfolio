@@ -13,7 +13,7 @@ export default function Home() {
     <div className="flex items-center justify-center min-h-screen">
       <Button
         variant="outline"
-        onClick={() => router.push('/components')}      
+        onClick={() => router.push('/ui-kit')}      
       >
         Components
       </Button>

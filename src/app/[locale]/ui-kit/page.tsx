@@ -6,6 +6,7 @@ import { uk, it, enUS } from "date-fns/locale"
 
 import LocaleSwitcher from "@/components/layout/header/subcomponents/localeSwitcher";
 import ThemeSwitcher from '@/components/layout/header/subcomponents/themeSwitcher';
+import { ColorBadge } from '@/components/pages/ui-kit/color-badge';
 import { 
   Button,
   Calendar,
@@ -54,6 +55,14 @@ export default function Home() {
 
       {/* Content */}
       <div className="flex flex-col w-full gap-8 px-6 pt-5 pb-24">
+        {/* Colours */}
+        <section className="flex flex-col gap-2">
+          <Text size="xl_bold">Colours</Text>
+          <div className="flex flex-row gap-3">
+            <ColorBadge variable="--background" label="Background" />          
+          </div>
+        </section>
+
         {/* Buttons */}
         <section className="flex flex-col gap-2">
           <Text size="xl_bold">Buttons</Text>
