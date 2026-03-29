@@ -3,7 +3,9 @@ import {hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import {routing} from "../../i18n/routing";
 import { notFound } from "next/navigation";
+
 import { ThemeProvider } from 'next-themes'
+import { Toaster } from '@/components/ui'
 import "../globals.css";
 import { ibmPlexMono } from "@/lib/fonts";
 
@@ -29,6 +31,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
+            <Toaster/>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

@@ -15,33 +15,33 @@
   font-family: var(--font-ibm-plex-mono), monospace !important;
 
   --background: oklch(0.98 0 0);
-  --background-transparent: oklch(0.15 0 0 / 0.05);
-  
+  --background-inverse: oklch(0.08 0 0);
+
   --surface: oklch(0.92 0 0);
   --foreground: oklch(0.12 0 0);
   
   --text: oklch(0.12 0 0);
-  --text-transparent: oklch(0.12 0 0 / 0.7);
-  
+  --text-inverse: oklch(0.98 0 0);
+
   --muted: oklch(0.55 0 0);
-  --muted-transparent: oklch(0.55 0 0 / 0.4);
+  --muted-inverse: oklch(0.98 0 0);  
   
   --contrast: oklch(0.62 0.25 25.7);
 }
 
 .dark {
   --background: oklch(0.08 0 0);
-  --background-transparent: oklch(1 0 0 / 0.08);
-  
+  --background-inverse: oklch(0.98 0 0);
+
   --surface: oklch(0.15 0 0);
   --foreground: oklch(0.98 0 0);
   
   --text: oklch(0.98 0 0);
-  --text-transparent: oklch(0.98 0 0 / 0.7);
-  
+  --text-inverse: oklch(0.12 0 0);
+
   --muted: oklch(0.55 0 0);
-  --muted-transparent: oklch(0.55 0 0 / 0.4);
-  
+  --muted-inverse: oklch(0.12 0 0);
+
   --contrast: oklch(0.62 0.25 25.7); 
 }
 

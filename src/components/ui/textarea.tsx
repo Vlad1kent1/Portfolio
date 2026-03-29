@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const textareaVariants = cva(
   `w-full min-w-0 outline-none field-sizing-content
-  file:inline-flex file:border-0 file:bg-transparent file:text-sm file:font-medium
+  file:inline-flex file:border-0 file:bg-inverse file:text-sm file:font-medium
   disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-input/50 disabled:opacity-50 
   `,
   {

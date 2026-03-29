@@ -47,6 +47,7 @@ function DatePicker({ className }: { className?: string }) {
         <Calendar
           mode="single"
           locale={locale === 'uk' ? uk : locale === 'it' ? it : enUS}
+          fixedWeeks
           selected={date}
           onSelect={(date) => {
             setDate(date)
@@ -54,7 +55,6 @@ function DatePicker({ className }: { className?: string }) {
           }}
           defaultMonth={date || tomorrow}
           startMonth={tomorrow}
-          endMonth={addDays(tomorrow, 90)}
           disabled={[
             { dayOfWeek: [0, 6] },
             { before: tomorrow },

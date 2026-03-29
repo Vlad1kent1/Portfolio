@@ -11,7 +11,10 @@ const textVariants = cva(
     variants: {
       variant: {
         default: "text-text",
-        destructive: "text-destructive",
+        transperant: "text-text-inverse",
+        muted: "text-muted",
+        muted_inverse: "text-muted-inverse",
+        contrast: "text-contrast",
       },
       size: {
         xxxl_bold: "text-3xl font-bold", /* 80px 700weight */

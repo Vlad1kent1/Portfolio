@@ -34,7 +34,7 @@ export function ColorBadge({ variable, label }: { variable: string; label: strin
     <div className="flex flex-col gap-2">
       <div 
         style={{ backgroundColor: `var(${variable})` }}
-        className="aspect-square w-14 border border-text/20 rounded-sm"
+        className="aspect-square w-14 border border-muted"
       />
       <div className="flex flex-col">
         <Text size="sm_medium">{label}</Text>
