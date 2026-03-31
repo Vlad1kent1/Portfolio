@@ -18,7 +18,7 @@ const dateFnsLocales = {
   en: enUS,
 };
 
-function DatePicker({ className }: { className?: string }) {
+const DatePicker = ({ className }: { className?: string }) => {
   const [date, setDate] = React.useState<Date>()
   const [open, setOpen] = React.useState(false)
 

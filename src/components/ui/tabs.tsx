@@ -49,11 +49,11 @@ const tabsTriggerVariants = cva(
   }
 )
 
-function Tabs({
+const Tabs = ({
   className,
   orientation = "horizontal",
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+}: React.ComponentProps<typeof TabsPrimitive.Root>) => {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
@@ -67,12 +67,12 @@ function Tabs({
   )
 }
 
-function TabsList({
+const TabsList = ({
   className,
   variant = "default",
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.List> &
-  VariantProps<typeof tabsListVariants>) {
+  VariantProps<typeof tabsListVariants>) => {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
@@ -86,12 +86,12 @@ function TabsList({
   )
 }
 
-function TabsTrigger({
+const TabsTrigger = ({
   className,
   variant,
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Trigger> &
-  VariantProps<typeof tabsTriggerVariants>) {
+  VariantProps<typeof tabsTriggerVariants>) => {
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
@@ -104,11 +104,10 @@ function TabsTrigger({
   )
 }
 
-function TabsContent({
+const TabsContent = ({
   className,
-  
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+}: React.ComponentProps<typeof TabsPrimitive.Content>) => {
   return (
     <TabsPrimitive.Content
       data-slot="tabs-content"

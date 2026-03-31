@@ -31,20 +31,20 @@ const popoverContentVariants = cva(
 )
 
 
-function Popover({
+const Popover = ({
   modal=false,
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Root>) {
+}: React.ComponentProps<typeof PopoverPrimitive.Root>) => {
   return <PopoverPrimitive.Root data-slot="popover" modal={modal} {...props} />
 }
 
-function PopoverTrigger({
+const PopoverTrigger = ({
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
+}: React.ComponentProps<typeof PopoverPrimitive.Trigger>) => {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
 }
 
-function PopoverContent({
+const PopoverContent = ({
   className,
   align = "center",
   sideOffset = 4,
@@ -53,7 +53,7 @@ function PopoverContent({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content> &
   {portal?: boolean} & 
-  VariantProps<typeof popoverContentVariants>) {
+  VariantProps<typeof popoverContentVariants>) => {
   const content = (
     <PopoverPrimitive.Content
       data-slot="popover-content"

@@ -5,7 +5,7 @@ import { oklch, parse } from 'culori';
 
 import { Text } from "@/components/ui"
 
-export function ColorBadge({ variable, label }: { variable: string; label: string }) {
+export const ColorBadge = ({ variable, label }: { variable: string; label: string }) => {
   const [colorValue, setColorValue] = useState<string>("")
 
   useEffect(() => {

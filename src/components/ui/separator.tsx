@@ -23,14 +23,14 @@ const separatorVariants = cva(
   }
 )
 
-function Separator({
+const Separator = ({
   className,
   orientation = "horizontal",
   decorative = true,
   variant, 
   ...props
 }: React.ComponentProps<typeof SeparatorPrimitive.Root> &
-  VariantProps<typeof separatorVariants>) {
+  VariantProps<typeof separatorVariants>) => {
   return (
     <SeparatorPrimitive.Root
       data-slot="separator"

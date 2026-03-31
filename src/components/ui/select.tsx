@@ -84,25 +84,25 @@ const selectItemVariants = cva(
   }
 )
 
-function Select({
+const Select = ({
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Root>) {
+}: React.ComponentProps<typeof SelectPrimitive.Root>) => {
   return <SelectPrimitive.Root data-slot="select" {...props} />
 }
 
-function SelectValue({
+const SelectValue = ({
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Value>) {
+}: React.ComponentProps<typeof SelectPrimitive.Value>) => {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />
 }
 
-function SelectTrigger({
+const SelectTrigger = ({
   className,
   children,
   variant,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & 
-  VariantProps<typeof selectTriggerVariants>) {
+  VariantProps<typeof selectTriggerVariants>) => {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
@@ -117,7 +117,7 @@ function SelectTrigger({
   )
 }
 
-function SelectContent({
+const SelectContent = ({
   className,
   children,
 
@@ -127,7 +127,7 @@ function SelectContent({
 
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Content> & 
-  VariantProps<typeof selectContentVariants> & VariantProps<typeof selectViewportVariants>) {
+  VariantProps<typeof selectContentVariants> & VariantProps<typeof selectViewportVariants>) => {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
@@ -153,13 +153,13 @@ function SelectContent({
   )
 }
 
-function SelectItem({
+const SelectItem = ({
   className,
   children,
   variant,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Item> &
-  VariantProps<typeof selectItemVariants>) {
+  VariantProps<typeof selectItemVariants>) => {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"

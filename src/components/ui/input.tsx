@@ -25,13 +25,13 @@ const inputVariants = cva(
   }
 )
 
-function Input({ 
+const Input = ({ 
   className, 
   type, 
   variant,
   ...props 
 }: React.ComponentProps<"input"> & 
-  VariantProps<typeof inputVariants>) {
+  VariantProps<typeof inputVariants>) => {
   return (
     <input
       type={type}

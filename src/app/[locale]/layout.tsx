@@ -5,9 +5,12 @@ import {routing} from "../../i18n/routing";
 import { notFound } from "next/navigation";
 
 import { ThemeProvider } from 'next-themes'
-import { Toaster } from '@/components/ui'
+import { Suspense } from 'react';
 import "../globals.css";
 import { ibmPlexMono } from "@/lib/fonts";
+import { Loading, Header, Footer, ThemeSwitcher} from "@/components/layout";
+import { Toaster } from '@/components/ui'
+
 
 export const metadata = sharedMetadata;
 
@@ -30,8 +33,15 @@ export default async function RootLayout({
       <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-            <Toaster/>
+            <Suspense fallback={<Loading/>}>
+              <div className="relative flex flex-col min-h-screen bg-background">
+                <Header />
+                {children}
+                <Footer />
+                <ThemeSwitcher />
+              </div>
+              <Toaster/>
+            </Suspense>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

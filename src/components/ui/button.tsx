@@ -37,13 +37,13 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
+const Button = ({
   className,
   variant,
   size,
   ...props
 }: React.ComponentProps<'button'> &
-  VariantProps<typeof buttonVariants>) {
+  VariantProps<typeof buttonVariants>) => {
   return (
     <button 
       data-slot="button" 

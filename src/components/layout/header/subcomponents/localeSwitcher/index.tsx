@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui";
 
-export default function LocaleSwitcher() {
+export const LocaleSwitcher = () => {
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale();
