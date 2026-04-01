@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { uk, it, enUS } from "date-fns/locale"
 
-import { LocaleSwitcher } from "@/components/layout/header/subcomponents/localeSwitcher";
 import { ColorBadge } from '@/components/pages/ui-kit/color-badge';
 import { 
   Button,
@@ -20,25 +19,15 @@ import {
   Textarea,
   Tooltip, TooltipContent, TooltipTrigger, TooltipProvider
 } from "@/components/ui";
-import { Loading } from "@/components/layout"
 import { Info } from "lucide-react"
 
 export default function Home() {
   const locale = useLocale();
-  const t = useTranslations('HomePage');
-  const now = new Date();
 
   const [openedPopover, setOpenedPopover] = React.useState(false);
 
-  const formatted = new Intl.DateTimeFormat(locale, {
-    dateStyle: 'full',
-  }).format(now);
-
   return (
     <div className="flex flex-col w-full min-h-screen bg-background gap-12 px-6 pt-5 pb-24">
-      <section className="flex flex-col w-full">
-        <Loading/>
-      </section>
       
       {/* Colours */}
       <section className="flex flex-col gap-3">
