@@ -1,26 +1,25 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useUIStore } from '@/store/useUIStore'
 import { AnimatePresence, Variants } from 'motion/react'
 import * as m from "motion/react-m"
 import { Text } from '@/components/ui'
 
 export const Intro = () => {
-  const [isFirstWordDone, setIsFirstWordDone] = useState(false)
   const isIntroDone = useUIStore(state => state.isIntroDone)
   const setIsIntroDone = useUIStore(state => state.setIsIntroDone)
-  const [isLoaded, setIsLoaded] = useState(isIntroDone)
+  
+  const [isVisible, setIsVisible] = useState(!isIntroDone)
+  const [isFirstWordDone, setIsFirstWordDone] = useState(false)
   
   const lastName = useMemo(() => Array.from('KARABINOVYCH'), [])
   const firstName = useMemo(() => Array.from('VLADYSLAV'), [])
 
-  if (isIntroDone && !isLoaded) {
-    setIsLoaded(true);
-  }
-
   const typingSpeed = 0.08 
   const secondWordDelay = lastName.length * typingSpeed + 0.5
+
+  if (isIntroDone) return null
 
   const columnVariants: Variants = {
     initial: { y: 0 },
@@ -28,7 +27,7 @@ export const Intro = () => {
       y: '100%',
       transition: {
         duration: 0.8,
-        ease: [0.76, 0, 0.24, 1] as const,
+        ease: [0.76, 0, 0.24, 1],
         delay: i * 0.1
       }
     })
@@ -43,14 +42,14 @@ export const Intro = () => {
     },
   }
 
-  if (isIntroDone) return null
-
   return (
-    <AnimatePresence>
-      {!isLoaded && (
+    <AnimatePresence 
+      onExitComplete={() => setIsIntroDone(true)}
+    >
+      {isVisible && (
         <m.div
+          key="intro-overlay"
           className="fixed inset-0 z-100 flex items-center justify-start overflow-hidden divide-x divide-muted"
-          exit={{ opacity: 1 }}
         >
           {[...Array(4)].map((_, i) => (
             <m.div
@@ -68,9 +67,10 @@ export const Intro = () => {
             exit={{ opacity: 0, y: -20, transition: { duration: 0.4 } }}
           >
             <div className="grid grid-cols-[1fr_1fr] gap-8 w-full h-40">
-              
               <div className='relative flex self-start place-self-end'>
-                <Text size='xxxl_bold' className='invisible text-contrast tracking-tighter'>{lastName}</Text>
+                <Text size='xxxl_bold' className='invisible text-contrast tracking-tighter'>
+                  {lastName.join('')}
+                </Text>
                 <m.div 
                   initial="hidden"
                   animate="visible"
@@ -78,7 +78,7 @@ export const Intro = () => {
                     visible: { transition: { staggerChildren: typingSpeed, delayChildren: 0.3 } }
                   }}
                   onAnimationComplete={() => setIsFirstWordDone(true)}
-                  className=" whitespace-nowrap absolute text-right text-3xl font-bold text-text-inverse tracking-tighter uppercase"
+                  className="whitespace-nowrap absolute text-right text-3xl font-bold text-text-inverse tracking-tighter uppercase"
                 >
                   {lastName.map((l, i) => (
                     <m.span key={`last-${l}-${i}`} variants={letterVariants}>{l}</m.span>
@@ -101,10 +101,9 @@ export const Intro = () => {
                     transition: { staggerChildren: typingSpeed, delayChildren: secondWordDelay } 
                   }
                 }}
-                onAnimationComplete={() => setTimeout(() => {
-                  setIsLoaded(true)
-                  setIsIntroDone(true)
-                }, 1200)}
+                onAnimationComplete={() => {
+                  setTimeout(() => setIsVisible(false), 1200)
+                }}
                 className="text-left text-3xl font-bold text-text-inverse tracking-tighter uppercase self-end"
               >
                 {firstName.map((l, i) => (
