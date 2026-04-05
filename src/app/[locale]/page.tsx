@@ -17,11 +17,6 @@ export default function Home() {
       >
         Components
       </Button>
-      <Button
-        variant="outline"
-      >
-        Loading
-      </Button>
     </div>
   );
 }

@@ -1,24 +1,27 @@
 'use client';
 
+import { useTransition } from 'react';
 import { usePathname, useRouter } from "@/i18n/navigation"; 
 import { useLocale } from "next-intl";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui";
 
 export const LocaleSwitcher = () => {
+  const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale();
 
   const switchLocale = (newLocale: string) => {
     if (newLocale !== locale) {
-      router.replace(pathname, { locale: newLocale });
-      router.refresh();
+      startTransition(() => {
+        router.replace(pathname, { locale: newLocale });
+      });
     }
   }
 
   return (
-    <Select onValueChange={switchLocale} defaultValue={locale}>
+    <Select onValueChange={switchLocale} defaultValue={locale} disabled={isPending}>
       <SelectTrigger variant="default">
         <SelectValue />
       </SelectTrigger>

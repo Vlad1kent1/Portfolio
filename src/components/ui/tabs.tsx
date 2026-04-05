@@ -30,12 +30,12 @@ const tabsTriggerVariants = cva(
     variants: {
       variant: {
         default: `
-        gap-5 px-5 py-6 text-sm font-medium text-(--text)
+        gap-5 px-5 py-6 text-sm font-medium text-text
         group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start 
         disabled:pointer-events-none disabled:opacity-50 
         [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4
         
-        after:absolute after:bg-text after:opacity-0 after:transition-all
+        after:absolute after:bg-background-inverse after:opacity-0 after:transition-all
         
         group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:h-0.5 group-data-horizontal/tabs:after:bottom-1        
         group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 

@@ -20,7 +20,7 @@ const tooltipContentVariants = cva(
       variant: {
         default: `
           gap-3 px-3 py-2
-          bg-text text-sm text-background
+          bg-background text-sm text-text border border-muted
           data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 
           data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95`,
       },

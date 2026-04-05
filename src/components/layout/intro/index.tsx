@@ -1,14 +1,25 @@
 'use client'
 
-import { useState, useMemo } from 'react'
-import { m, AnimatePresence, Variants } from 'motion/react'
+import { useState, useEffect, useMemo } from 'react'
+import { useUIStore } from '@/store/useUIStore'
+import { AnimatePresence, Variants } from 'motion/react'
+import * as m from "motion/react-m"
 import { Text } from '@/components/ui'
 
-export const Loading = () => {
+export const Intro = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isFirstWordDone, setIsFirstWordDone] = useState(false)
+  const isIntroDone = useUIStore(state => state.isIntroDone)
+  const setIsIntroDone = useUIStore(state => state.setIsIntroDone)
+  
   const lastName = useMemo(() => Array.from('KARABINOVYCH'), [])
   const firstName = useMemo(() => Array.from('VLADYSLAV'), [])
+
+  useEffect(() => {
+    if (isIntroDone) {
+      setIsLoaded(true)
+    }
+  }, [isIntroDone])
 
   const typingSpeed = 0.08 
   const secondWordDelay = lastName.length * typingSpeed + 0.5
@@ -34,6 +45,8 @@ export const Loading = () => {
     },
   }
 
+  if (isIntroDone) return null
+
   return (
     <AnimatePresence>
       {!isLoaded && (
@@ -44,7 +57,7 @@ export const Loading = () => {
           {[...Array(4)].map((_, i) => (
             <m.div
               key={i}
-              custom={i}
+              custom={i}  
               variants={columnVariants}
               initial="initial"
               exit="exit"
@@ -90,7 +103,10 @@ export const Loading = () => {
                     transition: { staggerChildren: typingSpeed, delayChildren: secondWordDelay } 
                   }
                 }}
-                onAnimationComplete={() => setTimeout(() => setIsLoaded(true), 1200)}
+                onAnimationComplete={() => setTimeout(() => {
+                  setIsLoaded(true)
+                  setIsIntroDone(true)
+                }, 1200)}
                 className="text-left text-3xl font-bold text-text-inverse tracking-tighter uppercase self-end"
               >
                 {firstName.map((l, i) => (

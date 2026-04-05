@@ -21,6 +21,8 @@ import {
 } from "@/components/ui";
 import { Info } from "lucide-react"
 
+import { toast } from "sonner"
+
 export default function Home() {
   const locale = useLocale();
 
@@ -50,9 +52,9 @@ export default function Home() {
         <Text size="xl_bold">Texts</Text>
         <div className="flex flex-row flex-wrap justify-around gap-x-5 gap-y-3"> 
           <Text variant="default">Default</Text>
-          <Text variant="transperant">Transperant</Text>
+          <Text variant="inverse" className='bg-background-inverse px-0.5'>Inverse</Text>
           <Text variant="muted">Muted</Text>
-          <Text variant="muted_inverse">Muted Transp.</Text>
+          <Text variant="muted_inverse">Muted Inverse</Text>
           <Text variant="contrast">Contrast</Text>
         </div>
         <div className="flex flex-row flex-wrap justify-between gap-x-5 gap-y-3"> 
@@ -62,6 +64,8 @@ export default function Home() {
           <Text size="base_normal">Base-normal</Text>
           <Text size="base_bold">Base-bold</Text>
           <Text size="lg_normal">LG-normal</Text>
+        </div>
+        <div className="flex flex-row flex-wrap justify-between gap-x-5 gap-y-3"> 
           <Text size="xl_normal">XL-normal</Text>
           <Text size="xl_bold">XL-bold</Text>
           <Text size="xxl_bold">2XL-bold</Text>
@@ -328,6 +332,71 @@ export default function Home() {
               <TooltipContent side="right">Tooltip content</TooltipContent>
             </Tooltip>
           </TooltipProvider>
+        </div>
+      </section>
+
+      {/* Sonner */}
+      <section className="flex flex-col gap-3">
+        <Text size="xl_bold">Sonner</Text>
+        <div className="flex flex-row gap-5 justify-around">
+          <Button 
+            variant="outline" 
+            className='w-24' 
+            onClick={() => toast("Event has been created")}
+          >
+            Default
+          </Button>
+          <Button 
+            variant="outline" 
+            className='w-24'
+            onClick={() => toast.success("Event has been created")}
+          >
+            Success
+          </Button>
+          <Button
+            variant="outline"
+            className='w-24'
+            onClick={() =>
+              toast.info("Be at the area 10 minutes before the event time")
+            }
+          >
+            Info
+          </Button>
+          <Button
+            variant="outline"
+            className='w-24'
+            onClick={() =>
+              toast.warning("Event start time cannot be earlier than 8am")
+            }
+          >
+            Warning
+          </Button>
+          <Button
+            variant="outline"
+            className='w-24'
+            onClick={() => toast.error("Event has not been created")}
+          >
+            Error
+          </Button>
+          <Button
+            variant="outline"
+            className='w-24'
+            onClick={() => {
+              toast.promise<{ name: string }>(
+                () =>
+                  new Promise((resolve) =>
+                    setTimeout(() => resolve({ name: "Event" }), 2000)
+                  ),
+                {
+                  loading: "Loading...",
+                  success: (data) => `${data.name} has been created`,
+                  error: "Error",
+                }
+              )
+            }}
+          >
+            Promise
+          </Button>
         </div>
       </section>
     </div>

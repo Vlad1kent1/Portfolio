@@ -11,7 +11,7 @@ const textVariants = cva(
     variants: {
       variant: {
         default: "text-text",
-        transperant: "text-text-inverse",
+        inverse: "text-text-inverse",
         muted: "text-muted",
         muted_inverse: "text-muted-inverse",
         contrast: "text-contrast",
