@@ -38,7 +38,7 @@ export default async function RootLayout({
             >
               {[...Array(4)].map((_, i) => (
                 <div
-                  key={i}
+                  key={`column-${i}`}
                   className="flex-1 self-stretch bg-background-inverse"
                 />
               ))}

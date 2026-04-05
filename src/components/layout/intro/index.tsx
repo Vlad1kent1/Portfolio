@@ -7,19 +7,17 @@ import * as m from "motion/react-m"
 import { Text } from '@/components/ui'
 
 export const Intro = () => {
-  const [isLoaded, setIsLoaded] = useState(false)
   const [isFirstWordDone, setIsFirstWordDone] = useState(false)
   const isIntroDone = useUIStore(state => state.isIntroDone)
   const setIsIntroDone = useUIStore(state => state.setIsIntroDone)
+  const [isLoaded, setIsLoaded] = useState(isIntroDone)
   
   const lastName = useMemo(() => Array.from('KARABINOVYCH'), [])
   const firstName = useMemo(() => Array.from('VLADYSLAV'), [])
 
-  useEffect(() => {
-    if (isIntroDone) {
-      setIsLoaded(true)
-    }
-  }, [isIntroDone])
+  if (isIntroDone && !isLoaded) {
+    setIsLoaded(true);
+  }
 
   const typingSpeed = 0.08 
   const secondWordDelay = lastName.length * typingSpeed + 0.5
@@ -56,7 +54,7 @@ export const Intro = () => {
         >
           {[...Array(4)].map((_, i) => (
             <m.div
-              key={i}
+              key={`columnIntro-${i}`}
               custom={i}  
               variants={columnVariants}
               initial="initial"
@@ -83,7 +81,7 @@ export const Intro = () => {
                   className=" whitespace-nowrap absolute text-right text-3xl font-bold text-text-inverse tracking-tighter uppercase"
                 >
                   {lastName.map((l, i) => (
-                    <m.span key={i} variants={letterVariants}>{l}</m.span>
+                    <m.span key={`last-${l}-${i}`} variants={letterVariants}>{l}</m.span>
                   ))}
                   {!isFirstWordDone && (
                     <m.span
@@ -110,7 +108,7 @@ export const Intro = () => {
                 className="text-left text-3xl font-bold text-text-inverse tracking-tighter uppercase self-end"
               >
                 {firstName.map((l, i) => (
-                  <m.span key={i} variants={letterVariants}>{l}</m.span>
+                  <m.span key={`first-${l}-${i}`} variants={letterVariants}>{l}</m.span>
                 ))}
                 <m.span
                   initial={{ opacity: 0 }}
