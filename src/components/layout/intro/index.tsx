@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { useUIStore } from '@/store/useUIStore'
 import { AnimatePresence, Variants } from 'motion/react'
 import * as m from "motion/react-m"

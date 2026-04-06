@@ -1,4 +1,4 @@
-export { Button } from './button'
+export { Button, AnimatedButton } from './button'
 export { Calendar } from './calendar'
 export { DatePicker } from './date-picker'
 export { Field, FieldLabel, FieldDescription, FieldError, FieldGroup, FieldLegend, FieldSeparator, FieldSet, FieldContent, FieldTitle,} from './field'

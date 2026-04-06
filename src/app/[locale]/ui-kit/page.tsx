@@ -6,7 +6,7 @@ import { uk, it, enUS } from "date-fns/locale"
 
 import { ColorBadge } from '@/components/pages/ui-kit/color-badge';
 import { 
-  Button,
+  Button, AnimatedButton,
   Calendar,
   DatePicker,
   Field, FieldContent, FieldDescription, FieldLabel, FieldGroup, FieldSet, FieldLegend,
@@ -17,9 +17,9 @@ import {
   Separator,
   Tabs, TabsContent, TabsList, TabsTrigger,
   Textarea,
-  Tooltip, TooltipContent, TooltipTrigger, TooltipProvider
+  Tooltip, TooltipContent, TooltipTrigger, TooltipProvider,
 } from "@/components/ui";
-import { Info } from "lucide-react"
+import { Info, ArrowRight } from "lucide-react"
 
 import { toast } from "sonner"
 
@@ -92,6 +92,17 @@ export default function Home() {
           <Button variant="default" size="default" disabled>
             Disabled
           </Button>
+          <AnimatedButton
+            variant="outline"
+            size="default"
+          >
+            <AnimatedButton.Text direction='down'>
+              Animated
+            </AnimatedButton.Text>
+            <AnimatedButton.Icon direction='right'>
+              <ArrowRight />
+            </AnimatedButton.Icon>
+          </AnimatedButton>
         </div>
       </section>
 
