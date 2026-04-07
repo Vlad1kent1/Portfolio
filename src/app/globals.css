@@ -62,3 +62,15 @@
   --text-sm: 0.875rem; /* 14px */
   --text-xs: 0.75rem; /* 12px */
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .hide-on-reduced {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .show-only-on-reduced {
+    display: none !important;
+  }
+}

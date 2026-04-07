@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { uk, it, enUS } from "date-fns/locale"
 
 import { ColorBadge } from '@/components/pages/ui-kit/color-badge';
@@ -23,14 +23,21 @@ import { Info, ArrowRight } from "lucide-react"
 
 import { toast } from "sonner"
 
-export default function Home() {
+export default function UIKitPage() {
   const locale = useLocale();
+  const t = useTranslations('HomePage');
 
   const [openedPopover, setOpenedPopover] = React.useState(false);
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-background gap-12 px-6 pt-5 pb-24">
-      
+      {/* Title */}
+      <section className="flex">
+        <Text size='xxl_bold' className="whitespace-nowrap shrink-0">
+          {t('title')}
+        </Text>
+      </section>
+
       {/* Colours */}
       <section className="flex flex-col gap-3">
         <Text size="xl_bold">Colours</Text>

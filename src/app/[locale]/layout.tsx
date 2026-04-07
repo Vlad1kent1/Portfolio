@@ -7,10 +7,9 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import { ibmPlexMono } from "@/lib/fonts";
 import { ThemeProvider } from 'next-themes'
-import { LazyMotion, domAnimation } from 'motion/react'
+import { MotionConfig, LazyMotion, domAnimation } from 'motion/react'
 import { Intro, Header, Footer, ThemeSwitcher} from "@/components/layout";
 import { Toaster } from '@/components/ui'
-import { Suspense } from "react";
 
 export const metadata = sharedMetadata;
 
@@ -32,19 +31,8 @@ export default async function RootLayout({
     <html lang={locale} className={ibmPlexMono.variable}>
       <body className="antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <Suspense fallback={        
-            <div
-              className="flex items-center justify-start overflow-hidden divide-x divide-muted"
-            >
-              {[...Array(4)].map((_, i) => (
-                <div
-                  key={`column-${i}`}
-                  className="flex-1 self-stretch bg-background-inverse"
-                />
-              ))}
-              </div>
-            }>
-            <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <MotionConfig reducedMotion="user">
               <LazyMotion features={domAnimation}>
                 <Intro />
                 <div className="relative flex flex-col min-h-screen bg-background">
@@ -55,8 +43,8 @@ export default async function RootLayout({
                 </div>
                 <Toaster/>
               </LazyMotion>
-            </NextIntlClientProvider>
-          </Suspense>
+            </MotionConfig>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

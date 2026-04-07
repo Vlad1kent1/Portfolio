@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: `
-          border-l-2 border-muted 
+          border-l border-muted 
           bg-background text-sm font-medium
           has-[svg]:justify-between has-[svg]:gap-5`,
         ghost: `
@@ -138,7 +138,7 @@ const ButtonIcon = ({ children, direction = 'right', className }: RevealProps) =
   </Reveal>
 )
 
-const ButtonText = ({ children, direction = 'up', className }: RevealProps) => (
+const ButtonText = ({ children, direction = 'down', className }: RevealProps) => (
   <Reveal direction={direction} className={className}>
     {children}
   </Reveal>
