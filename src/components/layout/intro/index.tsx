@@ -58,9 +58,9 @@ export const Intro = () => {
   const [isVisible, setIsVisible] = useState(!isIntroDone)
   const [isFirstWordDone, setIsFirstWordDone] = useState(false)
 
-  const lastNameChars = useMemo(() => Array.from(LAST_NAME), [])
-  const firstNameChars = useMemo(() => Array.from(FIRST_NAME), [])
-  const secondWordDelay = useMemo(() => lastNameChars.length * TYPING_SPEED + 0.5, [lastNameChars])
+  const lastNameChars = Array.from(LAST_NAME)
+  const firstNameChars = Array.from(FIRST_NAME)
+  const secondWordDelay = lastNameChars.length * TYPING_SPEED + 0.5
 
   useEffect(() => {
     if (shouldReduceMotion && isVisible) {

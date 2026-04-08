@@ -1,6 +1,7 @@
 export { Button, AnimatedButton } from './button'
 export { Calendar } from './calendar'
 export { DatePicker } from './date-picker'
+export { DecorativeBox } from './decorative-box'
 export { Field, FieldLabel, FieldDescription, FieldError, FieldGroup, FieldLegend, FieldSeparator, FieldSet, FieldContent, FieldTitle,} from './field'
 export { Input } from './input'
 export { Text } from './text'

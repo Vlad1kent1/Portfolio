@@ -15,7 +15,7 @@ export const ThemeSwitcher = () => {
       onClick={() => {
         setTheme(theme === 'light' ? 'dark' : 'light');
       }} 
-      className="fixed bottom-5 left-5 z-40"
+      className="fixed bottom-5 left-3 z-40"
     >
       {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
     </Button>
