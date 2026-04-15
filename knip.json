@@ -1,5 +1,22 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "entry": ["src/app/layout.tsx", "src/app/page.tsx"],
-  "project": ["src/**/*.{ts,tsx}"]
+  "entry": [
+    "src/app/**/{page,layout,loading,error}.tsx",
+    "src/components/ui/index.ts"
+  ],
+  "project": ["src/**/*.{ts,tsx}"],
+  "ignoreDependencies": [
+    "tailwindcss",
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports",
+    "eslint-config-next",
+    "typescript-eslint",
+    "@eslint/js",
+    "globals",
+    "eslint-plugin-react",
+    "shadcn",
+    "tw-animate-css",
+    "@commitlint/config-conventional"
+  ],
+  "ignoreBinaries": ["prettier"]
 }
