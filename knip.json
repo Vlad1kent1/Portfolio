@@ -1,10 +1,13 @@
 {
-  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "$schema": "https://unpkg.com/knip@5/schema.json",
   "entry": [
     "src/app/**/{page,layout,loading,error}.tsx",
-    "src/components/ui/index.ts"
+    "src/i18n/request.ts",
+    "src/middleware.ts"
   ],
   "project": ["src/**/*.{ts,tsx}"],
+  "ignore": ["src/components/pages/ui-kit/index.tsx"],
+  "ignoreExportsUsedInFile": true,
   "ignoreDependencies": [
     "tailwindcss",
     "prettier-plugin-tailwindcss",
