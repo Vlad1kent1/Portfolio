@@ -1,12 +1,11 @@
 {
-  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "$schema": "https://unpkg.com/knip@6/schema.json",
   "entry": [
     "src/app/**/{page,layout,loading,error}.tsx",
     "src/i18n/request.ts",
-    "src/middleware.ts"
+    "src/proxy.ts"
   ],
   "project": ["src/**/*.{ts,tsx}"],
-  "ignore": ["src/components/pages/ui-kit/index.tsx"],
   "ignoreExportsUsedInFile": true,
   "ignoreDependencies": [
     "tailwindcss",
@@ -19,7 +18,8 @@
     "eslint-plugin-react",
     "shadcn",
     "tw-animate-css",
-    "@commitlint/config-conventional"
+    "@commitlint/config-conventional",
+    "postcss"
   ],
   "ignoreBinaries": ["prettier"]
 }
