@@ -9,6 +9,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+.pnpm-store/
 
 # testing
 /coverage
@@ -20,18 +21,27 @@
 # production
 /build
 
+# husky
+# ignore the husky internal directory
+.husky/_/
+
 # misc
 .DS_Store
 *.pem
+client.html
+server.html
+edge.html
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.eslintcache
 
-# env files (can opt-in for committing if needed)
+# env files 
 .env*
+.env*.local
 
 # vercel
 .vercel

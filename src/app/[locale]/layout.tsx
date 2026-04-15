@@ -1,15 +1,17 @@
-import {metadata as sharedMetadata} from "./metadata";
-import {hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import {routing} from "../../i18n/routing";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { ThemeProvider } from 'next-themes';
+import { notFound } from 'next/navigation';
 
-import "../globals.css";
-import { ibmPlexMono } from "@/lib/fonts";
-import { ThemeProvider } from 'next-themes'
-import { MotionConfig, LazyMotion, domAnimation } from 'motion/react'
-import { Intro, Header, Footer, ThemeSwitcher} from "@/components/layout";
-import { Toaster } from '@/components/ui'
+import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
+
+import { Footer, Header, Intro, ThemeSwitcher } from '@/components/layout';
+import { Toaster } from '@/components/ui';
+import { ibmPlexMono } from '@/lib/fonts';
+
+import { routing } from '../../i18n/routing';
+import '../globals.css';
+import { metadata as sharedMetadata } from './metadata';
 
 export const metadata = sharedMetadata;
 
@@ -20,7 +22,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  const {locale} = await params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -28,20 +30,32 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={ibmPlexMono.variable}>
+    <html
+      lang={locale}
+      className={ibmPlexMono.variable}
+      suppressHydrationWarning
+    >
       <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          <NextIntlClientProvider locale={locale} messages={messages}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider
+            locale={locale}
+            messages={messages}
+          >
             <MotionConfig reducedMotion="user">
               <LazyMotion features={domAnimation}>
                 <Intro />
-                <div className="relative flex flex-col min-h-screen bg-background">
+                <div className="bg-background relative flex min-h-screen flex-col">
                   <Header />
                   {children}
                   <Footer />
                   <ThemeSwitcher />
                 </div>
-                <Toaster/>
+                <Toaster />
               </LazyMotion>
             </MotionConfig>
           </NextIntlClientProvider>
