@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { AnimatedButton, DecorativeBox, Text } from '@/components/ui';
 import { useRouter } from '@/i18n/navigation';
 
-import TicTacToe from './components/tic-tac-toe';
+import { TicTacToe } from './components';
 
 const LAST_NAME = 'KARABINOVYCH';
 const FIRST_NAME = 'VLADYSLAV';
