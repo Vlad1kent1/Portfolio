@@ -3,27 +3,32 @@
 import { ArrowRight } from 'lucide-react';
 
 import { AnimatedButton, DecorativeBox, Text } from '@/components/ui';
+import { useRouter } from '@/i18n/navigation';
+
+import TicTacToe from './components/tic-tac-toe';
 
 const LAST_NAME = 'KARABINOVYCH';
 const FIRST_NAME = 'VLADYSLAV';
 const COLUMN_COUNT = 4;
 
-const footerNav = [
-  { name: 'TAB 1', href: '#' },
-  { name: 'TAB 2', href: '#' },
-  { name: 'TAB 3', href: '#' },
-  { name: 'TAB 4', href: '#' },
-  { name: 'TAB 5', href: '#' },
-];
-
-const socialLinks = [
-  { name: 'TWITTER(X)', href: '#' },
-  { name: 'INSTAGRAM', href: '#' },
-  { name: 'LINKEDIN', href: '#' },
-  { name: 'DRIBBBLE', href: '#' },
-];
-
 export const Footer = () => {
+  const router = useRouter();
+
+  const footerNav = [
+    { name: 'TAB 1', href: '#', action: () => console.log('Tab 1 Action') },
+    { name: 'TAB 2', href: '#', action: () => console.log('Tab 2 Action') },
+    { name: 'TAB 3', href: '#', action: () => console.log('Tab 3 Action') },
+    { name: 'TAB 4', href: '#', action: () => console.log('Tab 4 Action') },
+    { name: 'Components', href: '#', action: () => router.push('/ui-kit') },
+  ];
+
+  const socialLinks = [
+    { name: 'TWITTER(X)', href: '#' },
+    { name: 'INSTAGRAM', href: '#' },
+    { name: 'LINKEDIN', href: '#' },
+    { name: 'DRIBBBLE', href: '#' },
+  ];
+
   return (
     <footer className="bg-footer border-muted w-full border-t px-5">
       <div className="border-muted w-full border-x">
@@ -32,7 +37,7 @@ export const Footer = () => {
           borderOrientation="bottom"
           className="divide-muted relative grid w-full grid-cols-4 items-stretch divide-x"
         >
-          <div className="col-span-1 flex flex-col gap-6 p-8">
+          <div className="col-span-1 flex flex-col gap-5 px-5 py-8">
             <div className="flex items-center gap-3">
               <Text
                 size="base_bold"
@@ -44,7 +49,7 @@ export const Footer = () => {
             </div>
             <Text
               size="sm_medium"
-              className="/70 max-w-[30ch]"
+              className="text-muted max-w-[30ch]"
             >
               CRAFTING THOUGHTFUL DIGITAL EXPERIENCES BUILT ON CLARITY, PURPOSE,
               AND PRECISION.
@@ -53,12 +58,13 @@ export const Footer = () => {
 
           {/* Navigation */}
           <div className="relative col-span-1">
-            <nav className="divide-muted flex h-full w-full flex-col divide-y">
+            <div className="divide-muted flex h-full w-full flex-col divide-y">
               {footerNav.map((link) => (
                 <AnimatedButton
-                  key={link.name}
+                  key={`id-${link.name}`}
                   variant="ghost"
-                  className="bg-transparent hover:bg-transparent"
+                  onClick={link.action}
+                  className="flex-1 bg-transparent hover:bg-transparent"
                 >
                   <AnimatedButton.Text>{link.name}</AnimatedButton.Text>
                   <AnimatedButton.Icon>
@@ -66,19 +72,19 @@ export const Footer = () => {
                   </AnimatedButton.Icon>
                 </AnimatedButton>
               ))}
-            </nav>
+            </div>
           </div>
 
-          <div className="col-span-1 flex flex-col gap-4 p-8">
+          <div className="col-span-1 flex flex-col gap-3 px-5 py-8">
             <Text
-              size="sm_medium"
-              className="/50 mb-2 tracking-widest uppercase"
+              size="xs_semibold"
+              className="text-muted mb-2 tracking-widest uppercase"
             >
               Follow on
             </Text>
             {socialLinks.map((link) => (
               <a
-                key={link.name}
+                key={`id-${link.name}`}
                 href={link.href}
                 className="hover:/80 transition-colors"
               >
@@ -92,26 +98,35 @@ export const Footer = () => {
             ))}
           </div>
 
-          <div className="col-span-1 p-8">
-            <Text
-              size="sm_medium"
-              className="/70 max-w-[35ch]"
+          <div className="divide-muted col-span-1 flex flex-col items-start justify-between divide-y">
+            <TicTacToe />
+
+            <DecorativeBox
+              variant="horizontal"
+              borderOrientation="none"
+              className="w-full"
             >
-              CREATING EXPERIENCES THAT BALANCE AESTHETICS, USABILITY, AND
-              INTENT.
-            </Text>
+              <AnimatedButton
+                variant="ghost"
+                className="w-full bg-transparent hover:bg-transparent"
+              >
+                <AnimatedButton.Text>Book a call</AnimatedButton.Text>
+                <AnimatedButton.Icon>
+                  <ArrowRight size={16} />
+                </AnimatedButton.Icon>
+              </AnimatedButton>
+            </DecorativeBox>
           </div>
         </DecorativeBox>
 
         <div className="relative w-full">
-          <div className="divide-muted/30 absolute inset-0 flex divide-x overflow-hidden">
+          <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
             {[...Array(COLUMN_COUNT)].map((_, i) => (
               <div
                 key={i}
                 className="flex-1 self-stretch"
               />
             ))}
-            <div className="border-muted/30 border-r" />
           </div>
 
           <div className="pointer-events-none relative z-10 flex w-full flex-col py-6">
@@ -124,7 +139,7 @@ export const Footer = () => {
                 y="110"
                 textLength="1000"
                 lengthAdjust="spacingAndGlyphs"
-                className="fill-text font-bold uppercase"
+                className="fill-text font-host-grotesk font-bold uppercase"
                 style={{ fontSize: '150px', letterSpacing: '-0.02em' }}
               >
                 {LAST_NAME}
@@ -132,7 +147,7 @@ export const Footer = () => {
             </svg>
 
             <svg
-              viewBox="0 0 1150 156"
+              viewBox="0 0 1150 146"
               className="-mt-4 block h-auto w-full"
             >
               <text
@@ -141,7 +156,7 @@ export const Footer = () => {
                 textAnchor="middle"
                 textLength="1132"
                 lengthAdjust="spacingAndGlyphs"
-                className="fill-text font-bold uppercase"
+                className="fill-text font-host-grotesk font-bold uppercase"
                 style={{ fontSize: '180px' }}
               >
                 {FIRST_NAME}

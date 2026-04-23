@@ -1,10 +1,17 @@
 'use client';
 
 import { useTransition } from 'react';
-import { usePathname, useRouter } from "@/i18n/navigation"; 
-import { useLocale } from "next-intl";
 
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui";
+import { useLocale } from 'next-intl';
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui';
+import { usePathname, useRouter } from '@/i18n/navigation';
 
 export const LocaleSwitcher = () => {
   const [isPending, startTransition] = useTransition();
@@ -18,20 +25,30 @@ export const LocaleSwitcher = () => {
         router.replace(pathname, { locale: newLocale });
       });
     }
-  }
+  };
 
   return (
-    <Select onValueChange={switchLocale} defaultValue={locale} disabled={isPending}>
+    <Select
+      onValueChange={switchLocale}
+      defaultValue={locale}
+      disabled={isPending}
+    >
       <SelectTrigger variant="default">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        {Object.entries({"en": "EN", "it": "IT", "uk": "UK"} as Record<string, string>).map(([key, value]) => (        
-          <SelectItem key={key} value={key}>
+        {Object.entries({ en: 'EN', it: 'IT', uk: 'UK' } as Record<
+          string,
+          string
+        >).map(([key, value]) => (
+          <SelectItem
+            key={key}
+            value={key}
+          >
             {value}
           </SelectItem>
         ))}
       </SelectContent>
     </Select>
   );
-}
+};

@@ -11,7 +11,7 @@ import {
   Text,
 } from '@/components/ui';
 
-import { LocaleSwitcher } from './subcomponents/localeSwitcher';
+import { LocaleSwitcher } from './components/localeSwitcher';
 
 export const Header = () => {
   return (
@@ -19,7 +19,7 @@ export const Header = () => {
       <div className="border-muted relative flex w-full items-stretch border-x">
         <DecorativeBox
           variant="default"
-          borderOrientation="bottom"
+          borderOrientation="none"
           className="w-full items-stretch"
         >
           {/* Main content */}

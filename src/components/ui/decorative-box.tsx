@@ -54,7 +54,7 @@ const DecorativeBox = ({
       {...props}
     >
       <div
-        className="pointer-events-none absolute inset-0 select-none"
+        className="pointer-events-none absolute inset-0 border-none select-none"
         aria-hidden="true"
       >
         <div

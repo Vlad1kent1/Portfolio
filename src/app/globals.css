@@ -44,19 +44,24 @@
   --muted: oklch(0.55 0 0);
 
   --contrast: oklch(0.62 0.25 25.7);
+  --color-game-blue: oklch(0.8767 0.1599 178.8);
 
   --footer: oklch(0.22 0 0);
 }
 
 @theme {
+  /* Fonts */
+  --font-host-grotesk: var(--font-host-grotesk);
+
   /* Colors */
   --color-background: var(--background);
   --color-background-inverse: var(--background-inverse);
-  --color-foreground: var(--foreground: );
+  --color-foreground: var(--foreground);
   --color-text: var(--text);
   --color-text-inverse: var(--text-inverse);
   --color-muted: var(--muted);
   --color-contrast: var(--contrast);
+  --color-game-blue: var(--color-game-blue);
   --color-footer: var(--footer);
 
   /* Text */

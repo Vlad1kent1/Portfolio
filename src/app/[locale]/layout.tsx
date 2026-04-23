@@ -7,7 +7,8 @@ import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
 
 import { Footer, Header, Intro, ThemeSwitcher } from '@/components/layout';
 import { Toaster } from '@/components/ui';
-import { ibmPlexMono } from '@/lib/fonts';
+import { hostGrotesk, ibmPlexMono } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 import { routing } from '../../i18n/routing';
 import '../globals.css';
@@ -32,7 +33,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={ibmPlexMono.variable}
+      className={cn(ibmPlexMono.variable, hostGrotesk.variable)}
       suppressHydrationWarning
     >
       <body className="antialiased">
