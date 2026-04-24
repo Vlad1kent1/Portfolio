@@ -14,7 +14,7 @@ import { ArrowRight } from 'lucide-react';
 import { useScrollSpy } from '@/hooks/use-scroll-spy';
 import { useScrollTo } from '@/hooks/use-scroll-to';
 
-import { LocaleSwitcher } from './components/locale-switcher';
+import { LocaleSwitcher } from './components';
 
 export const Header = () => {
   const { scrollTo } = useScrollTo();
