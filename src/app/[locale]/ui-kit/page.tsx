@@ -4,11 +4,6 @@ import * as React from 'react';
 
 import { useLocale, useTranslations } from 'next-intl';
 
-import { enUS, it, uk } from 'date-fns/locale';
-import { ArrowRight, Info } from 'lucide-react';
-import { toast } from 'sonner';
-
-import { ColorBadge } from '@/components/pages/ui-kit/color-badge';
 import {
   AnimatedButton,
   Button,
@@ -43,6 +38,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui';
+import { enUS, it, uk } from 'date-fns/locale';
+import { toast } from 'sonner';
+
+import { ColorBadge } from '@/components/pages/ui-kit';
+
+import { ArrowRight, Info } from 'lucide-react';
 
 export default function UIKitPage() {
   const locale = useLocale();

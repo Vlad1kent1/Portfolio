@@ -15,7 +15,12 @@
     "^react(.*)$",
     "^next(.*)$",
     "<THIRD_PARTY_MODULES>",
-    "^@/(.*)$",
+    "^@/components/pages/(.*)$",
+    "^@/components/sections/(.*)$",
+    "^@/components/ui/(.*)$",
+    "lucide-react",
+    "^@/lib/(.*)$",
+    "^@/hooks/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

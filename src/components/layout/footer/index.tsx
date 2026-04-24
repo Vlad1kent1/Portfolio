@@ -1,9 +1,11 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
-
 import { AnimatedButton, DecorativeBox, Text } from '@/components/ui';
 import { useRouter } from '@/i18n/navigation';
+
+import { ArrowRight } from 'lucide-react';
+
+import { useScrollTo } from '@/hooks/use-scroll-to';
 
 import { TicTacToe } from './components';
 
@@ -12,13 +14,22 @@ const FIRST_NAME = 'VLADYSLAV';
 const COLUMN_COUNT = 4;
 
 export const Footer = () => {
+  const { scrollTo } = useScrollTo();
   const router = useRouter();
 
   const footerNav = [
-    { name: 'TAB 1', href: '#', action: () => console.log('Tab 1 Action') },
-    { name: 'TAB 2', href: '#', action: () => console.log('Tab 2 Action') },
-    { name: 'TAB 3', href: '#', action: () => console.log('Tab 3 Action') },
-    { name: 'TAB 4', href: '#', action: () => console.log('Tab 4 Action') },
+    { name: 'Home', href: '#', action: () => scrollTo('id-section-home') },
+    { name: 'About', href: '#', action: () => scrollTo('id-section-about') },
+    {
+      name: 'Projects',
+      href: '#',
+      action: () => scrollTo('id-section-projects'),
+    },
+    {
+      name: 'Experience',
+      href: '#',
+      action: () => scrollTo('id-section-experience'),
+    },
     { name: 'Components', href: '#', action: () => router.push('/ui-kit') },
   ];
 
@@ -61,7 +72,7 @@ export const Footer = () => {
             <div className="divide-muted flex h-full w-full flex-col divide-y">
               {footerNav.map((link) => (
                 <AnimatedButton
-                  key={`id-${link.name}`}
+                  key={`id-${link.name.toLowerCase()}`}
                   variant="ghost"
                   onClick={link.action}
                   className="flex-1 bg-transparent hover:bg-transparent"
@@ -84,7 +95,7 @@ export const Footer = () => {
             </Text>
             {socialLinks.map((link) => (
               <a
-                key={`id-${link.name}`}
+                key={`id-${link.name.toLowerCase()}`}
                 href={link.href}
                 className="hover:/80 transition-colors"
               >

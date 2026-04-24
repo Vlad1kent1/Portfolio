@@ -2,68 +2,87 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
+import { Button, Text } from '@/components/ui';
+
 import { Circle, X } from 'lucide-react';
 
-import { Button, Text } from '@/components/ui';
 import {
   Player,
   calculateWinner,
-  findBestMove,
+  getBotMove,
 } from '@/lib/game-logic/tic-tac-toe';
 import { cn } from '@/lib/utils';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState<Player[]>(Array(9).fill(null));
+  const [playerSymbol, setPlayerSymbol] = useState<'X' | 'O'>(() =>
+    Math.random() > 0.5 ? 'X' : 'O',
+  );
   const [isXNext, setIsXNext] = useState(true);
-  const [isBotThinking, setIsBotThinking] = useState(false);
+  const [gamesCount, setGamesCount] = useState(0);
 
   const winner = calculateWinner(board);
   const isDraw = !winner && board.every((s) => s !== null);
   const isGameOver = !!winner || isDraw;
 
+  // Визначаємо, чия зараз черга: бота чи людини
+  // Якщо наступний Х і гравець Х -> черга гравця.
+  // Якщо наступний Х, а гравець О -> черга бота.
+  const isPlayerTurn =
+    (isXNext && playerSymbol === 'X') || (!isXNext && playerSymbol === 'O');
+
   const makeBotMove = useCallback(() => {
-    const bestMove = findBestMove([...board]);
-    if (bestMove !== -1) {
+    const botSymbol = playerSymbol === 'X' ? 'O' : 'X';
+    const move = getBotMove([...board], gamesCount);
+
+    if (move !== -1) {
       const newBoard = [...board];
-      newBoard[bestMove] = 'O';
+      newBoard[move] = botSymbol;
       setBoard(newBoard);
-      setIsXNext(true);
-      setIsBotThinking(false);
+      setIsXNext(botSymbol === 'O');
     }
-  }, [board]);
+  }, [board, gamesCount, playerSymbol]);
 
   useEffect(() => {
-    if (!isXNext && !isGameOver) {
-      setIsBotThinking(true);
-      const timer = setTimeout(makeBotMove, 600);
+    if (!isGameOver && !isPlayerTurn) {
+      const isFirstMove = board.every((s) => s === null);
+      const delay = isFirstMove ? 0 : 500;
+
+      const timer = setTimeout(makeBotMove, delay);
       return () => clearTimeout(timer);
     }
-  }, [isXNext, isGameOver, makeBotMove]);
+  }, [isPlayerTurn, isGameOver, makeBotMove, board]);
 
-  function handleClick(i: number) {
-    if (board[i] || isGameOver || !isXNext || isBotThinking) return;
+  const handleClick = (i: number) => {
+    if (board[i] || isGameOver || !isPlayerTurn) return;
 
     const newBoard = [...board];
-    newBoard[i] = 'X';
+    newBoard[i] = playerSymbol;
     setBoard(newBoard);
-    setIsXNext(false);
-  }
+    setIsXNext(playerSymbol === 'O');
+  };
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
     setIsXNext(true);
-    setIsBotThinking(false);
+    setGamesCount((prev) => prev + 1);
+    setPlayerSymbol(Math.random() > 0.5 ? 'X' : 'O');
   };
 
   return (
     <div className="relative flex h-full w-full flex-col items-center select-none">
-      <div className="grid grid-cols-3 px-5 py-8 outline-none">
+      <div
+        className={cn(
+          'grid grid-cols-3 px-5 py-8 outline-none',
+          isGameOver && 'blur-xs',
+        )}
+      >
         {board.map((square, i) => (
           <Button
             key={i}
             variant="ghost"
             size="icon"
-            disabled={!!square || !!winner || !isXNext}
+            disabled={!!square || isGameOver || !isPlayerTurn}
             onClick={() => handleClick(i)}
             className={cn(
               'bg-footer disabled:opacity-100',
@@ -90,16 +109,16 @@ const TicTacToe = () => {
       </div>
 
       {isGameOver && (
-        <div className="bg-muted/20 absolute flex h-full w-full flex-col items-center justify-center gap-5">
+        <div className="bg-muted/10 absolute flex h-full w-full flex-col items-center justify-center gap-5">
           <Text
             size="base_bold"
             className="text-center"
           >
             {winner
-              ? `Winner: ${winner}`
-              : isDraw
-                ? "It's a draw!"
-                : 'Your turn!'}
+              ? winner === playerSymbol
+                ? 'Congrats, you win!'
+                : "NAH, I'D WIN."
+              : isDraw && "It's a draw!"}
           </Text>
           <Button
             variant="outline"

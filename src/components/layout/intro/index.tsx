@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
+import { Text } from '@/components/ui';
 import {
   AnimatePresence,
   MotionConfig,
@@ -10,8 +11,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
-import { Text } from '@/components/ui';
-import { useUIStore } from '@/store/useUIStore';
+import { useUIStore } from '@/hooks/use-ui-store';
 
 const LAST_NAME = 'KARABINOVYCH';
 const FIRST_NAME = 'VLADYSLAV';
@@ -65,7 +65,7 @@ const IntroTextContent = ({ last, first }: { last: string; first: string }) => (
   </div>
 );
 
-export const Intro = () => {
+const Intro = () => {
   const shouldReduceMotion = useReducedMotion();
   const { isIntroDone, setIsIntroDone } = useUIStore();
 
@@ -195,3 +195,5 @@ export const Intro = () => {
     </MotionConfig>
   );
 };
+
+export { Intro };

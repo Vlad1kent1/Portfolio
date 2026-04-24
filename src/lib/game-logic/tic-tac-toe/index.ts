@@ -71,3 +71,21 @@ export function findBestMove(board: Player[]): number {
   }
   return move;
 }
+
+export function getBotMove(board: Player[], gamesCount: number): number {
+  const availableMoves = board
+    .map((s, i) => (s === null ? i : null))
+    .filter((s): s is number => s !== null);
+
+  if (availableMoves.length === 0) return -1;
+
+  const canMakeMistake = gamesCount >= 5;
+  const shouldMakeMistake = canMakeMistake && Math.random() < 0.3;
+
+  if (shouldMakeMistake) {
+    const randomIndex = Math.floor(Math.random() * availableMoves.length);
+    return availableMoves[randomIndex];
+  }
+
+  return findBestMove(board);
+}

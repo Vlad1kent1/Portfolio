@@ -13,7 +13,7 @@ import {
 } from '@/components/ui';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
-export const LocaleSwitcher = () => {
+const LocaleSwitcher = () => {
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const router = useRouter();
@@ -52,3 +52,5 @@ export const LocaleSwitcher = () => {
     </Select>
   );
 };
+
+export { LocaleSwitcher };
