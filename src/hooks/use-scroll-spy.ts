@@ -7,13 +7,16 @@ export const useScrollSpy = (sectionIds: string[], offset = 100) => {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
+    const viewportHeight = window.innerHeight;
+    const triggerPoint = latest + viewportHeight / 2;
+
     for (const id of sectionIds) {
       const element = document.getElementById(id);
       if (element) {
         const top = element.offsetTop - offset;
         const bottom = top + element.offsetHeight;
 
-        if (latest >= top && latest < bottom) {
+        if (triggerPoint >= top && triggerPoint < bottom) {
           setActiveSection(id);
           break;
         }

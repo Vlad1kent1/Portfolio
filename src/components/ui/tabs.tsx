@@ -3,10 +3,11 @@
 import * as React from 'react';
 
 import { type VariantProps, cva } from 'class-variance-authority';
-import { m } from 'motion/react';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 
 import { cn } from '@/lib/utils';
+
+import { SectionProgress } from './section-progress';
 
 const tabsListVariants = cva(
   `group/tabs-list inline-flex w-fit items-center justify-center text-muted-foreground 
@@ -80,32 +81,24 @@ const TabsTrigger = ({
   variant,
   children,
   activeValue,
+  value,
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.Trigger> &
   VariantProps<typeof tabsTriggerVariants> & {
     activeValue?: string;
   }) => {
-  const isActive = props.value === activeValue;
+  const isActive = value === activeValue;
 
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(tabsTriggerVariants({ variant }), className)}
+      value={value}
       {...props}
     >
       <span className="relative z-10">{children}</span>
 
-      {isActive && (
-        <m.div
-          layoutId="active-tab-indicator"
-          className={cn(
-            'bg-text absolute z-0',
-            'group-data-[orientation=horizontal]/tabs:inset-x-0 group-data-[orientation=horizontal]/tabs:bottom-3 group-data-[orientation=horizontal]/tabs:h-0.5',
-            'group-data-[orientation=vertical]/tabs:inset-y-0 group-data-[orientation=vertical]/tabs:-right-1 group-data-[orientation=vertical]/tabs:w-0.5',
-          )}
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-        />
-      )}
+      {isActive && <SectionProgress targetId={value} />}
     </TabsPrimitive.Trigger>
   );
 };

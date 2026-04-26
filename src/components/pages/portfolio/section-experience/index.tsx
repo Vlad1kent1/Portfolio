@@ -8,7 +8,7 @@ const SectionExperience = () => {
   return (
     <section
       id="id-section-experience"
-      className="bg-background-inverse flex h-[calc(100vh-68px)] w-full flex-col px-5"
+      className="bg-background-inverse flex h-[200vh] w-full flex-col px-5"
     >
       <div className="border-muted relative h-full w-full border-x">
         <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">

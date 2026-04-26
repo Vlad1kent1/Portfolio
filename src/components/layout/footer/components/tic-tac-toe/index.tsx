@@ -15,19 +15,19 @@ import { cn } from '@/lib/utils';
 
 const TicTacToe = () => {
   const [board, setBoard] = useState<Player[]>(Array(9).fill(null));
-  const [playerSymbol, setPlayerSymbol] = useState<'X' | 'O'>(() =>
-    Math.random() > 0.5 ? 'X' : 'O',
-  );
+  const [playerSymbol, setPlayerSymbol] = useState<'X' | 'O'>('X');
   const [isXNext, setIsXNext] = useState(true);
   const [gamesCount, setGamesCount] = useState(0);
+
+  useEffect(() => {
+    const randomSymbol = Math.random() > 0.5 ? 'X' : 'O';
+    setPlayerSymbol(randomSymbol);
+  }, []);
 
   const winner = calculateWinner(board);
   const isDraw = !winner && board.every((s) => s !== null);
   const isGameOver = !!winner || isDraw;
 
-  // Визначаємо, чия зараз черга: бота чи людини
-  // Якщо наступний Х і гравець Х -> черга гравця.
-  // Якщо наступний Х, а гравець О -> черга бота.
   const isPlayerTurn =
     (isXNext && playerSymbol === 'X') || (!isXNext && playerSymbol === 'O');
 

@@ -83,15 +83,6 @@ const Intro = () => {
     }
   }, [shouldReduceMotion, isVisible]);
 
-  useEffect(() => {
-    console.log('States Intro', {
-      shouldReduceMotion,
-      isIntroDone,
-      isVisible,
-      isFirstWordDone,
-    });
-  }, [shouldReduceMotion, isIntroDone, isVisible, isFirstWordDone]);
-
   if (isIntroDone) return null;
 
   return (

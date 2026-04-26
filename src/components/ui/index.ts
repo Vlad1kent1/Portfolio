@@ -14,6 +14,7 @@ export {
 export { Input } from './input';
 export { Text } from './text';
 export { Popover, PopoverContent, PopoverTrigger } from './popover';
+export { SectionProgress } from './section-progress';
 export {
   Select,
   SelectContent,
