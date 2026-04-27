@@ -1,37 +1,20 @@
 'use client';
 
 import { AnimatedButton, DecorativeBox, Text } from '@/components/ui';
-import { useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 
 import { ArrowRight } from 'lucide-react';
 
 import { useScrollTo } from '@/hooks/use-scroll-to';
 
-import { TicTacToe } from './components';
-
-const LAST_NAME = 'KARABINOVYCH';
-const FIRST_NAME = 'VLADYSLAV';
-const COLUMN_COUNT = 4;
+import { Branding, ButtonsNavigation, TicTacToe } from './components';
 
 export const Footer = () => {
-  const { scrollTo } = useScrollTo();
+  const pathname = usePathname();
   const router = useRouter();
+  const scrollTo = useScrollTo();
 
-  const footerNav = [
-    { name: 'Home', href: '#', action: () => scrollTo('id-section-home') },
-    { name: 'About', href: '#', action: () => scrollTo('id-section-about') },
-    {
-      name: 'Projects',
-      href: '#',
-      action: () => scrollTo('id-section-projects'),
-    },
-    {
-      name: 'Experience',
-      href: '#',
-      action: () => scrollTo('id-section-experience'),
-    },
-    { name: 'Components', href: '#', action: () => router.push('/ui-kit') },
-  ];
+  const isHomePage = pathname === '/';
 
   const socialLinks = [
     { name: 'TWITTER(X)', href: '#' },
@@ -69,21 +52,7 @@ export const Footer = () => {
 
           {/* Navigation */}
           <div className="relative col-span-1">
-            <div className="divide-muted flex h-full w-full flex-col divide-y">
-              {footerNav.map((link) => (
-                <AnimatedButton
-                  key={`id-${link.name.toLowerCase()}`}
-                  variant="ghost"
-                  onClick={link.action}
-                  className="flex-1 bg-transparent hover:bg-transparent"
-                >
-                  <AnimatedButton.Text>{link.name}</AnimatedButton.Text>
-                  <AnimatedButton.Icon>
-                    <ArrowRight size={16} />
-                  </AnimatedButton.Icon>
-                </AnimatedButton>
-              ))}
-            </div>
+            <ButtonsNavigation />
           </div>
 
           <div className="col-span-1 flex flex-col gap-3 px-5 py-8">
@@ -115,11 +84,16 @@ export const Footer = () => {
             <DecorativeBox
               variant="horizontal"
               borderOrientation="none"
-              className="w-full"
+              className="flex w-full basis-1/5 items-stretch"
             >
               <AnimatedButton
                 variant="ghost"
                 className="w-full bg-transparent hover:bg-transparent"
+                onClick={() => {
+                  isHomePage
+                    ? scrollTo('id-section-contact')
+                    : router.push('/#id-section-contact');
+                }}
               >
                 <AnimatedButton.Text>Book a call</AnimatedButton.Text>
                 <AnimatedButton.Icon>
@@ -130,51 +104,7 @@ export const Footer = () => {
           </div>
         </DecorativeBox>
 
-        <div className="relative w-full">
-          <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
-            {[...Array(COLUMN_COUNT)].map((_, i) => (
-              <div
-                key={i}
-                className="flex-1 self-stretch"
-              />
-            ))}
-          </div>
-
-          <div className="pointer-events-none relative z-10 flex w-full flex-col py-6">
-            <svg
-              viewBox="0 0 1000 115"
-              className="block h-auto w-full"
-            >
-              <text
-                x="0"
-                y="110"
-                textLength="1000"
-                lengthAdjust="spacingAndGlyphs"
-                className="fill-text font-host-grotesk font-bold uppercase"
-                style={{ fontSize: '150px', letterSpacing: '-0.02em' }}
-              >
-                {LAST_NAME}
-              </text>
-            </svg>
-
-            <svg
-              viewBox="0 0 1150 146"
-              className="-mt-4 block h-auto w-full"
-            >
-              <text
-                x="50%"
-                y="144"
-                textAnchor="middle"
-                textLength="1132"
-                lengthAdjust="spacingAndGlyphs"
-                className="fill-text font-host-grotesk font-bold uppercase"
-                style={{ fontSize: '180px' }}
-              >
-                {FIRST_NAME}
-              </text>
-            </svg>
-          </div>
-        </div>
+        <Branding />
       </div>
     </footer>
   );

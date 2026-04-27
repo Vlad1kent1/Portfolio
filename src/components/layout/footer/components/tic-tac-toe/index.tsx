@@ -70,7 +70,7 @@ const TicTacToe = () => {
   };
 
   return (
-    <div className="relative flex h-full w-full flex-col items-center select-none">
+    <div className="relative flex h-full w-full flex-1 flex-col items-center select-none">
       <div
         className={cn(
           'grid grid-cols-3 px-5 py-8 outline-none',

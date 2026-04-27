@@ -16,5 +16,5 @@ export const useScrollTo = () => {
     });
   }, []);
 
-  return { scrollTo };
+  return scrollTo;
 };

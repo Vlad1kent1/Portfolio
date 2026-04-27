@@ -1,6 +1,7 @@
 'use client';
 
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui';
+import { usePathname, useRouter } from '@/i18n/navigation';
 
 import { useScrollSpy } from '@/hooks/use-scroll-spy';
 import { useScrollTo } from '@/hooks/use-scroll-to';
@@ -13,12 +14,23 @@ const headerNav = [
 ];
 
 const TabsNavigation = () => {
-  const { scrollTo } = useScrollTo();
+  const pathname = usePathname();
+  const router = useRouter();
+  const scrollTo = useScrollTo();
 
   const activeSectionId = useScrollSpy(
     headerNav.map((item) => item.id),
     68,
   );
+
+  const isHomePage = pathname === '/';
+  const handleNavigation = (id: string) => {
+    if (isHomePage) {
+      scrollTo(id);
+    } else {
+      router.push(`/#${id}`);
+    }
+  };
 
   return (
     <Tabs
@@ -31,7 +43,7 @@ const TabsNavigation = () => {
             key={item.id}
             value={item.id}
             activeValue={activeSectionId}
-            onClick={() => scrollTo(item.id)}
+            onClick={() => handleNavigation(item.id)}
           >
             {item.name}
           </TabsTrigger>
