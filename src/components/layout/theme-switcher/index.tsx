@@ -18,7 +18,14 @@ const ThemeSwitcher = () => {
       }}
       className="fixed bottom-5 left-3 z-40"
     >
-      {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+      <Moon
+        size={16}
+        className="hidden dark:block"
+      />
+      <Sun
+        size={16}
+        className="block dark:hidden"
+      />
     </Button>
   );
 };

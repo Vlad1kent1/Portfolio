@@ -95,7 +95,7 @@ const Intro = () => {
           >
             {[...Array(COLUMN_COUNT)].map((_, i) => (
               <m.div
-                key={i}
+                key={`intro-col-${i}`}
                 custom={i}
                 variants={columnVariants}
                 initial="initial"

@@ -12,12 +12,22 @@ export const SectionProgress = ({ targetId }: SectionProgressProps) => {
   const [targetElement, setTargetElement] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
-    setTargetElement(document.getElementById(targetId));
+    const el = document.getElementById(targetId);
+    if (el) {
+      if (window.getComputedStyle(el).position === 'static') {
+        el.style.position = 'relative';
+      }
+      setTargetElement(el);
+    }
   }, [targetId]);
 
   const { scrollYProgress } = useScroll({
     target: targetElement ? { current: targetElement } : undefined,
     offset: ['start end', 'end end'],
+    container:
+      typeof window !== 'undefined'
+        ? { current: document.documentElement }
+        : undefined,
   });
 
   return (

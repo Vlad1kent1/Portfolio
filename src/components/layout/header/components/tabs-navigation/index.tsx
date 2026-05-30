@@ -34,7 +34,7 @@ const TabsNavigation = () => {
 
   return (
     <Tabs
-      value={activeSectionId}
+      value={isHomePage ? activeSectionId : ''}
       className="h-full items-center justify-center"
     >
       <TabsList variant="line">

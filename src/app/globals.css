@@ -18,38 +18,41 @@
 :root {
   font-family: var(--font-ibm-plex-mono), monospace !important;
 
-  --background: oklch(0.98 0 0);
-  --background-inverse: oklch(0.08 0 0);
+  --background: oklch(0.98 0 0); /* #fafafa | rgb(250, 250, 250) */
+  --background-inverse: oklch(0.08 0 0); /* #141414 | rgb(20, 20, 20) */
 
-  --surface: oklch(0.92 0 0);
-  --foreground: oklch(0.12 0 0);
+  --surface: oklch(0.92 0 0); /* #eaeaea | rgb(234, 234, 234) */
+  --foreground: oklch(0.12 0 0); /* #1f1f1f | rgb(31, 31, 31) */
 
-  --text: oklch(0.12 0 0);
-  --text-inverse: oklch(0.92 0 0);
+  --text: oklch(0.12 0 0); /* #1f1f1f | rgb(31, 31, 31) */
+  --text-inverse: oklch(0.92 0 0); /* #eaeaea | rgb(234, 234, 234) */
 
-  --muted: oklch(0.55 0 0);
+  --muted: oklch(0.55 0 0); /* #858585 | rgb(133, 133, 133) */
 
-  --contrast: oklch(0.62 0.25 25.7);
+  --contrast: oklch(0.62 0.25 25.7); /* #e13338 | rgb(225, 51, 56) */
+  --color-game-blue: oklch(0.08 0 0); /* #141414 | rgb(20, 20, 20) */
 
-  --footer: oklch(0.92 0 0);
+  --footer: oklch(0.92 0 0); /* #eaeaea | rgb(234, 234, 234) */
 }
 
 .dark {
-  --background: oklch(0.08 0 0);
-  --background-inverse: oklch(0.98 0 0);
+  --background: oklch(0.08 0 0); /* #141414 | rgb(20, 20, 20) */
+  --background-inverse: oklch(0.98 0 0); /* #fafafa | rgb(250, 250, 250) */
 
-  --surface: oklch(0.15 0 0);
-  --foreground: oklch(0.98 0 0);
+  --surface: oklch(0.15 0 0); /* #262626 | rgb(38, 38, 38) */
+  --foreground: oklch(0.98 0 0); /* #fafafa | rgb(250, 250, 250) */
 
-  --text: oklch(0.98 0 0);
-  --text-inverse: oklch(0.12 0 0);
+  --text: oklch(0.98 0 0); /* #fafafa | rgb(250, 250, 250) */
+  --text-inverse: oklch(0.12 0 0); /* #1f1f1f | rgb(31, 31, 31) */
 
-  --muted: oklch(0.55 0 0);
+  --muted: oklch(0.55 0 0); /* #858585 | rgb(133, 133, 133) */
 
-  --contrast: oklch(0.62 0.25 25.7);
-  --color-game-blue: oklch(0.8767 0.1599 178.8);
+  --contrast: oklch(0.62 0.25 25.7); /* #e13338 | rgb(225, 51, 56) */
+  --color-game-blue: oklch(
+    0.8767 0.1599 178.8
+  ); /* #6be2e8 | rgb(107, 226, 232) */
 
-  --footer: oklch(0.22 0 0);
+  --footer: oklch(0.22 0 0); /* #383838 | rgb(56, 56, 56) */
 }
 
 @theme {

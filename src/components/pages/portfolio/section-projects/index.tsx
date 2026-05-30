@@ -2,27 +2,35 @@
 
 import { Text } from '@/components/ui';
 
-const COLUMN_COUNT = 4;
+import { Dot } from 'lucide-react';
+
+const COLUMN_COUNT = 3;
 
 const SectionProjects = () => {
   return (
     <section
       id="id-section-projects"
-      className="flex h-[calc(100vh-68px)] w-full flex-col px-5"
+      className="relative flex h-[calc(100vh-68px)] w-full flex-col px-5"
     >
-      <div className="border-muted relative h-full w-full border-x">
-        <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
-          {[...Array(COLUMN_COUNT)].map((_, i) => (
-            <div
-              key={i}
-              className="flex-1 self-stretch"
+      <div className="border-muted divide-muted grid h-full w-full grid-cols-4 items-stretch divide-x border-x">
+        {/* Column 1 */}
+        <div className="col-span-1 flex flex-1 flex-col gap-5 pt-5">
+          <div className="flex flex-row">
+            <Dot
+              className="text-text"
+              strokeWidth="6"
             />
-          ))}
+            <Text variant="muted">Projects</Text>
+          </div>
         </div>
 
-        <div className="items-centerflex-col pointer-events-none relative z-10 flex h-full w-full justify-center">
-          <Text size="xxl_bold">Projects</Text>
-        </div>
+        {/* Column 2 & 3 & 4 */}
+        {[...Array(COLUMN_COUNT)].map((_, i) => (
+          <div
+            key={`section-projects-col-${i}`}
+            className="col-span-1 flex flex-col"
+          />
+        ))}
       </div>
     </section>
   );

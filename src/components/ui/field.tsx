@@ -1,8 +1,8 @@
 'use client';
 
+import { Text } from '@/components/ui';
 import { type VariantProps, cva } from 'class-variance-authority';
 
-import { Text } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
 const FieldSet = ({
@@ -44,7 +44,7 @@ const FieldGroup = ({ className, ...props }: React.ComponentProps<'div'>) => {
     <div
       data-slot="field-group"
       className={cn(
-        'group/field-group @container/field-group flex w-full flex-col gap-5 pb-3 data-[slot=checkbox-group]:gap-3 *:data-[slot=field-group]:gap-4',
+        'group/field-group @container/field-group flex w-full flex-col items-center justify-center gap-5 data-[slot=checkbox-group]:gap-3 *:data-[slot=field-group]:gap-4',
         className,
       )}
       {...props}
@@ -53,7 +53,7 @@ const FieldGroup = ({ className, ...props }: React.ComponentProps<'div'>) => {
 };
 
 const fieldVariants = cva(
-  'group/field flex w-full gap-2 data-[invalid=true]:text-destructive',
+  'group/field flex w-full gap-2 data-[invalid=true]:text-contrast',
   {
     variants: {
       orientation: {
@@ -108,7 +108,7 @@ const FieldLabel = ({
       as="label"
       data-slot="field-label"
       className={cn(
-        'group/field-label peer/field-label has-data-checked:border-primary/30 has-data-checked:bg-primary/5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10 flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5',
+        'group/field-label peer/field-label flex w-fit gap-2 px-5 leading-snug group-data-[disabled=true]/field:opacity-50 has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5',
         className,
       )}
       {...props}
@@ -139,7 +139,7 @@ const FieldDescription = ({
       className={cn(
         'text-muted-foreground text-left text-sm leading-normal font-medium group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.5',
         'last:mt-0 nth-last-2:-mt-1',
-        '[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4',
+        '[&>a]:underline [&>a]:underline-offset-4',
         className,
       )}
       {...props}

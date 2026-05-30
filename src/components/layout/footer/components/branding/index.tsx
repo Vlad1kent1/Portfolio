@@ -10,7 +10,7 @@ const Branding = () => {
       <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
         {[...Array(COLUMN_COUNT)].map((_, i) => (
           <div
-            key={i}
+            key={`branding-col-${i}`}
             className="flex-1 self-stretch"
           />
         ))}
