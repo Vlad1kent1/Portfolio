@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 import { type VariantProps, cva } from 'class-variance-authority';
+
 import { Plus } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
 const decorativeBoxVariants = cva(
-  `flex w-full items-center border-muted relative`,
+  `flex w-full items-center border-muted relative text-text`,
   {
     variants: {
       variant: {
@@ -15,6 +16,7 @@ const decorativeBoxVariants = cva(
         none: ``,
       },
       borderOrientation: {
+        all: `border`,
         vertical: `border-l border-r`,
         horizontal: `border-t border-b`,
         top: `border-t`,
@@ -43,7 +45,7 @@ const DecorativeBox = ({
   borderOrientation,
   ...props
 }: FramedContainerProps) => {
-  const cornerClass = 'absolute w-4 h-4 flex text-text z-10';
+  const cornerClass = 'absolute w-4 h-4 flex z-10';
 
   return (
     <div

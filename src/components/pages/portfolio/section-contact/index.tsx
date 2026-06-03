@@ -22,7 +22,7 @@ const SectionContact = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">Contact</Text>
+            <Text variant="muted">Contact(05)</Text>
           </div>
           <Text
             size="xxxl_bold"

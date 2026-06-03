@@ -22,7 +22,7 @@ const LocaleSwitcher = () => {
   const switchLocale = (newLocale: string) => {
     if (newLocale !== locale) {
       startTransition(() => {
-        router.replace(pathname, { locale: newLocale });
+        router.replace(pathname, { locale: newLocale, scroll: false });
       });
     }
   };

@@ -20,7 +20,7 @@ const SectionAbout = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">About</Text>
+            <Text variant="muted">About(02)</Text>
           </div>
         </div>
 

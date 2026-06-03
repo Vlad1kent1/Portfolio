@@ -17,10 +17,11 @@ export const Footer = () => {
   const isHomePage = pathname === '/';
 
   const socialLinks = [
-    { name: 'TWITTER(X)', href: '#' },
-    { name: 'INSTAGRAM', href: '#' },
+    { name: 'GITHUB', href: '#' },
     { name: 'LINKEDIN', href: '#' },
-    { name: 'DRIBBBLE', href: '#' },
+    { name: 'TELEGRAM', href: '#' },
+    { name: 'INSTAGRAM', href: '#' },
+    { name: 'THREADS', href: '#' },
   ];
 
   return (

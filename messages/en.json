@@ -4,5 +4,33 @@
   },
   "Date-Picker": {
     "placeholder": "Pick a date"
+  },
+  "section-experience": {
+    "experience": [
+      {
+        "id": "udex",
+        "company": "UDEX",
+        "role": "Full-stack Developer",
+        "period": "07/2024 — 11/2025",
+        "duties": [
+          "Developing web applications using TypeScript, React, and Node.js to automate financial workflows.",
+          "Designing PostgreSQL databases and managing core feature architecture with Supabase.",
+          "Integrating Stripe payment gateways and complex third-party APIs for seamless transactions.",
+          "Migrating legacy applications from low-code platforms to a high-performance TypeScript environment."
+        ]
+      },
+      {
+        "id": "softserve",
+        "company": "SoftServe ITA Student",
+        "role": "Ruby Developer (Internship)",
+        "period": "05/2023 — 08/2023",
+        "duties": [
+          "Architecting and building a sustainability-focused web platform using Ruby on Rails.",
+          "Optimizing front-end asset compilation through a migration from Webpacker to Importmap.",
+          "Creating responsive interface components using Bootstrap framework utilities.",
+          "Ensuring complete cross-browser compatibility and enhancing user interface accessibility."
+        ]
+      }
+    ]
   }
 }

@@ -101,7 +101,7 @@ const Reveal = ({ children, direction = 'down', className }: RevealProps) => {
     <span
       className={cn(
         'relative flex items-center justify-center overflow-hidden leading-none',
-        isVertical ? 'h-[1.15em] flex-col' : 'flex-row',
+        isVertical ? 'h-[1.14em] flex-col' : 'flex-row',
         className,
       )}
     >

@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
@@ -18,12 +20,30 @@ const TabsNavigation = () => {
   const router = useRouter();
   const scrollTo = useScrollTo();
 
-  const activeSectionId = useScrollSpy(
+  const isHomePage = pathname === '/';
+
+  const spiedSectionId = useScrollSpy(
     headerNav.map((item) => item.id),
     68,
   );
 
-  const isHomePage = pathname === '/';
+  const [activeSectionId, setActiveSectionId] = useState<string>(
+    headerNav[0].id,
+  );
+  useEffect(() => {
+    const savedTab = sessionStorage.getItem('savedActiveTab');
+    if (savedTab) {
+      setActiveSectionId(savedTab);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (spiedSectionId) {
+      setActiveSectionId(spiedSectionId);
+      sessionStorage.setItem('savedActiveTab', spiedSectionId);
+    }
+  }, [spiedSectionId]);
+
   const handleNavigation = (id: string) => {
     if (isHomePage) {
       scrollTo(id);

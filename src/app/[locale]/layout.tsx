@@ -3,10 +3,10 @@ import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from 'next-themes';
 import { notFound } from 'next/navigation';
 
-import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
-
 import { Footer, Header, Intro, ThemeSwitcher } from '@/components/layout';
 import { Toaster } from '@/components/ui';
+import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
+
 import { hostGrotesk, ibmPlexMono } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
@@ -36,7 +36,10 @@ export default async function RootLayout({
       className={cn(ibmPlexMono.variable, hostGrotesk.variable)}
       suppressHydrationWarning
     >
-      <body className="antialiased">
+      <body
+        className="antialiased"
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

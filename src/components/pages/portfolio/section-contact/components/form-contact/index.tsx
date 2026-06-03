@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import {
   AnimatedButton,
   Field,
@@ -16,6 +18,30 @@ import { ArrowRight } from 'lucide-react';
 const COLUMN_COUNT = 2;
 
 const FormContact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+
+  useEffect(() => {
+    const savedData = sessionStorage.getItem('contactFormData');
+    if (savedData) {
+      try {
+        setFormData(JSON.parse(savedData));
+      } catch (error) {
+        console.error('Failed to parse form data from sessionStorage', error);
+      }
+    }
+  }, []);
+
+  const handleChange = (field: string, value: string) => {
+    const updatedData = { ...formData, [field]: value };
+    setFormData(updatedData);
+    sessionStorage.setItem('contactFormData', JSON.stringify(updatedData));
+  };
+
   return (
     <div className="relative col-span-2 flex flex-col py-20">
       <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
@@ -38,6 +64,8 @@ const FormContact = () => {
                   type="text"
                   placeholder="Jane Smith"
                   required
+                  value={formData.name}
+                  onChange={(e) => handleChange('name', e.target.value)}
                 />
               </FieldContent>
             </Field>
@@ -51,6 +79,8 @@ const FormContact = () => {
                     type="email"
                     placeholder="your@email.com"
                     required
+                    value={formData.email}
+                    onChange={(e) => handleChange('email', e.target.value)}
                   />
                 </FieldContent>
               </Field>
@@ -63,6 +93,8 @@ const FormContact = () => {
                     type="tel"
                     placeholder="+00 000 000 000"
                     required
+                    value={formData.phone}
+                    onChange={(e) => handleChange('phone', e.target.value)}
                   />
                 </FieldContent>
               </Field>
@@ -75,6 +107,8 @@ const FormContact = () => {
                 <Textarea
                   placeholder="Your message here..."
                   required
+                  value={formData.message}
+                  onChange={(e) => handleChange('message', e.target.value)}
                 />
               </FieldContent>
             </Field>
@@ -96,6 +130,16 @@ const FormContact = () => {
               variant="special"
               size="default"
               className="col-span-1"
+              onClick={() => {
+                console.log('Form submitted:', formData);
+                setFormData({
+                  name: '',
+                  email: '',
+                  phone: '',
+                  message: '',
+                });
+                sessionStorage.removeItem('contactFormData');
+              }}
             >
               <AnimatedButton.Text>SEND REQUEST</AnimatedButton.Text>
               <AnimatedButton.Icon>

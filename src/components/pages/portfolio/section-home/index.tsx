@@ -20,7 +20,7 @@ const SectionHome = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">Home</Text>
+            <Text variant="muted">Home(01)</Text>
           </div>
         </div>
 

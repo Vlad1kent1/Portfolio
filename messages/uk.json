@@ -4,5 +4,33 @@
   },
   "Date-Picker": {
     "placeholder": "Виберіть дату"
+  },
+  "section-experience": {
+    "experience": [
+      {
+        "id": "udex",
+        "company": "UDEX",
+        "role": "Full-stack Developer",
+        "period": "07/2024 — 11/2025",
+        "duties": [
+          "Розробка веб-додатків на TypeScript, React та Node.js для автоматизації фінансових операцій.",
+          "Проєктування баз даних PostgreSQL та керування архітектурою на базі Supabase.",
+          "Інтеграція платіжних шлюзів Stripe та складних сторонніх API для бізнес-процесів.",
+          "Міграція застарілих рішень з low-code платформ на повноцінний TypeScript стек."
+        ]
+      },
+      {
+        "id": "softserve",
+        "company": "SoftServe ITA Student",
+        "role": "Ruby Developer (Internship)",
+        "period": "05/2023 — 08/2023",
+        "duties": [
+          "Архітектура та розробка екологічної веб-платформи з використанням Ruby on Rails.",
+          "Оптимізація збірки фронтенду через успішну міграцію з Webpacker на Importmap.",
+          "Створення адаптивних компонентів інтерфейсу за допомогою фреймворку Bootstrap.",
+          "Забезпечення кросбраузерної сумісності та покращення доступності (accessibility) UI."
+        ]
+      }
+    ]
   }
 }
