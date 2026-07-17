@@ -7,7 +7,6 @@ import { Dot } from 'lucide-react';
 import { InfoBlock } from './components';
 
 const COLUMN_COUNT = 3;
-const INFO_COUNT = 4;
 
 const SectionHome = () => {
   return (
@@ -35,21 +34,7 @@ const SectionHome = () => {
         </div>
       </div>
 
-      <div className="bg-backgound relative w-full flex-col px-5">
-        <div className="border-muted relative h-full w-full items-stretch border-x">
-          <div className="divide-muted absolute inset-0 grid grid-cols-4 divide-x overflow-hidden">
-            {/* Column 1 & 2 & 3 & 4 */}
-            {[...Array(INFO_COUNT)].map((_, i) => (
-              <div
-                key={`section-experience-col-${i}`}
-                className="col-span-1 flex flex-col"
-              />
-            ))}
-          </div>
-
-          <InfoBlock />
-        </div>
-      </div>
+      <InfoBlock />
     </section>
   );
 };
