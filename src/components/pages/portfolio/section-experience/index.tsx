@@ -44,7 +44,7 @@ const SectionExperience = () => {
         ))}
       </div>
 
-      <div className="border-muted relative h-full w-full items-stretch divide-x border-x">
+      <div className="border-muted relative h-full w-full items-stretch border-x">
         <div className="divide-muted absolute inset-0 grid grid-cols-4 divide-x overflow-hidden">
           {/* Column 1 & 2 & 3 & 4 */}
           {[...Array(EXPERIENCE_COUNT)].map((_, i) => (
