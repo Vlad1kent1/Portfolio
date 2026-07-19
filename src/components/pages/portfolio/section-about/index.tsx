@@ -4,15 +4,18 @@ import { Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
 
+import { MainContent } from './components';
+import { AdditionalContent } from './components/additional-content';
+
 const COLUMN_COUNT = 3;
 
 const SectionAbout = () => {
   return (
     <section
       id="id-section-about"
-      className="relative flex h-[calc(100vh-68px)] w-full flex-col px-5"
+      className="relative flex w-full flex-col px-5"
     >
-      <div className="border-muted divide-muted grid h-full w-full grid-cols-4 items-stretch divide-x border-x">
+      <div className="border-muted divide-muted grid w-full grid-cols-4 items-stretch divide-x border-x">
         {/* Column 1 */}
         <div className="col-span-1 flex flex-1 flex-col gap-5 pt-5">
           <div className="flex flex-row">
@@ -32,6 +35,10 @@ const SectionAbout = () => {
           />
         ))}
       </div>
+
+      <MainContent />
+
+      <AdditionalContent />
     </section>
   );
 };

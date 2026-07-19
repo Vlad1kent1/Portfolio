@@ -26,10 +26,11 @@ const SectionContact = () => {
           </div>
           <Text
             size="xxxl_bold"
-            className="block leading-[0.8] tracking-tight uppercase"
+            className="block leading-[0.8] tracking-tight text-nowrap uppercase"
           >
             <span className="text-muted">Please </span>
             <span>ignore </span>
+            <br />
             <span className="inline-block whitespace-nowrap">
               this
               <span className="bg-text ml-[0.05em] inline-block h-[0.14em] w-[0.14em] align-baseline" />

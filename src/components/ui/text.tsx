@@ -1,57 +1,60 @@
-"use client"
+'use client';
 
-import * as React from "react"
+import * as React from 'react';
 
-import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from "@/lib/utils"
+import { type VariantProps, cva } from 'class-variance-authority';
+import {
+  MotionValue,
+  type UseScrollOptions,
+  m,
+  useScroll,
+  useTransform,
+} from 'motion/react';
+
+import { cn } from '@/lib/utils';
 
 const textVariants = cva(
-  "flex items-center leading-none select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+  'flex items-center leading-none select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 tracking-tight',
   {
     variants: {
       variant: {
-        default: "text-text",
-        inverse: "text-text-inverse",
-        muted: "text-muted",
-        muted_inverse: "text-muted-inverse",
-        contrast: "text-contrast",
+        default: 'text-text',
+        inverse: 'text-text-inverse',
+        muted: 'text-muted',
+        muted_inverse: 'text-muted-inverse',
+        contrast: 'text-contrast',
       },
       size: {
-        xxxl_bold: "text-3xl font-bold", /* 80px 700weight */
-        xxl_bold: "text-2xl font-bold", /* 50px 700weight */
-        xl_bold: "text-xl font-bold", /* 30px 700weight*/
-        xl_normal: "text-xl font-normal", /* 30px 400weight */
-        lg_normal: "text-lg font-normal", /* 22px 400weight */
-        base_bold: "text-base font-bold", /* 18px 700weigth */
-        base_normal: "text-base font-normal", /* 18px 400weight */
-        sm_medium: "text-sm font-medium",  /* 14px 500weigth*/
-        xs_semibold: "text-xs font-semibold", /* 12px 600weight */
-        xs_normal: "text-xs font-normal", /* 12px 400weigth */
-      }
+        xxxl_bold: 'text-3xl font-bold' /* 80px 700weight */,
+        xxl_bold: 'text-2xl font-bold' /* 50px 700weight */,
+        xl_bold: 'text-xl font-bold' /* 30px 700weight*/,
+        xl_normal: 'text-xl font-normal' /* 30px 400weight */,
+        lg_normal: 'text-lg font-normal' /* 22px 400weight */,
+        base_bold: 'text-base font-bold' /* 18px 700weigth */,
+        base_normal: 'text-base font-normal' /* 18px 400weight */,
+        sm_medium: 'text-sm font-medium' /* 14px 500weigth*/,
+        xs_semibold: 'text-xs font-semibold' /* 12px 600weight */,
+        xs_normal: 'text-xs font-normal' /* 12px 400weigth */,
+      },
     },
     defaultVariants: {
-      variant: "default",
-      size: "sm_medium",
+      variant: 'default',
+      size: 'sm_medium',
     },
-  }
-)
+  },
+);
 
-interface TextProps 
-  extends React.HTMLAttributes<HTMLElement>, 
-    VariantProps<typeof textVariants> {
+interface TextProps
+  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {
   as?: React.ElementType;
-  htmlFor?: string
+  htmlFor?: string;
 }
 
 const Text = React.forwardRef<HTMLElement, TextProps>(
-  ({ 
-    className, 
-    variant, 
-    size, 
-    as: Component = "p", 
-    htmlFor,
-    ...props 
-  }, ref) => {
+  (
+    { className, variant, size, as: Component = 'p', htmlFor, ...props },
+    ref,
+  ) => {
     return (
       <Component
         htmlFor={htmlFor}
@@ -59,8 +62,88 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
         className={cn(textVariants({ variant, size, className }))}
         {...props}
       />
-    )
-  }
-)
+    );
+  },
+);
+Text.displayName = 'Text';
 
-export { Text }
+interface AnimatedTextProps
+  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof textVariants> {
+  children: string;
+  as?: React.ElementType;
+  offset?: UseScrollOptions['offset'];
+}
+
+const AnimatedText = React.forwardRef<HTMLElement, AnimatedTextProps>(
+  (
+    {
+      className,
+      variant,
+      size,
+      as: Component = 'p',
+      children,
+      offset = ['start 70%', 'end 50%'],
+      ...props
+    },
+    ref,
+  ) => {
+    const containerRef = React.useRef<HTMLElement>(null);
+
+    React.useImperativeHandle(ref, () => containerRef.current as HTMLElement);
+
+    const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: offset,
+    });
+
+    const words = children.split(' ');
+
+    return (
+      <Component
+        ref={containerRef}
+        className={cn(textVariants({ variant, size }), 'flex-wrap', className)}
+        {...props}
+      >
+        {words.map((word, i) => {
+          const start = i / words.length;
+          const end = start + 1 / words.length;
+          return (
+            <Word
+              key={i}
+              progress={scrollYProgress}
+              range={[start, end]}
+            >
+              {word}
+            </Word>
+          );
+        })}
+      </Component>
+    );
+  },
+);
+AnimatedText.displayName = 'AnimatedText';
+
+interface WordProps {
+  children: string;
+  progress: MotionValue<number>;
+  range: [number, number];
+}
+
+const Word = ({ children, progress, range }: WordProps) => {
+  const opacity = useTransform(progress, range, [0, 1]);
+
+  return (
+    <span className="relative mt-[0.1em] mr-[0.25em]">
+      <span className="text-muted">{children}</span>
+
+      <m.span
+        style={{ opacity }}
+        className="absolute top-0 left-0"
+      >
+        {children}
+      </m.span>
+    </span>
+  );
+};
+
+export { Text, AnimatedText };
