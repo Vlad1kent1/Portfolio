@@ -32,8 +32,7 @@ const SectionContact = () => {
             <span>ignore </span>
             <br />
             <span className="inline-block whitespace-nowrap">
-              this
-              <span className="bg-text ml-[0.05em] inline-block h-[0.14em] w-[0.14em] align-baseline" />
+              this.
             </span>
           </Text>
         </div>

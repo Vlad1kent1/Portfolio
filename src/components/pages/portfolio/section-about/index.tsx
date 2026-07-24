@@ -4,8 +4,7 @@ import { Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
 
-import { MainContent } from './components';
-import { AdditionalContent } from './components/additional-content';
+import { MainContent, AdditionalContent, DrivenResult, MetricsOverview } from './components';
 
 const COLUMN_COUNT = 3;
 
@@ -39,6 +38,10 @@ const SectionAbout = () => {
       <MainContent />
 
       <AdditionalContent />
+      
+      <DrivenResult />
+
+      <MetricsOverview />
     </section>
   );
 };

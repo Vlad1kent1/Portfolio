@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedText, DecorativeBox, Text } from '@/components/ui';
+import { AnimatedTextScrollReveal, DecorativeBox, Text } from '@/components/ui';
 
 const COLUMN_COUNT = 2;
 
@@ -12,14 +12,15 @@ const MainContent = () => {
         <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
           {[...Array(COLUMN_COUNT)].map((_, i) => (
             <div
-              key={`form-contact-col-${i}`}
+              key={`main-content-col-${i}`}
               className="flex-1 self-stretch"
             />
           ))}
         </div>
 
         <div className="relative z-10 flex min-h-full w-full flex-col items-center justify-center">
-          <AnimatedText
+          <AnimatedTextScrollReveal
+            offset = {['start 80%', 'end 50%']}
             size="xxl_bold"
             className="px-3 leading-[0.8] uppercase"
           >
@@ -28,7 +29,7 @@ const MainContent = () => {
             BUILD WEB APPLICATIONS THAT ARE SCALABLE AND HIGHLY PERFORMANT. I
             ENJOY TAKING COMPLEX LOGICAL ARCHITECTURES AND TRANSLATING THEM INTO
             CLEAN, MAINTAINABLE, AND STRUCTURED CODE.
-          </AnimatedText>
+          </AnimatedTextScrollReveal>
         </div>
       </div>
 
@@ -47,7 +48,7 @@ const MainContent = () => {
 
         <Text
           variant="default"
-          size="xs_semibold"
+          size="xs_normal"
           className="p-5 text-right uppercase"
         >
           I ENGINEER SYSTEMS THAT ARE AS ROBUST UNDER THE HOOD AS THEY ARE

@@ -99,7 +99,7 @@ const TicTacToe = () => {
             ) : square === 'O' ? (
               <Circle
                 size={24}
-                className="text-contrast"
+                className="text-game-red"
               />
             ) : (
               <span className="h-6 w-6" />

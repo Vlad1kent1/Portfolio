@@ -20,6 +20,7 @@ const eslintConfig = defineConfig([
       parser: tsParser,
       parserOptions: {
         ecmaFeatures: { jsx: true },
+        warnOnUnsupportedTypeScriptVersion: false,
       },
     },
     plugins: {

@@ -118,11 +118,7 @@ const FormContact = () => {
               variant="muted"
               className="col-span-1 flex-col items-start justify-center p-3 leading-[1.15em] tracking-tight uppercase"
             >
-              I usually reply within
-              <span className="text-text inline-block whitespace-nowrap">
-                24 hours
-                <span className="bg-text ml-[0.05em] inline-block h-[0.14em] w-[0.14em] align-baseline" />
-              </span>
+              I usually reply within 24 hours.
             </Text>
 
             <AnimatedButton

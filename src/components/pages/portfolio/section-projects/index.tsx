@@ -29,9 +29,8 @@ const SectionProjects = () => {
           >
             <span className="ml-1">Work </span>
             <span>in</span>
-            <span className="inline-block whitespace-nowrap">
-              Pipeline
-              <span className="bg-text ml-[0.05em] inline-block h-[0.14em] w-[0.14em] align-baseline" />
+            <span className="block whitespace-nowrap">
+              Pipeline.
             </span>
           </Text>
         </div>
@@ -61,21 +60,13 @@ const SectionProjects = () => {
             size="xxxl_bold"
             className="text-muted text-center leading-[0.8]"
           >
-            Architecture mapped
-            <span className="ml-[0.5em] inline-block whitespace-nowrap">
-              out
-              <span className="bg-muted ml-[0.1em] inline-block h-[0.15em] w-[0.15em] align-baseline" />
-            </span>
+            Architecture mapped out.
           </Text>
           <Text
             size="xxxl_bold"
             className="text-muted text-center leading-[0.8]"
           >
-            Real code is deploying
-            <span className="ml-[0.5em] inline-block whitespace-nowrap">
-              soon
-              <span className="bg-muted ml-[0.1em] inline-block h-[0.15em] w-[0.15em] align-baseline" />
-            </span>
+            Real code is deploying soon.
           </Text>
         </div>
       </div>
