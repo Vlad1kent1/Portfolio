@@ -1,6 +1,7 @@
 'use client';
 
-import { Text, DecorativeBox, AnimatedTextScrollReveal } from '@/components/ui';
+import { DecorativeBox, Text } from '@/components/ui';
+
 import { Dot } from 'lucide-react';
 
 const COLUMN_COUNT = 2;
@@ -39,7 +40,7 @@ const DrivenResult = () => {
           ))}
         </div>
 
-        <div className="relative z-10 flex min-h-full w-full flex-col items-right justify-end py-5 gap-5">
+        <div className="items-right relative z-10 flex min-h-full w-full flex-col justify-end gap-5 py-5">
           <div className="flex flex-row">
             <Dot
               className="text-text"
@@ -49,14 +50,15 @@ const DrivenResult = () => {
           </div>
           <Text
             size="xxl_bold"
-            className="block leading-[0.8] tracking-tight uppercase px-3 "
+            className="block px-3 leading-[0.8] tracking-tight uppercase"
           >
-            <span className='text-muted'>AESTHETICS MEET ALGORITHMS.</span> <br /> MEASURING THE IMPACT BEHIND THE BUILD.
+            <span className="text-muted">AESTHETICS MEET ALGORITHMS.</span>{' '}
+            <br /> MEASURING THE IMPACT BEHIND THE BUILD.
           </Text>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export { DrivenResult };
