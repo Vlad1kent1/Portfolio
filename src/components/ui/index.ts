@@ -14,6 +14,7 @@ export {
 export { Input } from './input';
 export { Text, AnimatedTextScrollReveal, AnimatedTextCountUp } from './text';
 export { Popover, PopoverContent, PopoverTrigger } from './popover';
+export { RevealBox } from './reveal-box';
 export { SectionProgress } from './section-progress';
 export {
   Select,

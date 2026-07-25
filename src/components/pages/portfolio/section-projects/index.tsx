@@ -1,11 +1,10 @@
 'use client';
 
-import { Text } from '@/components/ui';
+import { RevealBox, Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
 
-const COLUMN_COUNT = 3;
-const PROJECTS_COUNT = 4;
+const COLUMN_COUNT = 4;
 
 const SectionProjects = () => {
   return (
@@ -13,9 +12,19 @@ const SectionProjects = () => {
       id="id-section-projects"
       className="relative flex min-h-[calc(100vh-68px)] w-full flex-col px-5"
     >
-      <div className="border-muted divide-muted grid h-full w-full grid-cols-4 items-stretch divide-x border-x">
+      <div className="border-muted relative h-full w-full items-stretch border-x">
+        <div className="divide-muted absolute inset-0 grid grid-cols-4 divide-x overflow-hidden">
+          {/* Column 1 & 2 & 3 & 4 */}
+          {[...Array(COLUMN_COUNT)].map((_, i) => (
+            <div
+              key={`section-projects-col-${i}`}
+              className="col-span-1 flex flex-col"
+            />
+          ))}
+        </div>
+
         {/* Column 1 */}
-        <div className="col-span-1 flex flex-1 flex-col gap-5 pt-5">
+        <div className="relative z-10 flex w-full flex-col gap-5 pt-5">
           <div className="flex flex-row">
             <Dot
               className="text-text"
@@ -23,31 +32,23 @@ const SectionProjects = () => {
             />
             <Text variant="muted">Projects(03)</Text>
           </div>
-          <Text
-            size="xxxl_bold"
-            className="block leading-[0.8] tracking-tight uppercase"
-          >
-            <span className="ml-1">Work </span>
-            <span>in</span>
-            <span className="block whitespace-nowrap">
-              Pipeline.
-            </span>
-          </Text>
+          <RevealBox direction="left">
+            <Text
+              size="xxxl_bold"
+              className="block leading-[0.8] tracking-tight uppercase"
+            >
+              <span className="ml-1">Work </span>
+              <span>in</span>
+              <span className="block whitespace-nowrap">Pipeline.</span>
+            </Text>
+          </RevealBox>
         </div>
-
-        {/* Column 2 & 3 & 4 */}
-        {[...Array(COLUMN_COUNT)].map((_, i) => (
-          <div
-            key={`section-projects-col-${i}`}
-            className="col-span-1 flex flex-col"
-          />
-        ))}
       </div>
 
       <div className="border-muted relative h-full w-full items-stretch border-x">
         <div className="divide-muted absolute inset-0 grid grid-cols-4 divide-x overflow-hidden">
           {/* Column 1 & 2 & 3 & 4 */}
-          {[...Array(PROJECTS_COUNT)].map((_, i) => (
+          {[...Array(COLUMN_COUNT)].map((_, i) => (
             <div
               key={`section-projects-col-${i}`}
               className="col-span-1 flex flex-col"

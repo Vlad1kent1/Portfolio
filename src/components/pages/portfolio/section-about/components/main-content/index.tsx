@@ -1,6 +1,11 @@
 'use client';
 
-import { AnimatedTextScrollReveal, DecorativeBox, Text } from '@/components/ui';
+import {
+  AnimatedTextScrollReveal,
+  DecorativeBox,
+  RevealBox,
+  Text,
+} from '@/components/ui';
 
 const COLUMN_COUNT = 2;
 
@@ -20,7 +25,7 @@ const MainContent = () => {
 
         <div className="relative z-10 flex min-h-full w-full flex-col items-center justify-center">
           <AnimatedTextScrollReveal
-            offset = {['start 80%', 'end 50%']}
+            offset={['start 80%', 'end 50%']}
             size="xxl_bold"
             className="px-3 leading-[0.8] uppercase"
           >
@@ -43,17 +48,22 @@ const MainContent = () => {
           borderOrientation="horizontal"
           className="col-span-1 flex flex-col p-5"
         >
-          <div className="bg-contrast aspect-3/4 w-full" />
+          <RevealBox
+            direction="center"
+            className="bg-contrast aspect-3/4 w-full"
+          />
         </DecorativeBox>
 
-        <Text
-          variant="default"
-          size="xs_normal"
-          className="p-5 text-right uppercase"
-        >
-          I ENGINEER SYSTEMS THAT ARE AS ROBUST UNDER THE HOOD AS THEY ARE
-          INTUITIVE ON THE SURFACE. PRECISE, SCALABLE, AND BUILT TO PERFORM.
-        </Text>
+        <RevealBox direction="right">
+          <Text
+            variant="default"
+            size="xs_normal"
+            className="p-5 text-right uppercase"
+          >
+            I ENGINEER SYSTEMS THAT ARE AS ROBUST UNDER THE HOOD AS THEY ARE
+            INTUITIVE ON THE SURFACE. PRECISE, SCALABLE, AND BUILT TO PERFORM.
+          </Text>
+        </RevealBox>
       </div>
     </div>
   );

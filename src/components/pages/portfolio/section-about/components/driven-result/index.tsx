@@ -1,6 +1,6 @@
 'use client';
 
-import { DecorativeBox, Text } from '@/components/ui';
+import { DecorativeBox, RevealBox, Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
 
@@ -25,7 +25,10 @@ const DrivenResult = () => {
           borderOrientation="horizontal"
           className="col-span-1 flex flex-col p-5"
         >
-          <div className="bg-contrast aspect-3/2 w-full" />
+          <RevealBox
+            direction="center"
+            className="bg-contrast aspect-3/2 w-full"
+          />
         </DecorativeBox>
       </div>
 
@@ -40,7 +43,10 @@ const DrivenResult = () => {
           ))}
         </div>
 
-        <div className="items-right relative z-10 flex min-h-full w-full flex-col justify-end gap-5 py-5">
+        <RevealBox
+          direction="left"
+          className="items-right relative z-10 flex min-h-full w-full flex-col justify-end gap-5 py-5"
+        >
           <div className="flex flex-row">
             <Dot
               className="text-text"
@@ -55,7 +61,7 @@ const DrivenResult = () => {
             <span className="text-muted">AESTHETICS MEET ALGORITHMS.</span>{' '}
             <br /> MEASURING THE IMPACT BEHIND THE BUILD.
           </Text>
-        </div>
+        </RevealBox>
       </div>
     </div>
   );
