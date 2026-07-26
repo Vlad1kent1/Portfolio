@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
 
-import { Text } from '@/components/ui';
+import { RevealBox, Text } from '@/components/ui';
 import { m } from 'motion/react';
 
 import { RefreshCcwDot } from 'lucide-react';
@@ -73,14 +73,17 @@ export const Timeline = () => {
             </m.div>
           </div>
 
-          <div className="flex h-15 flex-col justify-center">
+          <RevealBox
+            direction="right"
+            className="flex h-15 flex-col justify-center"
+          >
             <Text
               variant="inverse"
               size="base_bold"
             >
               To be continued...
             </Text>
-          </div>
+          </RevealBox>
         </div>
 
         {experienceData.map((data: ITimelineData, index: number) => {

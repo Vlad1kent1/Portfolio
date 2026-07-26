@@ -1,5 +1,7 @@
 'use client';
 
+import { RevealBox } from '@/components/ui';
+
 const LAST_NAME = 'KARABINOVYCH';
 const FIRST_NAME = 'VLADYSLAV';
 const COLUMN_COUNT = 4;
@@ -16,7 +18,10 @@ const Branding = () => {
         ))}
       </div>
 
-      <div className="pointer-events-none relative z-10 flex w-full flex-col py-6">
+      <RevealBox
+        direction="up"
+        className="pointer-events-none relative z-10 flex w-full flex-col py-6"
+      >
         <svg
           viewBox="0 0 1000 115"
           className="block h-auto w-full"
@@ -49,7 +54,7 @@ const Branding = () => {
             {FIRST_NAME}
           </text>
         </svg>
-      </div>
+      </RevealBox>
     </div>
   );
 };

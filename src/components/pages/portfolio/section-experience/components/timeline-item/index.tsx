@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { DecorativeBox, Text } from '@/components/ui';
+import { DecorativeBox, RevealBox, Text } from '@/components/ui';
 
 import { cn } from '@/lib/utils';
 
@@ -32,7 +32,7 @@ export const TimelineItem = ({
     <div className="grid w-full grid-cols-[1fr_auto_1fr] items-start gap-10">
       <div
         className={cn(
-          'flex w-full flex-col',
+          '-m-1.5 flex w-full flex-col p-1.5',
           isEven ? 'order-1 items-end' : 'order-3 items-start',
         )}
       >
@@ -41,34 +41,36 @@ export const TimelineItem = ({
           borderOrientation="all"
           className="bg-background-inverse text-text-inverse flex w-full max-w-xl flex-col items-start justify-start gap-3 px-5 py-6"
         >
-          <Text
-            variant="inverse"
-            size="base_bold"
-          >
-            {data.role}
-          </Text>
+          <RevealBox direction={isEven ? 'right' : 'left'}>
+            <Text
+              variant="inverse"
+              size="base_bold"
+            >
+              {data.role}
+            </Text>
 
-          <ul className="text-text-muted max-w-2xl list-none space-y-4 text-sm md:text-base">
-            {data.duties.map((duty, i) => (
-              <li
-                key={i}
-                className={cn(
-                  'relative pl-5',
-                  "before:absolute before:top-[0.4em] before:left-[0.2em] before:content-['']",
-                  'before:bg-text-inverse before:h-1.5 before:w-1.5',
-                  'before:transition-colors before:duration-200',
-                )}
-              >
-                <Text
-                  variant="inverse"
-                  size="base_normal"
-                  className="leading-[1.15em]"
+            <ul className="text-text-muted max-w-2xl list-none space-y-4 text-sm md:text-base">
+              {data.duties.map((duty, i) => (
+                <li
+                  key={i}
+                  className={cn(
+                    'relative pl-5',
+                    "before:absolute before:top-[0.4em] before:left-[0.2em] before:content-['']",
+                    'before:bg-text-inverse before:h-1.5 before:w-1.5',
+                    'before:transition-colors before:duration-200',
+                  )}
                 >
-                  {duty}
-                </Text>
-              </li>
-            ))}
-          </ul>
+                  <Text
+                    variant="inverse"
+                    size="base_normal"
+                    className="leading-[1.15em]"
+                  >
+                    {duty}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+          </RevealBox>
         </DecorativeBox>
       </div>
 

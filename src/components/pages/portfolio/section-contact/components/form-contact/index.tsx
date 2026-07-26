@@ -9,6 +9,7 @@ import {
   FieldGroup,
   FieldLabel,
   Input,
+  RevealBox,
   Text,
   Textarea,
 } from '@/components/ui';
@@ -53,7 +54,11 @@ const FormContact = () => {
         ))}
       </div>
 
-      <div className="relative z-10 flex min-h-full w-full flex-col items-center justify-center">
+      <RevealBox
+        direction="up"
+        className="relative z-10"
+        innerClassName="flex min-h-full w-full flex-col items-center justify-center"
+      >
         <FieldGroup>
           <FieldGroup>
             {/* Name */}
@@ -144,7 +149,7 @@ const FormContact = () => {
             </AnimatedButton>
           </div>
         </FieldGroup>
-      </div>
+      </RevealBox>
     </div>
   );
 };

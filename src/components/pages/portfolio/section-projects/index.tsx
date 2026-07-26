@@ -45,7 +45,7 @@ const SectionProjects = () => {
         </div>
       </div>
 
-      <div className="border-muted relative h-full w-full items-stretch border-x">
+      <div className="border-muted relative w-full flex-1 items-stretch border-x">
         <div className="divide-muted absolute inset-0 grid grid-cols-4 divide-x overflow-hidden">
           {/* Column 1 & 2 & 3 & 4 */}
           {[...Array(COLUMN_COUNT)].map((_, i) => (
@@ -56,7 +56,11 @@ const SectionProjects = () => {
           ))}
         </div>
 
-        <div className="relative z-10 flex w-full flex-col items-center justify-center gap-4 py-40">
+        <RevealBox
+          direction="up"
+          className="relative z-10 w-full py-40"
+          innerClassName="flex w-full flex-col items-center justify-center gap-4 "
+        >
           <Text
             size="xxxl_bold"
             className="text-muted text-center leading-[0.8]"
@@ -69,7 +73,7 @@ const SectionProjects = () => {
           >
             Real code is deploying soon.
           </Text>
-        </div>
+        </RevealBox>
       </div>
     </section>
   );

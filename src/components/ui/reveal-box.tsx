@@ -6,6 +6,8 @@ import { type HTMLMotionProps, type Variants, motion } from 'motion/react';
 
 import { cn } from '@/lib/utils';
 
+import { useUIStore } from '@/hooks/use-ui-store';
+
 export type RevealBoxDirection = 'up' | 'down' | 'left' | 'right' | 'center';
 
 export interface RevealBoxProps extends HTMLMotionProps<'div'> {
@@ -13,6 +15,7 @@ export interface RevealBoxProps extends HTMLMotionProps<'div'> {
   delay?: number;
   duration?: number;
   once?: boolean;
+  innerClassName?: string;
 }
 
 const RevealBox = React.forwardRef<HTMLDivElement, RevealBoxProps>(
@@ -23,11 +26,13 @@ const RevealBox = React.forwardRef<HTMLDivElement, RevealBoxProps>(
       delay = 0,
       duration = 0.5,
       once = true,
+      innerClassName,
       children,
       ...props
     },
     ref,
   ) => {
+    const { isIntroDone } = useUIStore();
     const variants: Record<RevealBoxDirection, Variants> = {
       up: {
         hidden: { opacity: 0, y: 50 },
@@ -58,11 +63,11 @@ const RevealBox = React.forwardRef<HTMLDivElement, RevealBoxProps>(
         <motion.div
           ref={ref}
           initial="hidden"
-          whileInView="visible"
+          whileInView={isIntroDone ? 'visible' : 'hidden'}
           viewport={{ once, margin: '-50px' }}
           transition={{ duration, delay, ease: 'easeOut' }}
           variants={variants.center}
-          className={cn(className)}
+          className={cn(className, innerClassName)}
           {...props}
         >
           {children}
@@ -77,10 +82,11 @@ const RevealBox = React.forwardRef<HTMLDivElement, RevealBoxProps>(
       >
         <motion.div
           initial="hidden"
-          whileInView="visible"
+          whileInView={isIntroDone ? 'visible' : 'hidden'}
           viewport={{ once, margin: '-50px' }}
           transition={{ duration, delay, ease: 'easeOut' }}
           variants={variants[direction]}
+          className={cn(innerClassName)}
           {...props}
         >
           {children}
