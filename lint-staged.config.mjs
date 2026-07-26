@@ -1,12 +1,10 @@
-{
+export default {
   "*.{js,jsx,ts,tsx}": [
     "prettier --write",
     "eslint --fix"
   ],
-  "src/**/*.{ts,tsx}": [
-    "bash -c 'pnpm tsc --project tsconfig.lint.json --noEmit'"
-  ],
+  "src/**/*.{ts,tsx}": () => "pnpm tsc --project tsconfig.lint.json --noEmit",
   "*.{json,css,md}": [
     "prettier --write"
   ]
-}
+};
