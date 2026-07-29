@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
+import { useTranslations } from 'next-intl';
+
 import { Button, Text } from '@/components/ui';
 
 import { Circle, X } from 'lucide-react';
@@ -14,6 +16,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const TicTacToe = () => {
+  const t = useTranslations('components.layout.footer.components.tic-tac-toc');
   const [board, setBoard] = useState<Player[]>(Array(9).fill(null));
   const [playerSymbol, setPlayerSymbol] = useState<'X' | 'O'>('X');
   const [isXNext, setIsXNext] = useState(true);
@@ -116,16 +119,16 @@ const TicTacToe = () => {
           >
             {winner
               ? winner === playerSymbol
-                ? 'Congrats, you win!'
-                : "NAH, I'D WIN."
-              : isDraw && "It's a draw!"}
+                ? `${t('win')}`
+                : `${t('lose')}`
+              : isDraw && `${t('draw')}`}
           </Text>
           <Button
             variant="outline"
             size="base"
             onClick={resetGame}
           >
-            Play Again
+            {t('play_again')}
           </Button>
         </div>
       )}

@@ -1,36 +1,321 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
-  },
-  "Date-Picker": {
-    "placeholder": "Pick a date"
-  },
-  "section-experience": {
-    "experience": [
-      {
-        "id": "udex",
-        "company": "UDEX",
-        "role": "Full-stack Developer",
-        "period": "07/2024 — 11/2025",
-        "duties": [
-          "Developing web applications using TypeScript, React, and Node.js to automate financial workflows.",
-          "Designing PostgreSQL databases and managing core feature architecture with Supabase.",
-          "Integrating Stripe payment gateways and complex third-party APIs for seamless transactions.",
-          "Migrating legacy applications from low-code platforms to a high-performance TypeScript environment."
-        ]
-      },
-      {
-        "id": "softserve",
-        "company": "SoftServe ITA Student",
-        "role": "Ruby Developer (Internship)",
-        "period": "05/2023 — 08/2023",
-        "duties": [
-          "Architecting and building a sustainability-focused web platform using Ruby on Rails.",
-          "Optimizing front-end asset compilation through a migration from Webpacker to Importmap.",
-          "Creating responsive interface components using Bootstrap framework utilities.",
-          "Ensuring complete cross-browser compatibility and enhancing user interface accessibility."
-        ]
+  "pages": {
+    "ui-kit": {
+      "title": "UI Kit",
+      "sections": {
+        "colours": {
+          "title": "Colours",
+          "background": "Background",
+          "background_inverse": "BG Inverse",
+          "surface": "Surface",
+          "foreground": "Foreground",
+          "text": "Text",
+          "text_inverse": "Text Inverse",
+          "muted": "Muted",
+          "muted_inverse": "Muted Inverse",
+          "contrast": "Contrast"
+        },
+        "texts": {
+          "title": "Texts",
+          "default": "Default",
+          "inverse": "Inverse",
+          "muted": "Muted",
+          "muted_inverse": "Muted Inverse",
+          "contrast": "Contrast",
+          "xs_normal": "XS-normal",
+          "xs_semibold": "XS-normal",
+          "sm_medium": "SM-medium",
+          "base_normal": "Base-normal",
+          "base_bold": "Base-bold",
+          "lg_normal": "LG-normal",
+          "xl_normal": "XL-normal",
+          "xl_bold": "XL-bold",
+          "xxl_bold": "2XL-bold",
+          "xxxl_bold": "3XL-bold"
+        },
+        "buttons": {
+          "title": "Buttons",
+          "default": "Default",
+          "ghost": "Ghost",
+          "outline": "Outline",
+          "disabled": "Disabled",
+          "animated": "Animated"
+        },
+        "calendar": {
+          "title": "Calendar & DatePicker",
+          "time_placeholder": "06:30"
+        },
+        "fields": {
+          "title": "Fields (orientation)",
+          "vertical_field": "Vertical field",
+          "horizontal_field": "Horizontal field",
+          "description": "All transactions are secure and encrypted",
+          "submit": "Submit",
+          "name": "Name",
+          "email": "Email"
+        },
+        "inputs": {
+          "title": "Inputs",
+          "default": "Default",
+          "disabled": "Disabled",
+          "invalid": "Invalid",
+          "placeholder": "Type something...",
+          "disabled_placeholder": "Can't type",
+          "invalid_placeholder": "Invalid value"
+        },
+        "popover": {
+          "title": "Popover",
+          "trigger": "Open popover",
+          "content": "Popover content goes here.",
+          "close": "Close popover"
+        },
+        "select": {
+          "title": "Select",
+          "placeholder": "Pick a fruit",
+          "apple": "Apple",
+          "banana": "Banana",
+          "orange": "Orange"
+        },
+        "separator": {
+          "title": "Separator"
+        },
+        "tabs": {
+          "title": "Tabs",
+          "horizontal": "Horizontal",
+          "vertical": "Vertical",
+          "tab_1": "Tab 1",
+          "tab_2": "Tab 2",
+          "tab_3": "Tab 3",
+          "content_tab_1": "Content for Tab 1",
+          "content_tab_2": "Content for Tab 2",
+          "content_tab_3": "Content for Tab 3"
+        },
+        "textarea": {
+          "title": "Textarea",
+          "placeholder": "Write something..."
+        },
+        "tooltip": {
+          "title": "Tooltip",
+          "right": "Right",
+          "top": "Top",
+          "bottom": "Bottom",
+          "left": "Left",
+          "content": "Tooltip content"
+        },
+        "sonner": {
+          "title": "Sonner",
+          "default": "Default",
+          "success": "Success",
+          "info": "Info",
+          "warning": "Warning",
+          "error": "Error",
+          "promise": "Promise",
+          "default_toast": "Event has been created",
+          "success_toast": "Event has been created",
+          "info_toast": "Be at the area 10 minutes before the event time",
+          "warning_toast": "Event start time cannot be earlier than 8am",
+          "error_toast": "Event has not been created",
+          "loading": "Loading...",
+          "event_name": "Event",
+          "promise_success": "{name} has been created",
+          "promise_error": "Error"
+        }
       }
-    ]
+    }
+  },
+
+  "components": {
+    "layout": {
+      "intro": {
+        "last_name": "KARABINOVYCH",
+        "first_name": "VLADYSLAV"
+      },
+      "header": {
+        "last_name": "Karabinovych",
+        "first_name": "Vladyslav",
+        "book_a_call": "Book a call",
+        "components": {
+          "tabs-navigation": {
+            "home": "Home",
+            "about": "About",
+            "projects": "Projects",
+            "experience": "Experience"
+          }
+        }
+      },
+      "footer": {
+        "last_name": "Karabinovych",
+        "first_name": "Vladyslav",
+        "description": "CRAFTING THOUGHTFUL DIGITAL EXPERIENCES BUILT ON CLARITY, PURPOSE, AND PRECISION.",
+        "follow_on": "Follow on",
+        "book_a_call": "Book a call",
+        "components": {
+          "buttons-navigation": {
+            "home": "Home",
+            "about": "About",
+            "projects": "Projects",
+            "experience": "Experience",
+            "components": "Components"
+          },
+          "branding": {
+            "last_name": "KARABINOVYCH",
+            "first_name": "VLADYSLAV"
+          },
+          "tic-tac-toc": {
+            "win": "Congrats, you win!",
+            "lose": "NAH, I'D WIN.",
+            "draw": "It's a draw!",
+            "play_again": "Play Again"
+          }
+        }
+      }
+    },
+    "pages": {
+      "portfolio": {
+        "section-home": {
+          "components": {
+            "branding": {
+              "last_name": "KARABINOVYCH",
+              "first_name": "VLADYSLAV"
+            },
+            "info-block": {
+              "info": [
+                {
+                  "title": "Location",
+                  "body": "L'Aquila, IT"
+                },
+                {
+                  "title": "Field",
+                  "body": "Development"
+                },
+                {
+                  "title": "Core Stack",
+                  "body": "React, Node.js, Postgresql"
+                },
+                {
+                  "title": "Approach",
+                  "body": "Mathematical Precision"
+                }
+              ]
+            }
+          }
+        },
+        "section-about": {
+          "title": "About(02)",
+          "components": {
+            "main-content": {
+              "intro": "I’M A FULL-STACK DEVELOPER WITH A BACKGROUND IN APPLIED MATHEMATICS, CURRENTLY BASED IN ITALY. I WORK WITH TYPESCRIPT AND NEXT.JS TO BUILD WEB APPLICATIONS THAT ARE SCALABLE AND HIGHLY PERFORMANT. I ENJOY TAKING COMPLEX LOGICAL ARCHITECTURES AND TRANSLATING THEM INTO CLEAN, MAINTAINABLE, AND STRUCTURED CODE.",
+              "supporting_text": "I ENGINEER SYSTEMS THAT ARE AS ROBUST UNDER THE HOOD AS THEY ARE INTUITIVE ON THE SURFACE. PRECISE, SCALABLE, AND BUILT TO PERFORM."
+            },
+            "additional-content": {
+              "content": "WRITING CLEAN CODE SO EVERYTHING FEELS ALIGNED AND INTENTIONAL. MY GOAL IS ALWAYS THE SAME: TO ARCHITECT SOFTWARE THAT SOLVES REAL PROBLEMS, WORKS EXCEPTIONALLY WELL, AND LASTS."
+            },
+            "driven-result": {
+              "eyebrow": "Driven Result",
+              "headline_part_1": "AESTHETICS MEET ALGORITHMS.",
+              "headline_part_2": "MEASURING THE IMPACT BEHIND THE BUILD."
+            },
+            "metrics-overview": {
+              "metrics_data": [
+                {
+                  "value": "12+",
+                  "label": "CORE TECHNOLOGIES",
+                  "description": "Proficient in modern engineering stacks including PostgreSQL, Supabase, and integrating complex third-party APIs."
+                },
+                {
+                  "value": "1.5+",
+                  "label": "YEARS EXPERIENCE",
+                  "description": "Commercial full-stack development building scalable web applications using TypeScript, React, Next.js, and Node.js."
+                },
+                {
+                  "value": "3",
+                  "label": "ACADEMIC DEGREES",
+                  "description": "Blending Computer Science with Mathematical Engineering to deliver algorithmically optimized solutions."
+                },
+                {
+                  "value": "100%",
+                  "label": "FULL-CODE MIGRATION",
+                  "description": "Successfully led transitions from legacy low-code platforms to robust, scalable TypeScript environments."
+                }
+              ]
+            }
+          }
+        },
+        "section-projects": {
+          "title": "Projects(03)",
+          "intro_part_1": "Work ",
+          "intro_part_2": "in",
+          "intro_part_3": "Pipeline.",
+          "headline_1": "Architecture mapped out.",
+          "headline_2": "Real code is deploying soon."
+        },
+        "section-experience": {
+          "title": "Experience(04)",
+          "hero_title": "Experience.",
+          "components": {
+            "timeline": {
+              "to_be_continued": "To be continued...",
+              "experience": [
+                {
+                  "id": "udex",
+                  "company": "UDEX",
+                  "role": "Full-stack Developer",
+                  "period": "07/2024 — 11/2025",
+                  "duties": [
+                    "Developing web applications using TypeScript, React, and Node.js to automate financial workflows.",
+                    "Designing PostgreSQL databases and managing core feature architecture with Supabase.",
+                    "Integrating Stripe payment gateways and complex third-party APIs for seamless transactions.",
+                    "Migrating legacy applications from low-code platforms to a high-performance TypeScript environment."
+                  ]
+                },
+                {
+                  "id": "softserve",
+                  "company": "SoftServe ITA Student",
+                  "role": "Ruby Developer (Internship)",
+                  "period": "05/2023 — 08/2023",
+                  "duties": [
+                    "Architecting and building a sustainability-focused web platform using Ruby on Rails.",
+                    "Optimizing front-end asset compilation through a migration from Webpacker to Importmap.",
+                    "Creating responsive interface components using Bootstrap framework utilities.",
+                    "Ensuring complete cross-browser compatibility and enhancing user interface accessibility."
+                  ]
+                }
+              ]
+            },
+            "timeline-item": {
+              "logo_alt": "{company} Logo"
+            }
+          }
+        },
+        "section-contact": {
+          "title": "Contact(05)",
+          "intro_part_1": "Please ",
+          "intro_part_2": "ignore ",
+          "intro_part_3": "this.",
+          "name": "Karabinovych Vladyslav",
+          "role": "Full-stack developer",
+          "invitation": "I’m always open to collaborations and creative challenges.",
+          "components": {
+            "form-contact": {
+              "name": "Name",
+              "email": "Email",
+              "phone": "Phone",
+              "message": "Message",
+              "name_placeholder": "Jane Smith",
+              "email_placeholder": "your@email.com",
+              "phone_placeholder": "+00 000 000 000",
+              "message_placeholder": "Your message here...",
+              "reply_notice": "I usually reply within 24 hours.",
+              "submit": "SEND REQUEST"
+            }
+          }
+        }
+      }
+    },
+    "ui": {
+      "date-picker": {
+        "placeholder": "Pick a date"
+      }
+    }
   }
 }

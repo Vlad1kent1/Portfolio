@@ -1,12 +1,13 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { RevealBox } from '@/components/ui';
 
-const LAST_NAME = 'KARABINOVYCH';
-const FIRST_NAME = 'VLADYSLAV';
 const COLUMN_COUNT = 4;
 
 const Branding = () => {
+  const t = useTranslations('components.layout.footer.components.branding');
   return (
     <div className="relative w-full">
       <div className="divide-muted absolute inset-0 flex divide-x overflow-hidden">
@@ -34,7 +35,7 @@ const Branding = () => {
             className="fill-text font-host-grotesk font-bold uppercase"
             style={{ fontSize: '150px', letterSpacing: '-0.02em' }}
           >
-            {LAST_NAME}
+            {t('last_name')}
           </text>
         </svg>
 
@@ -51,7 +52,7 @@ const Branding = () => {
             className="fill-text font-host-grotesk font-bold uppercase"
             style={{ fontSize: '180px' }}
           >
-            {FIRST_NAME}
+            {t('first_name')}
           </text>
         </svg>
       </RevealBox>

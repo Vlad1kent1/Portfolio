@@ -1,4 +1,6 @@
 'use client';
+import { useTranslations } from 'next-intl';
+
 import { RevealBox, Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
@@ -8,6 +10,8 @@ import { Timeline } from './components';
 const COLUMN_COUNT = 4;
 
 const SectionExperience = () => {
+  const t = useTranslations('components.pages.portfolio.section-experience');
+
   return (
     <section
       id="id-section-experience"
@@ -31,7 +35,7 @@ const SectionExperience = () => {
               className="text-text-inverse"
               strokeWidth="6"
             />
-            <Text variant="muted">Experience(04)</Text>
+            <Text variant="muted">{t('title')}</Text>
           </div>
           <RevealBox direction="left">
             <Text
@@ -39,7 +43,7 @@ const SectionExperience = () => {
               size="xxxl_bold"
               className="block leading-[0.8] tracking-tight uppercase"
             >
-              Experience.
+              {t('hero_title')}
             </Text>
           </RevealBox>
         </div>

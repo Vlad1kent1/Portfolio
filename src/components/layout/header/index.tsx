@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { AnimatedButton, DecorativeBox, Text } from '@/components/ui';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
@@ -13,6 +15,7 @@ export const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   const scrollTo = useScrollTo();
+  const t = useTranslations('components.layout.header');
 
   const isHomePage = pathname === '/';
 
@@ -30,8 +33,8 @@ export const Header = () => {
                 size="base_bold"
                 className="flex shrink-0 flex-col items-start leading-tight uppercase underline-offset-1"
               >
-                <span>Karabinovych</span>
-                <span>Vladyslav</span>
+                <span>{t('last_name')}</span>
+                <span>{t('first_name')}</span>
               </Text>
             </div>
 
@@ -50,7 +53,7 @@ export const Header = () => {
                     : router.push('/#id-section-contact');
                 }}
               >
-                <AnimatedButton.Text>Book a call</AnimatedButton.Text>
+                <AnimatedButton.Text>{t('book_a_call')}</AnimatedButton.Text>
                 <AnimatedButton.Icon>
                   <ArrowRight size={16} />
                 </AnimatedButton.Icon>

@@ -1,8 +1,321 @@
 {
-  "HomePage": {
-    "title": "Ciao mondo!"
+  "pages": {
+    "ui-kit": {
+      "title": "UI Kit",
+      "sections": {
+        "colours": {
+          "title": "Colours",
+          "background": "Background",
+          "background_inverse": "BG Inverse",
+          "surface": "Surface",
+          "foreground": "Foreground",
+          "text": "Text",
+          "text_inverse": "Text Inverse",
+          "muted": "Muted",
+          "muted_inverse": "Muted Inverse",
+          "contrast": "Contrast"
+        },
+        "texts": {
+          "title": "Texts",
+          "default": "Default",
+          "inverse": "Inverse",
+          "muted": "Muted",
+          "muted_inverse": "Muted Inverse",
+          "contrast": "Contrast",
+          "xs_normal": "XS-normal",
+          "xs_semibold": "XS-normal",
+          "sm_medium": "SM-medium",
+          "base_normal": "Base-normal",
+          "base_bold": "Base-bold",
+          "lg_normal": "LG-normal",
+          "xl_normal": "XL-normal",
+          "xl_bold": "XL-bold",
+          "xxl_bold": "2XL-bold",
+          "xxxl_bold": "3XL-bold"
+        },
+        "buttons": {
+          "title": "Buttons",
+          "default": "Default",
+          "ghost": "Ghost",
+          "outline": "Outline",
+          "disabled": "Disabled",
+          "animated": "Animated"
+        },
+        "calendar": {
+          "title": "Calendar & DatePicker",
+          "time_placeholder": "06:30"
+        },
+        "fields": {
+          "title": "Fields (orientation)",
+          "vertical_field": "Vertical field",
+          "horizontal_field": "Horizontal field",
+          "description": "Tutte le transazioni sono sicure e crittografate",
+          "submit": "Invia",
+          "name": "Nome",
+          "email": "Email"
+        },
+        "inputs": {
+          "title": "Inputs",
+          "default": "Default",
+          "disabled": "Disabled",
+          "invalid": "Invalid",
+          "placeholder": "Scrivi qualcosa...",
+          "disabled_placeholder": "Scrittura disabilitata",
+          "invalid_placeholder": "Valore non valido"
+        },
+        "popover": {
+          "title": "Popover",
+          "trigger": "Apri popover",
+          "content": "Il contenuto del popover va qui.",
+          "close": "Chiudi popover"
+        },
+        "select": {
+          "title": "Select",
+          "placeholder": "Scegli un frutto",
+          "apple": "Mela",
+          "banana": "Banana",
+          "orange": "Arancia"
+        },
+        "separator": {
+          "title": "Separator"
+        },
+        "tabs": {
+          "title": "Tabs",
+          "horizontal": "Orizzontale",
+          "vertical": "Verticale",
+          "tab_1": "Tab 1",
+          "tab_2": "Tab 2",
+          "tab_3": "Tab 3",
+          "content_tab_1": "Contenuto per la Tab 1",
+          "content_tab_2": "Contenuto per la Tab 2",
+          "content_tab_3": "Contenuto per la Tab 3"
+        },
+        "textarea": {
+          "title": "Textarea",
+          "placeholder": "Scrivi qualcosa..."
+        },
+        "tooltip": {
+          "title": "Tooltip",
+          "right": "Destra",
+          "top": "Sopra",
+          "bottom": "Sotto",
+          "left": "Sinistra",
+          "content": "Contenuto del tooltip"
+        },
+        "sonner": {
+          "title": "Sonner",
+          "default": "Default",
+          "success": "Successo",
+          "info": "Info",
+          "warning": "Avviso",
+          "error": "Errore",
+          "promise": "Promessa",
+          "default_toast": "L'evento è stato creato",
+          "success_toast": "L'evento è stato creato",
+          "info_toast": "Presentarsi 10 minuti prima dell'inizio dell'evento",
+          "warning_toast": "L'evento non può iniziare prima delle 08:00",
+          "error_toast": "L'evento non è stato creato",
+          "loading": "Caricamento...",
+          "event_name": "Evento",
+          "promise_success": "{name} è stato creato",
+          "promise_error": "Errore"
+        }
+      }
+    }
   },
-  "Date-Picker": {
-    "placeholder": "Scegli una data"
+
+  "components": {
+    "layout": {
+      "intro": {
+        "last_name": "KARABINOVYCH",
+        "first_name": "VLADYSLAV"
+      },
+      "header": {
+        "last_name": "Karabinovych",
+        "first_name": "Vladyslav",
+        "book_a_call": "Prenota una chiamata",
+        "components": {
+          "tabs-navigation": {
+            "home": "Home",
+            "about": "Chi sono",
+            "projects": "Progetti",
+            "experience": "Esperienza"
+          }
+        }
+      },
+      "footer": {
+        "last_name": "Karabinovych",
+        "first_name": "Vladyslav",
+        "description": "CREO ESPERIENZE DIGITALI PENSATE SU CHIAREZZA, SCOPO E PRECISIONE.",
+        "follow_on": "Seguimi su",
+        "book_a_call": "Prenota una chiamata",
+        "components": {
+          "buttons-navigation": {
+            "home": "Home",
+            "about": "Chi sono",
+            "projects": "Progetti",
+            "experience": "Esperienza",
+            "components": "Componenti"
+          },
+          "branding": {
+            "last_name": "KARABINOVYCH",
+            "first_name": "VLADYSLAV"
+          },
+          "tic-tac-toc": {
+            "win": "Congratulazioni, hai vinto!",
+            "lose": "NO, VINCERÒ IO.",
+            "draw": "È un pareggio!",
+            "play_again": "Gioca di nuovo"
+          }
+        }
+      }
+    },
+    "pages": {
+      "portfolio": {
+        "section-home": {
+          "components": {
+            "branding": {
+              "last_name": "KARABINOVYCH",
+              "first_name": "VLADYSLAV"
+            },
+            "info-block": {
+              "info": [
+                {
+                  "title": "Posizione",
+                  "body": "L'Aquila, IT"
+                },
+                {
+                  "title": "Settore",
+                  "body": "Sviluppo Software"
+                },
+                {
+                  "title": "Stack Principale",
+                  "body": "React, Node.js, Postgresql"
+                },
+                {
+                  "title": "Approccio",
+                  "body": "Precisione Matematica"
+                }
+              ]
+            }
+          }
+        },
+        "section-about": {
+          "title": "Chi sono (02)",
+          "components": {
+            "main-content": {
+              "intro": "SONO UNO SVILUPPATORE FULL-STACK CON UN BACKGROUND IN MATEMATICA APPLICATA, ATTUALMENTE BASATO IN ITALIA. LAVORO CON TYPESCRIPT E NEXT.JS PER CREARE APPLICAZIONI WEB SCALABILI E AD ALTE PRESTAZIONI. MI PIACE PRENDERE ARCHITETTURE LOGICHE COMPLESSE E TRADURLE IN CODICE PULITO, MANTENIBILE E STRUTTURATO.",
+              "supporting_text": "PROGETTO SISTEMI CHE SONO TANTO ROBUSTI SOTTO IL COFANO QUANTO INTUITIVI IN SUPERFICIE. PRECISI, SCALABILI E COSTRUITI PER PERFORMARE."
+            },
+            "additional-content": {
+              "content": "SCRIVO CODICE PULITO IN MODO CHE TUTTO SEMBRI ALLINEATO E INTENZIONALE. IL MIO OBIETTIVO È SEMPRE LO STESSO: PROGETTARE SOFTWARE CHE RISOLVA PROBLEMI REALI, FUNZIONI IN MODO ECCEZIONALE E DURI NEL TEMPO."
+            },
+            "driven-result": {
+              "eyebrow": "Orientato ai Risultati",
+              "headline_part_1": "L'ESTETICA INCONTRA GLI ALGORITMI.",
+              "headline_part_2": "MISURARE L'IMPATTO DIETRO LO SVILUPPO."
+            },
+            "metrics-overview": {
+              "metrics_data": [
+                {
+                  "value": "12+",
+                  "label": "TECNOLOGIE CORE",
+                  "description": "Competente nei moderni stack ingegneristici, inclusi PostgreSQL, Supabase e nell'integrazione di complesse API di terze parti."
+                },
+                {
+                  "value": "1.5+",
+                  "label": "ANNI DI ESPERIENZA",
+                  "description": "Sviluppo full-stack commerciale per la creazione di applicazioni web scalabili utilizzando TypeScript, React, Next.js e Node.js."
+                },
+                {
+                  "value": "3",
+                  "label": "TITOLI ACCADEMICI",
+                  "description": "Unisco l'Informatica all'Ingegneria Matematica per fornire soluzioni ottimizzate a livello algoritmico."
+                },
+                {
+                  "value": "100%",
+                  "label": "MIGRAZIONE FULL-CODE",
+                  "description": "Ho guidato con successo la transizione da piattaforme legacy low-code ad ambienti TypeScript robusti e scalabili."
+                }
+              ]
+            }
+          }
+        },
+        "section-projects": {
+          "title": "Progetti (03)",
+          "intro_part_1": "Lavori ",
+          "intro_part_2": "in",
+          "intro_part_3": "Fase di Sviluppo.",
+          "headline_1": "Architettura definita.",
+          "headline_2": "Il codice reale verrà distribuito a breve."
+        },
+        "section-experience": {
+          "title": "Esperienza (04)",
+          "hero_title": "Esperienza.",
+          "components": {
+            "timeline": {
+              "to_be_continued": "Continua...",
+              "experience": [
+                {
+                  "id": "udex",
+                  "company": "UDEX",
+                  "role": "Sviluppatore Full-stack",
+                  "period": "07/2024 — 11/2025",
+                  "duties": [
+                    "Sviluppo di applicazioni web utilizzando TypeScript, React e Node.js per automatizzare i flussi di lavoro finanziari.",
+                    "Progettazione di database PostgreSQL e gestione dell'architettura delle funzionalità principali con Supabase.",
+                    "Integrazione di gateway di pagamento Stripe e complesse API di terze parti per transazioni senza interruzioni.",
+                    "Migrazione di applicazioni legacy da piattaforme low-code a un ambiente TypeScript ad alte prestazioni."
+                  ]
+                },
+                {
+                  "id": "softserve",
+                  "company": "SoftServe ITA Student",
+                  "role": "Sviluppatore Ruby (Stage)",
+                  "period": "05/2023 — 08/2023",
+                  "duties": [
+                    "Progettazione e sviluppo di una piattaforma web incentrata sulla sostenibilità utilizzando Ruby on Rails.",
+                    "Ottimizzazione della compilazione degli asset front-end attraverso una migrazione da Webpacker a Importmap.",
+                    "Creazione di componenti di interfaccia responsive utilizzando le utility del framework Bootstrap.",
+                    "Garanzia di completa compatibilità cross-browser e miglioramento dell'accessibilità dell'interfaccia utente."
+                  ]
+                }
+              ]
+            },
+            "timeline-item": {
+              "logo_alt": "Logo di {company}"
+            }
+          }
+        },
+        "section-contact": {
+          "title": "Contatti (05)",
+          "intro_part_1": "Per favore, ",
+          "intro_part_2": "ignora ",
+          "intro_part_3": "questo.",
+          "name": "Karabinovych Vladyslav",
+          "role": "Sviluppatore Full-stack",
+          "invitation": "Sono sempre aperto a collaborazioni e sfide creative.",
+          "components": {
+            "form-contact": {
+              "name": "Nome",
+              "email": "Email",
+              "phone": "Telefono",
+              "message": "Messaggio",
+              "name_placeholder": "Mario Rossi",
+              "email_placeholder": "tua@email.com",
+              "phone_placeholder": "+00 000 000 000",
+              "message_placeholder": "Il tuo messaggio qui...",
+              "reply_notice": "Di solito rispondo entro 24 ore.",
+              "submit": "INVIA RICHIESTA"
+            }
+          }
+        }
+      }
+    },
+    "ui": {
+      "date-picker": {
+        "placeholder": "Scegli una data"
+      }
+    }
   }
 }

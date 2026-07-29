@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { DecorativeBox, RevealBox, Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
@@ -9,6 +11,8 @@ import { FormContact } from './components';
 const COLUMN_COUNT = 4;
 
 const SectionContact = () => {
+  const t = useTranslations('components.pages.portfolio.section-contact');
+
   return (
     <section
       id="id-section-contact"
@@ -32,17 +36,19 @@ const SectionContact = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">Contact(05)</Text>
+            <Text variant="muted">{t('title')}</Text>
           </div>
           <RevealBox direction="left">
             <Text
               size="xxxl_bold"
               className="block leading-[0.8] tracking-tight uppercase"
             >
-              <span className="text-muted">Please </span>
-              <span>ignore </span>
+              <span className="text-muted">{t('intro_part_1')}</span>
+              <span>{t('intro_part_2')}</span>
               <br />
-              <span className="inline-block whitespace-nowrap">this.</span>
+              <span className="inline-block whitespace-nowrap">
+                {t('intro_part_3')}
+              </span>
             </Text>
           </RevealBox>
         </div>
@@ -63,15 +69,15 @@ const SectionContact = () => {
               <div className="flex w-full flex-row items-start justify-start gap-3">
                 <span className="bg-contrast h-10 w-10 rounded-full" />
                 <div className="flex flex-col items-start justify-center">
-                  <Text>Karabinovych Vladyslav</Text>
-                  <Text variant="muted">Full-stack developer</Text>
+                  <Text>{t('name')}</Text>
+                  <Text variant="muted">{t('role')}</Text>
                 </div>
               </div>
               <Text
                 size="base_bold"
                 className="leading-[1.15em] tracking-tight"
               >
-                I’m always open to collaborations and creative challenges.
+                {t('invitation')}
               </Text>
             </RevealBox>
           </DecorativeBox>

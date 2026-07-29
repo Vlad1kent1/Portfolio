@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { DecorativeBox, RevealBox, Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
@@ -7,6 +9,10 @@ import { Dot } from 'lucide-react';
 const COLUMN_COUNT = 2;
 
 const DrivenResult = () => {
+  const t = useTranslations(
+    'components.pages.portfolio.section-about.components.driven-result',
+  );
+
   return (
     <div className="border-muted divide-muted grid w-full flex-1 grid-cols-4 items-stretch divide-x border-x">
       {/* Column 1 & 2 */}
@@ -52,14 +58,14 @@ const DrivenResult = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">Driven Result</Text>
+            <Text variant="muted">{t('eyebrow')}</Text>
           </div>
           <Text
             size="xxl_bold"
             className="block px-3 leading-[0.8] tracking-tight uppercase"
           >
-            <span className="text-muted">AESTHETICS MEET ALGORITHMS.</span>{' '}
-            <br /> MEASURING THE IMPACT BEHIND THE BUILD.
+            <span className="text-muted">{t('headline_part_1')}</span> <br />{' '}
+            {t('headline_part_2')}
           </Text>
         </RevealBox>
       </div>

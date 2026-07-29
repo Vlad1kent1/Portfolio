@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { AnimatedButton, DecorativeBox, Text } from '@/components/ui';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
@@ -10,6 +12,7 @@ import { useScrollTo } from '@/hooks/use-scroll-to';
 import { Branding, ButtonsNavigation, TicTacToe } from './components';
 
 export const Footer = () => {
+  const t = useTranslations('components.layout.footer');
   const pathname = usePathname();
   const router = useRouter();
   const scrollTo = useScrollTo();
@@ -38,16 +41,15 @@ export const Footer = () => {
                 size="base_bold"
                 className="flex shrink-0 flex-col items-start leading-tight uppercase underline-offset-1"
               >
-                <span>Karabinovych</span>
-                <span>Vladyslav</span>
+                <span>{t('last_name')}</span>
+                <span>{t('first_name')}</span>
               </Text>
             </div>
             <Text
               size="sm_medium"
               className="text-muted max-w-[30ch]"
             >
-              CRAFTING THOUGHTFUL DIGITAL EXPERIENCES BUILT ON CLARITY, PURPOSE,
-              AND PRECISION.
+              {t('description')}
             </Text>
           </div>
 
@@ -61,7 +63,7 @@ export const Footer = () => {
               size="xs_semibold"
               className="text-muted mb-2 tracking-widest uppercase"
             >
-              Follow on
+              {t('follow_on')}
             </Text>
             {socialLinks.map((link) => (
               <a
@@ -96,7 +98,7 @@ export const Footer = () => {
                     : router.push('/#id-section-contact');
                 }}
               >
-                <AnimatedButton.Text>Book a call</AnimatedButton.Text>
+                <AnimatedButton.Text>{t('book_a_call')}</AnimatedButton.Text>
                 <AnimatedButton.Icon>
                   <ArrowRight size={16} />
                 </AnimatedButton.Icon>

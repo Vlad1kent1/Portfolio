@@ -1,10 +1,16 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { AnimatedTextScrollReveal } from '@/components/ui';
 
 const COLUMN_COUNT = 2;
 
 const AdditionalContent = () => {
+  const t = useTranslations(
+    'components.pages.portfolio.section-about.components.additional-content',
+  );
+
   return (
     <div className="border-muted divide-muted grid w-full flex-1 grid-cols-4 items-stretch divide-x border-x">
       {/* Column 1 & 2 */}
@@ -24,9 +30,7 @@ const AdditionalContent = () => {
             className="px-3 leading-[0.8] uppercase"
             offset={['start 55%', 'end 50%']}
           >
-            WRITING CLEAN CODE SO EVERYTHING FEELS ALIGNED AND INTENTIONAL. MY
-            GOAL IS ALWAYS THE SAME: TO ARCHITECT SOFTWARE THAT SOLVES REAL
-            PROBLEMS, WORKS EXCEPTIONALLY WELL, AND LASTS.
+            {t('content')}
           </AnimatedTextScrollReveal>
         </div>
       </div>

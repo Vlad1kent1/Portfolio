@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { RevealBox, Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
@@ -7,6 +9,8 @@ import { Dot } from 'lucide-react';
 const COLUMN_COUNT = 4;
 
 const SectionProjects = () => {
+  const t = useTranslations('components.pages.portfolio.section-projects');
+
   return (
     <section
       id="id-section-projects"
@@ -30,16 +34,18 @@ const SectionProjects = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">Projects(03)</Text>
+            <Text variant="muted">{t('title')}</Text>
           </div>
           <RevealBox direction="left">
             <Text
               size="xxxl_bold"
               className="block leading-[0.8] tracking-tight uppercase"
             >
-              <span className="ml-1">Work </span>
-              <span>in</span>
-              <span className="block whitespace-nowrap">Pipeline.</span>
+              <span className="ml-1">{t('intro_part_1')}</span>
+              <span>{t('intro_part_2')}</span>
+              <span className="block whitespace-nowrap">
+                {t('intro_part_3')}
+              </span>
             </Text>
           </RevealBox>
         </div>
@@ -65,13 +71,13 @@ const SectionProjects = () => {
             size="xxxl_bold"
             className="text-muted text-center leading-[0.8]"
           >
-            Architecture mapped out.
+            {t('headline_1')}
           </Text>
           <Text
             size="xxxl_bold"
             className="text-muted text-center leading-[0.8]"
           >
-            Real code is deploying soon.
+            {t('headline_2')}
           </Text>
         </RevealBox>
       </div>

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { useTranslations } from 'next-intl';
+
 import {
   AnimatedButton,
   Field,
@@ -19,6 +21,10 @@ import { ArrowRight } from 'lucide-react';
 const COLUMN_COUNT = 2;
 
 const FormContact = () => {
+  const t = useTranslations(
+    'components.pages.portfolio.section-contact.components.form-contact',
+  );
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -63,11 +69,11 @@ const FormContact = () => {
           <FieldGroup>
             {/* Name */}
             <Field orientation="vertical">
-              <FieldLabel htmlFor="Name">Name</FieldLabel>
+              <FieldLabel htmlFor="Name">{t('name')}</FieldLabel>
               <FieldContent className="bg-background">
                 <Input
                   type="text"
-                  placeholder="Jane Smith"
+                  placeholder={t('name_placeholder')}
                   required
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
@@ -78,11 +84,11 @@ const FormContact = () => {
             <div className="flex w-full flex-row">
               {/* Email */}
               <Field orientation="vertical">
-                <FieldLabel htmlFor="Email">Email</FieldLabel>
+                <FieldLabel htmlFor="Email">{t('email')}</FieldLabel>
                 <FieldContent>
                   <Input
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder={t('email_placeholder')}
                     required
                     value={formData.email}
                     onChange={(e) => handleChange('email', e.target.value)}
@@ -92,11 +98,11 @@ const FormContact = () => {
 
               {/* Phone */}
               <Field orientation="vertical">
-                <FieldLabel htmlFor="Phone">Phone</FieldLabel>
+                <FieldLabel htmlFor="Phone">{t('phone')}</FieldLabel>
                 <FieldContent>
                   <Input
                     type="tel"
-                    placeholder="+00 000 000 000"
+                    placeholder={t('phone_placeholder')}
                     required
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
@@ -107,10 +113,10 @@ const FormContact = () => {
 
             {/* Message */}
             <Field orientation="vertical">
-              <FieldLabel htmlFor="Message">Message</FieldLabel>
+              <FieldLabel htmlFor="Message">{t('message')}</FieldLabel>
               <FieldContent className="bg-background">
                 <Textarea
-                  placeholder="Your message here..."
+                  placeholder={t('message_placeholder')}
                   required
                   value={formData.message}
                   onChange={(e) => handleChange('message', e.target.value)}
@@ -123,7 +129,7 @@ const FormContact = () => {
               variant="muted"
               className="col-span-1 flex-col items-start justify-center p-3 leading-[1.15em] tracking-tight uppercase"
             >
-              I usually reply within 24 hours.
+              {t('reply_notice')}
             </Text>
 
             <AnimatedButton
@@ -142,7 +148,7 @@ const FormContact = () => {
                 sessionStorage.removeItem('contactFormData');
               }}
             >
-              <AnimatedButton.Text>SEND REQUEST</AnimatedButton.Text>
+              <AnimatedButton.Text>{t('submit')}</AnimatedButton.Text>
               <AnimatedButton.Icon>
                 <ArrowRight size={16} />
               </AnimatedButton.Icon>

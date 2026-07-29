@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import {
   AnimatedTextScrollReveal,
   DecorativeBox,
@@ -10,6 +12,10 @@ import {
 const COLUMN_COUNT = 2;
 
 const MainContent = () => {
+  const t = useTranslations(
+    'components.pages.portfolio.section-about.components.main-content',
+  );
+
   return (
     <div className="border-muted divide-muted grid w-full flex-1 grid-cols-4 items-stretch divide-x border-x">
       {/* Column 1 & 2 */}
@@ -29,11 +35,7 @@ const MainContent = () => {
             size="xxl_bold"
             className="px-3 leading-[0.8] uppercase"
           >
-            I’M A FULL-STACK DEVELOPER WITH A BACKGROUND IN APPLIED MATHEMATICS,
-            CURRENTLY BASED IN ITALY. I WORK WITH TYPESCRIPT AND NEXT.JS TO
-            BUILD WEB APPLICATIONS THAT ARE SCALABLE AND HIGHLY PERFORMANT. I
-            ENJOY TAKING COMPLEX LOGICAL ARCHITECTURES AND TRANSLATING THEM INTO
-            CLEAN, MAINTAINABLE, AND STRUCTURED CODE.
+            {t('intro')}
           </AnimatedTextScrollReveal>
         </div>
       </div>
@@ -60,8 +62,7 @@ const MainContent = () => {
             size="xs_normal"
             className="p-5 text-right uppercase"
           >
-            I ENGINEER SYSTEMS THAT ARE AS ROBUST UNDER THE HOOD AS THEY ARE
-            INTUITIVE ON THE SURFACE. PRECISE, SCALABLE, AND BUILT TO PERFORM.
+            {t('supporting_text')}
           </Text>
         </RevealBox>
       </div>

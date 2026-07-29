@@ -20,15 +20,16 @@ interface ITimelineData {
 }
 
 export const Timeline = () => {
-  const t = useTranslations();
+  const t = useTranslations(
+    'components.pages.portfolio.section-experience.components.timeline',
+  );
 
   const trackStartRef = useRef<HTMLDivElement>(null);
   const lastIconRef = useRef<HTMLDivElement>(null);
 
   const [lineHeight, setLineHeight] = useState<number>(0);
 
-  const experienceData: ITimelineData[] =
-    t.raw('section-experience.experience') || [];
+  const experienceData: ITimelineData[] = t.raw('experience') || [];
 
   const calculateHeight = useCallback(() => {
     if (!trackStartRef.current || !lastIconRef.current) return;
@@ -81,7 +82,7 @@ export const Timeline = () => {
               variant="inverse"
               size="base_bold"
             >
-              To be continued...
+              {t('to_be_continued')}
             </Text>
           </RevealBox>
         </div>

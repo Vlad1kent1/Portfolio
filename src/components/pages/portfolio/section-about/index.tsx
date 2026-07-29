@@ -1,14 +1,23 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Text } from '@/components/ui';
 
 import { Dot } from 'lucide-react';
 
-import { MainContent, AdditionalContent, DrivenResult, MetricsOverview } from './components';
+import {
+  AdditionalContent,
+  DrivenResult,
+  MainContent,
+  MetricsOverview,
+} from './components';
 
 const COLUMN_COUNT = 3;
 
 const SectionAbout = () => {
+  const t = useTranslations('components.pages.portfolio.section-about');
+
   return (
     <section
       id="id-section-about"
@@ -22,7 +31,7 @@ const SectionAbout = () => {
               className="text-text"
               strokeWidth="6"
             />
-            <Text variant="muted">About(02)</Text>
+            <Text variant="muted">{t('title')}</Text>
           </div>
         </div>
 
@@ -38,7 +47,7 @@ const SectionAbout = () => {
       <MainContent />
 
       <AdditionalContent />
-      
+
       <DrivenResult />
 
       <MetricsOverview />

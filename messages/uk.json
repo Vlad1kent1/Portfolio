@@ -1,36 +1,321 @@
 {
-  "HomePage": {
-    "title": "Привіт світ!"
-  },
-  "Date-Picker": {
-    "placeholder": "Виберіть дату"
-  },
-  "section-experience": {
-    "experience": [
-      {
-        "id": "udex",
-        "company": "UDEX",
-        "role": "Full-stack Developer",
-        "period": "07/2024 — 11/2025",
-        "duties": [
-          "Розробка веб-додатків на TypeScript, React та Node.js для автоматизації фінансових операцій.",
-          "Проєктування баз даних PostgreSQL та керування архітектурою на базі Supabase.",
-          "Інтеграція платіжних шлюзів Stripe та складних сторонніх API для бізнес-процесів.",
-          "Міграція застарілих рішень з low-code платформ на повноцінний TypeScript стек."
-        ]
-      },
-      {
-        "id": "softserve",
-        "company": "SoftServe ITA Student",
-        "role": "Ruby Developer (Internship)",
-        "period": "05/2023 — 08/2023",
-        "duties": [
-          "Архітектура та розробка екологічної веб-платформи з використанням Ruby on Rails.",
-          "Оптимізація збірки фронтенду через успішну міграцію з Webpacker на Importmap.",
-          "Створення адаптивних компонентів інтерфейсу за допомогою фреймворку Bootstrap.",
-          "Забезпечення кросбраузерної сумісності та покращення доступності (accessibility) UI."
-        ]
+  "pages": {
+    "ui-kit": {
+      "title": "UI Kit",
+      "sections": {
+        "colours": {
+          "title": "Colours",
+          "background": "Background",
+          "background_inverse": "BG Inverse",
+          "surface": "Surface",
+          "foreground": "Foreground",
+          "text": "Text",
+          "text_inverse": "Text Inverse",
+          "muted": "Muted",
+          "muted_inverse": "Muted Inverse",
+          "contrast": "Contrast"
+        },
+        "texts": {
+          "title": "Texts",
+          "default": "Default",
+          "inverse": "Inverse",
+          "muted": "Muted",
+          "muted_inverse": "Muted Inverse",
+          "contrast": "Contrast",
+          "xs_normal": "XS-normal",
+          "xs_semibold": "XS-normal",
+          "sm_medium": "SM-medium",
+          "base_normal": "Base-normal",
+          "base_bold": "Base-bold",
+          "lg_normal": "LG-normal",
+          "xl_normal": "XL-normal",
+          "xl_bold": "XL-bold",
+          "xxl_bold": "2XL-bold",
+          "xxxl_bold": "3XL-bold"
+        },
+        "buttons": {
+          "title": "Buttons",
+          "default": "Default",
+          "ghost": "Ghost",
+          "outline": "Outline",
+          "disabled": "Disabled",
+          "animated": "Animated"
+        },
+        "calendar": {
+          "title": "Calendar & DatePicker",
+          "time_placeholder": "06:30"
+        },
+        "fields": {
+          "title": "Fields (orientation)",
+          "vertical_field": "Vertical field",
+          "horizontal_field": "Horizontal field",
+          "description": "Усі транзакції безпечні та зашифровані",
+          "submit": "Відправити",
+          "name": "Ім'я",
+          "email": "Email"
+        },
+        "inputs": {
+          "title": "Inputs",
+          "default": "Default",
+          "disabled": "Disabled",
+          "invalid": "Invalid",
+          "placeholder": "Напишіть щось...",
+          "disabled_placeholder": "Введення недоступне",
+          "invalid_placeholder": "Недійсне значення"
+        },
+        "popover": {
+          "title": "Popover",
+          "trigger": "Відкрити popover",
+          "content": "Тут розміщується вміст popover.",
+          "close": "Закрити popover"
+        },
+        "select": {
+          "title": "Select",
+          "placeholder": "Виберіть фрукт",
+          "apple": "Яблуко",
+          "banana": "Банан",
+          "orange": "Апельсин"
+        },
+        "separator": {
+          "title": "Separator"
+        },
+        "tabs": {
+          "title": "Tabs",
+          "horizontal": "Горизонтальні",
+          "vertical": "Вертикальні",
+          "tab_1": "Вкладка 1",
+          "tab_2": "Вкладка 2",
+          "tab_3": "Вкладка 3",
+          "content_tab_1": "Вміст для вкладки 1",
+          "content_tab_2": "Вміст для вкладки 2",
+          "content_tab_3": "Вміст для вкладки 3"
+        },
+        "textarea": {
+          "title": "Textarea",
+          "placeholder": "Напишіть щось..."
+        },
+        "tooltip": {
+          "title": "Tooltip",
+          "right": "Праворуч",
+          "top": "Зверху",
+          "bottom": "Знизу",
+          "left": "Ліворуч",
+          "content": "Вміст підказки"
+        },
+        "sonner": {
+          "title": "Sonner",
+          "default": "Default",
+          "success": "Успіх",
+          "info": "Інформація",
+          "warning": "Попередження",
+          "error": "Помилка",
+          "promise": "Promise",
+          "default_toast": "Подію створено",
+          "success_toast": "Подію створено",
+          "info_toast": "Будьте на місці за 10 хвилин до початку",
+          "warning_toast": "Подія не може початися раніше 08:00",
+          "error_toast": "Подію не було створено",
+          "loading": "Завантаження...",
+          "event_name": "Подія",
+          "promise_success": "{name} було створено",
+          "promise_error": "Помилка"
+        }
       }
-    ]
+    }
+  },
+
+  "components": {
+    "layout": {
+      "intro": {
+        "last_name": "KARABINOVYCH",
+        "first_name": "VLADYSLAV"
+      },
+      "header": {
+        "last_name": "Karabinovych",
+        "first_name": "Vladyslav",
+        "book_a_call": "Замовити дзвінок",
+        "components": {
+          "tabs-navigation": {
+            "home": "Головна",
+            "about": "Про мене",
+            "projects": "Проєкти",
+            "experience": "Досвід"
+          }
+        }
+      },
+      "footer": {
+        "last_name": "Karabinovych",
+        "first_name": "Vladyslav",
+        "description": "СТВОРЮЮ ПРОДУМАНИЙ ЦИФРОВИЙ ДОСВІД, ПОБУДОВАНИЙ НА ЧІТКОСТІ, МЕТІ ТА ТОЧНОСТІ.",
+        "follow_on": "Слідкуйте за мною",
+        "book_a_call": "Замовити дзвінок",
+        "components": {
+          "buttons-navigation": {
+            "home": "Головна",
+            "about": "Про мене",
+            "projects": "Проєкти",
+            "experience": "Досвід",
+            "components": "Компоненти"
+          },
+          "branding": {
+            "last_name": "KARABINOVYCH",
+            "first_name": "VLADYSLAV"
+          },
+          "tic-tac-toc": {
+            "win": "Вітаємо, ви виграли!",
+            "lose": "НІ, ПЕРЕМІГ Я.",
+            "draw": "Нічия!",
+            "play_again": "Грати знову"
+          }
+        }
+      }
+    },
+    "pages": {
+      "portfolio": {
+        "section-home": {
+          "components": {
+            "branding": {
+              "last_name": "KARABINOVYCH",
+              "first_name": "VLADYSLAV"
+            },
+            "info-block": {
+              "info": [
+                {
+                  "title": "Локація",
+                  "body": "Л'Аквіла, Італія"
+                },
+                {
+                  "title": "Сфера",
+                  "body": "Розробка ПЗ"
+                },
+                {
+                  "title": "Основний стек",
+                  "body": "React, Node.js, Postgresql"
+                },
+                {
+                  "title": "Підхід",
+                  "body": "Математична точність"
+                }
+              ]
+            }
+          }
+        },
+        "section-about": {
+          "title": "Про мене (02)",
+          "components": {
+            "main-content": {
+              "intro": "Я FULL-STACK РОЗРОБНИК ІЗ БЕКГРАУНДОМ У ПРИКЛАДНІЙ МАТЕМАТИЦІ, ЗАРАЗ БАЗУЮСЬ В ІТАЛІЇ. ПРАЦЮЮ З TYPESCRIPT ТА NEXT.JS ДЛЯ СТВОРЕННЯ МАСШТАБОВАНИХ І ВИСОКОПРОДУКТИВНИХ ВЕБДОДАТКІВ. МЕНІ ПОДОБАЄТЬСЯ БРАТИ СКЛАДНІ ЛОГІЧНІ АРХІТЕКТУРИ ТА ПЕРЕТВОРЮВАТИ ЇХ НА ЧИСТИЙ, СТРУКТУРОВАНИЙ КОД, ЯКИЙ ЛЕГКО ПІДТРИМУВАТИ.",
+              "supporting_text": "Я ПРОЄКТУЮ СИСТЕМИ, ЯКІ Є НАДІЙНИМИ ПІД КАПОТОМ І ВОДНОЧАС ІНТУЇТИВНО ЗРОЗУМІЛИМИ НА ПОВЕРХНІ. ТОЧНІ, МАСШТАБОВАНІ ТА СТВОРЕНІ ДЛЯ ПРОДУКТИВНОСТІ."
+            },
+            "additional-content": {
+              "content": "ПИШУ ЧИСТИЙ КОД ТАК, ЩОБ УСЕ ВИГЛЯДАЛО УЗГОДЖЕНИМ І ЦІЛЕСПРЯМОВАНИМ. МОЯ МЕТА ЗАВЖДИ НЕЗМІННА: ПРОЄКТУВАТИ ПРОГРАМНЕ ЗАБЕЗПЕЧЕННЯ, ЯКЕ ВИРІШУЄ РЕАЛЬНІ ПРОБЛЕМИ, ВІДМІННО ПРАЦЮЄ ТА ПРОСЛУЖИТЬ ДОВГО."
+            },
+            "driven-result": {
+              "eyebrow": "Орієнтація на результат",
+              "headline_part_1": "ЕСТЕТИКА ЗУСТРІЧАЄТЬСЯ З АЛГОРИТМАМИ.",
+              "headline_part_2": "ВИМІРЮВАННЯ ВПЛИВУ, ЩО СТОЇТЬ ЗА РОЗРОБКОЮ."
+            },
+            "metrics-overview": {
+              "metrics_data": [
+                {
+                  "value": "12+",
+                  "label": "ОСНОВНІ ТЕХНОЛОГІЇ",
+                  "description": "Володію сучасними інженерними стеками, зокрема PostgreSQL, Supabase, та інтеграцією складних сторонніх API."
+                },
+                {
+                  "value": "1.5+",
+                  "label": "РОКИ ДОСВІДУ",
+                  "description": "Комерційна full-stack розробка масштабованих вебдодатків за допомогою TypeScript, React, Next.js та Node.js."
+                },
+                {
+                  "value": "3",
+                  "label": "АКАДЕМІЧНІ СТУПЕНІ",
+                  "description": "Поєднання інформатики з інженерною математикою для створення алгоритмічно оптимізованих рішень."
+                },
+                {
+                  "value": "100%",
+                  "label": "ПОВНА МІГРАЦІЯ КОДУ",
+                  "description": "Успішно керував переходами від застарілих low-code платформ до надійних середовищ на базі TypeScript."
+                }
+              ]
+            }
+          }
+        },
+        "section-projects": {
+          "title": "Проєкти (03)",
+          "intro_part_1": "В процесі ",
+          "intro_part_2": "розробки.",
+          "intro_part_3": "",
+          "headline_1": "Архітектуру спроєктовано.",
+          "headline_2": "Реальний код незабаром буде розгорнуто."
+        },
+        "section-experience": {
+          "title": "Досвід (04)",
+          "hero_title": "Досвід.",
+          "components": {
+            "timeline": {
+              "to_be_continued": "Далі буде...",
+              "experience": [
+                {
+                  "id": "udex",
+                  "company": "UDEX",
+                  "role": "Full-stack розробник",
+                  "period": "07/2024 — 11/2025",
+                  "duties": [
+                    "Розробка вебдодатків на TypeScript, React та Node.js для автоматизації фінансових операцій.",
+                    "Проєктування баз даних PostgreSQL та керування архітектурою на базі Supabase.",
+                    "Інтеграція платіжних шлюзів Stripe та складних сторонніх API для безперебійних транзакцій.",
+                    "Міграція застарілих рішень з low-code платформ на високопродуктивний TypeScript стек."
+                  ]
+                },
+                {
+                  "id": "softserve",
+                  "company": "SoftServe ITA Student",
+                  "role": "Ruby розробник (Стажування)",
+                  "period": "05/2023 — 08/2023",
+                  "duties": [
+                    "Проєктування та розробка екологічної вебплатформи з використанням Ruby on Rails.",
+                    "Оптимізація збірки фронтенду через успішну міграцію з Webpacker на Importmap.",
+                    "Створення адаптивних компонентів інтерфейсу за допомогою утиліт фреймворку Bootstrap.",
+                    "Забезпечення повної кросбраузерної сумісності та покращення доступності (accessibility) UI."
+                  ]
+                }
+              ]
+            },
+            "timeline-item": {
+              "logo_alt": "Логотип {company}"
+            }
+          }
+        },
+        "section-contact": {
+          "title": "Контакти (05)",
+          "intro_part_1": "Будь ласка, ",
+          "intro_part_2": "не звертайте ",
+          "intro_part_3": "уваги.",
+          "name": "KARABINOVYCH VLADYSLAV",
+          "role": "Full-stack розробник",
+          "invitation": "Я завжди відкритий до співпраці та творчих викликів.",
+          "components": {
+            "form-contact": {
+              "name": "Ім'я",
+              "email": "Email",
+              "phone": "Телефон",
+              "message": "Повідомлення",
+              "name_placeholder": "Богдан Дарморіс",
+              "email_placeholder": "your@email.com",
+              "phone_placeholder": "+38 000 000 0000",
+              "message_placeholder": "Ваше повідомлення тут...",
+              "reply_notice": "Зазвичай я відповідаю протягом 24 годин.",
+              "submit": "НАДІСЛАТИ ЗАПИТ"
+            }
+          }
+        }
+      }
+    },
+    "ui": {
+      "date-picker": {
+        "placeholder": "Виберіть дату"
+      }
+    }
   }
 }

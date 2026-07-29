@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { AnimatedButton } from '@/components/ui';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
@@ -8,6 +10,9 @@ import { ArrowRight } from 'lucide-react';
 import { useScrollTo } from '@/hooks/use-scroll-to';
 
 const ButtonsNavigation = () => {
+  const t = useTranslations(
+    'components.layout.footer.components.buttons-navigation',
+  );
   const pathname = usePathname();
   const router = useRouter();
   const scrollTo = useScrollTo();
@@ -15,11 +20,11 @@ const ButtonsNavigation = () => {
   const isHomePage = pathname === '/';
 
   const FOOTER_LINKS = [
-    { name: 'Home', target: 'id-section-home', type: 'scroll' },
-    { name: 'About', target: 'id-section-about', type: 'scroll' },
-    { name: 'Projects', target: 'id-section-projects', type: 'scroll' },
-    { name: 'Experience', target: 'id-section-experience', type: 'scroll' },
-    { name: 'Components', target: '/ui-kit', type: 'route' },
+    { name: t('home'), target: 'id-section-home', type: 'scroll' },
+    { name: t('about'), target: 'id-section-about', type: 'scroll' },
+    { name: t('projects'), target: 'id-section-projects', type: 'scroll' },
+    { name: t('experience'), target: 'id-section-experience', type: 'scroll' },
+    { name: t('components'), target: '/ui-kit', type: 'route' },
   ];
 
   const handleAction = (item: (typeof FOOTER_LINKS)[number]) => {

@@ -2,23 +2,28 @@
 
 import { useEffect, useState } from 'react';
 
+import { useTranslations } from 'next-intl';
+
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui';
 import { usePathname, useRouter } from '@/i18n/navigation';
 
 import { useScrollSpy } from '@/hooks/use-scroll-spy';
 import { useScrollTo } from '@/hooks/use-scroll-to';
 
-const headerNav = [
-  { name: 'Home', id: 'id-section-home' },
-  { name: 'About', id: 'id-section-about' },
-  { name: 'Projects', id: 'id-section-projects' },
-  { name: 'Experience', id: 'id-section-experience' },
-];
-
 const TabsNavigation = () => {
+  const t = useTranslations(
+    'components.layout.header.components.tabs-navigation',
+  );
   const pathname = usePathname();
   const router = useRouter();
   const scrollTo = useScrollTo();
+
+  const headerNav = [
+    { name: t('home'), id: 'id-section-home' },
+    { name: t('about'), id: 'id-section-about' },
+    { name: t('projects'), id: 'id-section-projects' },
+    { name: t('experience'), id: 'id-section-experience' },
+  ];
 
   const isHomePage = pathname === '/';
 

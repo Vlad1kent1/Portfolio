@@ -1,16 +1,20 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { useLocale, useTranslations } from "next-intl"
-import { format, addDays, startOfToday } from "date-fns"
-import { uk, it, enUS } from "date-fns/locale"
+import * as React from 'react';
 
-import { 
-  Button, 
+import { useLocale, useTranslations } from 'next-intl';
+
+import {
+  Button,
   Calendar,
-  Popover, PopoverContent, PopoverTrigger,
-} from "@/components/ui"
-import { ChevronDownIcon } from "lucide-react"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui';
+import { addDays, format, startOfToday } from 'date-fns';
+import { enUS, it, uk } from 'date-fns/locale';
+
+import { ChevronDownIcon } from 'lucide-react';
 
 const dateFnsLocales = {
   uk: uk,
@@ -19,16 +23,23 @@ const dateFnsLocales = {
 };
 
 const DatePicker = ({ className }: { className?: string }) => {
-  const [date, setDate] = React.useState<Date>()
-  const [open, setOpen] = React.useState(false)
+  const [date, setDate] = React.useState<Date>();
+  const [open, setOpen] = React.useState(false);
 
   const locale = useLocale();
-  const t = useTranslations('Date-Picker');
-  const tomorrow = addDays(startOfToday(), 1)
+  const t = useTranslations('components.ui.date-picker');
+  const tomorrow = addDays(startOfToday(), 1);
 
   return (
-    <Popover modal={true} open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild className={className}>
+    <Popover
+      modal={true}
+      open={open}
+      onOpenChange={setOpen}
+    >
+      <PopoverTrigger
+        asChild
+        className={className}
+      >
         <Button
           variant="outline"
           size="base"
@@ -36,33 +47,37 @@ const DatePicker = ({ className }: { className?: string }) => {
           className="h-fit w-fit min-w-max whitespace-nowrap"
         >
           {date ? (
-            format(date, "PPP", { 
-              locale: dateFnsLocales[locale as keyof typeof dateFnsLocales] || enUS 
+            format(date, 'PPP', {
+              locale:
+                dateFnsLocales[locale as keyof typeof dateFnsLocales] || enUS,
             })
-          ) : <span className="text-muted">{t('placeholder')}</span>}
+          ) : (
+            <span className="text-muted">{t('placeholder')}</span>
+          )}
           <ChevronDownIcon size={14} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent portal={false} className="z-20! w-auto p-0" align="start">
+      <PopoverContent
+        portal={false}
+        className="z-20! w-auto p-0"
+        align="start"
+      >
         <Calendar
           mode="single"
           locale={locale === 'uk' ? uk : locale === 'it' ? it : enUS}
           fixedWeeks
           selected={date}
           onSelect={(date) => {
-            setDate(date)
-            setOpen(false)
+            setDate(date);
+            setOpen(false);
           }}
           defaultMonth={date || tomorrow}
           startMonth={tomorrow}
-          disabled={[
-            { dayOfWeek: [0, 6] },
-            { before: tomorrow },
-          ]}
+          disabled={[{ dayOfWeek: [0, 6] }, { before: tomorrow }]}
         />
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};
 
-export { DatePicker }
+export { DatePicker };

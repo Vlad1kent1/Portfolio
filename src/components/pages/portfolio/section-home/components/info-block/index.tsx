@@ -1,16 +1,21 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { DecorativeBox, Text } from '@/components/ui';
 
 const COLUMN_COUNT = 4;
-const Info = [
-  { title: 'Location', body: "L'Aquila, IT" },
-  { title: 'Field', body: 'Development' },
-  { title: 'Core Stack', body: 'React, Node.js, Postgresql' },
-  { title: 'Approach', body: 'Mathematical Precision' },
-];
+interface IInfo {
+  title: string;
+  body: string;
+}
 
 const InfoBlock = () => {
+  const t = useTranslations(
+    'components.pages.portfolio.section-home.components.info-block',
+  );
+  const INFO: IInfo[] = t.raw('info');
+
   return (
     <div className="bg-backgound relative w-full flex-col px-5">
       <div className="border-muted relative h-full w-full items-stretch border-x">
@@ -30,7 +35,7 @@ const InfoBlock = () => {
             borderOrientation="horizontal"
             className="divide-muted grid w-full grid-cols-4 items-stretch divide-x"
           >
-            {Info.slice(0, 4).map((item) => (
+            {INFO.slice(0, 4).map((item) => (
               <div
                 key={`info-block-${item.title}`}
                 className="flex flex-col gap-2 p-5"

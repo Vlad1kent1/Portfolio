@@ -47,7 +47,7 @@ import { ArrowRight, Info } from 'lucide-react';
 
 export default function UIKitPage() {
   const locale = useLocale();
-  const t = useTranslations('HomePage');
+  const t = useTranslations('pages.ui-kit');
 
   const [openedPopover, setOpenedPopover] = React.useState(false);
 
@@ -75,99 +75,101 @@ export default function UIKitPage() {
 
         {/* Colours */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Colours</Text>
+          <Text size="xl_bold">{t('sections.colours.title')}</Text>
           <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-x-5 gap-y-3">
             <ColorBadge
               variable="--background"
-              label="Background"
+              label={t('sections.colours.background')}
             />
             <ColorBadge
               variable="--background-inverse"
-              label="BG Inverse"
+              label={t('sections.colours.background_inverse')}
             />
             <ColorBadge
               variable="--surface"
-              label="Surface"
+              label={t('sections.colours.surface')}
             />
             <ColorBadge
               variable="--foreground"
-              label="Foreground"
+              label={t('sections.colours.foreground')}
             />
             <ColorBadge
               variable="--text"
-              label="Text"
+              label={t('sections.colours.text')}
             />
             <ColorBadge
               variable="--text-inverse"
-              label="Text Inverse"
+              label={t('sections.colours.text_inverse')}
             />
             <ColorBadge
               variable="--muted"
-              label="Muted"
+              label={t('sections.colours.muted')}
             />
             <ColorBadge
               variable="--muted-inverse"
-              label="Muted Inverse"
+              label={t('sections.colours.muted_inverse')}
             />
             <ColorBadge
               variable="--contrast"
-              label="Contrast"
+              label={t('sections.colours.contrast')}
             />
           </div>
         </section>
 
         {/* Text */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Texts</Text>
+          <Text size="xl_bold">{t('sections.texts.title')}</Text>
           <div className="flex flex-row flex-wrap justify-around gap-x-5 gap-y-3">
-            <Text variant="default">Default</Text>
+            <Text variant="default">{t('sections.texts.default')}</Text>
             <Text
               variant="inverse"
               className="bg-background-inverse px-0.5"
             >
-              Inverse
+              {t('sections.texts.inverse')}
             </Text>
-            <Text variant="muted">Muted</Text>
-            <Text variant="muted_inverse">Muted Inverse</Text>
-            <Text variant="contrast">Contrast</Text>
+            <Text variant="muted">{t('sections.texts.muted')}</Text>
+            <Text variant="muted_inverse">
+              {t('sections.texts.muted_inverse')}
+            </Text>
+            <Text variant="contrast">{t('sections.texts.contrast')}</Text>
           </div>
           <div className="flex flex-row flex-wrap justify-between gap-x-5 gap-y-3">
-            <Text size="xs_normal">XS-normal</Text>
-            <Text size="xs_semibold">XS-normal</Text>
-            <Text size="sm_medium">SM-medium</Text>
-            <Text size="base_normal">Base-normal</Text>
-            <Text size="base_bold">Base-bold</Text>
-            <Text size="lg_normal">LG-normal</Text>
+            <Text size="xs_normal">{t('sections.texts.xs_normal')}</Text>
+            <Text size="xs_semibold">{t('sections.texts.xs_semibold')}</Text>
+            <Text size="sm_medium">{t('sections.texts.sm_medium')}</Text>
+            <Text size="base_normal">{t('sections.texts.base_normal')}</Text>
+            <Text size="base_bold">{t('sections.texts.base_bold')}</Text>
+            <Text size="lg_normal">{t('sections.texts.lg_normal')}</Text>
           </div>
           <div className="flex flex-row flex-wrap justify-between gap-x-5 gap-y-3">
-            <Text size="xl_normal">XL-normal</Text>
-            <Text size="xl_bold">XL-bold</Text>
-            <Text size="xxl_bold">2XL-bold</Text>
-            <Text size="xxxl_bold">3XL-bold</Text>
+            <Text size="xl_normal">{t('sections.texts.xl_normal')}</Text>
+            <Text size="xl_bold">{t('sections.texts.xl_bold')}</Text>
+            <Text size="xxl_bold">{t('sections.texts.xxl_bold')}</Text>
+            <Text size="xxxl_bold">{t('sections.texts.xxxl_bold')}</Text>
           </div>
         </section>
 
         {/* Buttons */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Buttons</Text>
+          <Text size="xl_bold">{t('sections.buttons.title')}</Text>
           <div className="flex flex-wrap justify-between gap-5">
             <Button
               variant="default"
               size="default"
             >
-              Default
+              {t('sections.buttons.default')}
             </Button>
             <Button
               variant="ghost"
               size="default"
             >
-              Ghost
+              {t('sections.buttons.ghost')}
             </Button>
             <Button
               variant="outline"
               size="default"
             >
-              Outline
+              {t('sections.buttons.outline')}
             </Button>
             <Button
               variant="default"
@@ -180,14 +182,14 @@ export default function UIKitPage() {
               size="default"
               disabled
             >
-              Disabled
+              {t('sections.buttons.disabled')}
             </Button>
             <AnimatedButton
               variant="outline"
               size="default"
             >
               <AnimatedButton.Text direction="down">
-                Animated
+                {t('sections.buttons.animated')}
               </AnimatedButton.Text>
               <AnimatedButton.Icon direction="right">
                 <ArrowRight />
@@ -198,7 +200,7 @@ export default function UIKitPage() {
 
         {/* Calendar & DatePicker */}
         <section className="flex w-full flex-col gap-3 p-5">
-          <Text size="xl_bold">Calendar &amp; DatePicker</Text>
+          <Text size="xl_bold">{t('sections.calendar.title')}</Text>
           <div className="flex w-full flex-wrap gap-5">
             <Calendar
               fixedWeeks
@@ -210,7 +212,7 @@ export default function UIKitPage() {
                 type="time"
                 id="time-picker"
                 step="60"
-                placeholder="06:30"
+                placeholder={t('sections.calendar.time_placeholder')}
                 className="bg-background min-w-max flex-1 appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
               />
             </div>
@@ -219,31 +221,35 @@ export default function UIKitPage() {
 
         {/* Fields & Inputs */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Fields (orientation)</Text>
+          <Text size="xl_bold">{t('sections.fields.title')}</Text>
           <div className="flex flex-row flex-wrap gap-5">
             <FieldGroup className="max-w-xl">
               <FieldSet>
-                <FieldLegend>Vertical field</FieldLegend>
+                <FieldLegend>{t('sections.fields.vertical_field')}</FieldLegend>
                 <FieldDescription>
-                  All transactions are secure and encrypted
+                  {t('sections.fields.description')}
                 </FieldDescription>
                 <FieldGroup>
                   <Field orientation="vertical">
-                    <FieldLabel htmlFor="Email">Name</FieldLabel>
+                    <FieldLabel htmlFor="Email">
+                      {t('sections.fields.name')}
+                    </FieldLabel>
                     <FieldContent>
                       <Input
                         type="text"
-                        placeholder="Name"
+                        placeholder={t('sections.fields.name')}
                         required
                       />
                     </FieldContent>
                   </Field>
                   <Field orientation="vertical">
-                    <FieldLabel htmlFor="Email">Email</FieldLabel>
+                    <FieldLabel htmlFor="Email">
+                      {t('sections.fields.email')}
+                    </FieldLabel>
                     <FieldContent>
                       <Input
                         type="email"
-                        placeholder="Email"
+                        placeholder={t('sections.fields.email')}
                         required
                       />
                     </FieldContent>
@@ -257,34 +263,40 @@ export default function UIKitPage() {
                   size="default"
                   className="w-full"
                 >
-                  Submit
+                  {t('sections.fields.submit')}
                 </Button>
               </Field>
             </FieldGroup>
 
             <FieldGroup className="max-w-xl">
               <FieldSet>
-                <FieldLegend>Horizontal field</FieldLegend>
+                <FieldLegend>
+                  {t('sections.fields.horizontal_field')}
+                </FieldLegend>
                 <FieldDescription>
-                  All transactions are secure and encrypted
+                  {t('sections.fields.description')}
                 </FieldDescription>
                 <FieldGroup>
                   <Field orientation="horizontal">
-                    <FieldLabel htmlFor="Email">Name</FieldLabel>
+                    <FieldLabel htmlFor="Email">
+                      {t('sections.fields.name')}
+                    </FieldLabel>
                     <FieldContent>
                       <Input
                         type="text"
-                        placeholder="Name"
+                        placeholder={t('sections.fields.name')}
                         required
                       />
                     </FieldContent>
                   </Field>
                   <Field orientation="horizontal">
-                    <FieldLabel htmlFor="Email">Email</FieldLabel>
+                    <FieldLabel htmlFor="Email">
+                      {t('sections.fields.email')}
+                    </FieldLabel>
                     <FieldContent>
                       <Input
                         type="email"
-                        placeholder="Email"
+                        placeholder={t('sections.fields.email')}
                         required
                       />
                     </FieldContent>
@@ -298,7 +310,7 @@ export default function UIKitPage() {
                   size="default"
                   className="w-full"
                 >
-                  Submit
+                  {t('sections.fields.submit')}
                 </Button>
               </Field>
             </FieldGroup>
@@ -307,20 +319,20 @@ export default function UIKitPage() {
 
         {/* Inputs */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Inputs</Text>
+          <Text size="xl_bold">{t('sections.inputs.title')}</Text>
           <div className="grid max-w-xl gap-5 md:grid-cols-3">
             <div className="flex flex-col gap-2">
-              <Text as="label">Default</Text>
+              <Text as="label">{t('sections.inputs.default')}</Text>
               <Input
                 id="input-default"
-                placeholder="Type something..."
+                placeholder={t('sections.inputs.placeholder')}
               />
             </div>
             <div className="flex flex-col gap-2">
-              <Text as="label">Disabled</Text>
+              <Text as="label">{t('sections.inputs.disabled')}</Text>
               <Input
                 id="input-disabled"
-                placeholder="Can't type"
+                placeholder={t('sections.inputs.disabled_placeholder')}
                 disabled
               />
             </div>
@@ -329,11 +341,11 @@ export default function UIKitPage() {
                 as="label"
                 htmlFor="input-invalid"
               >
-                Invalid
+                {t('sections.inputs.invalid')}
               </Text>
               <Input
                 id="input-invalid"
-                placeholder="Invalid value"
+                placeholder={t('sections.inputs.invalid_placeholder')}
                 aria-invalid="true"
               />
             </div>
@@ -342,7 +354,7 @@ export default function UIKitPage() {
 
         {/* Popover */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Popover</Text>
+          <Text size="xl_bold">{t('sections.popover.title')}</Text>
           <Popover open={openedPopover}>
             <PopoverTrigger asChild>
               <Button
@@ -350,17 +362,17 @@ export default function UIKitPage() {
                 className="max-w-xl"
                 onClick={() => setOpenedPopover(true)}
               >
-                Open popover
+                {t('sections.popover.trigger')}
               </Button>
             </PopoverTrigger>
             <PopoverContent>
-              <p className="text-sm">Popover content goes here.</p>
+              <p className="text-sm">{t('sections.popover.content')}</p>
               <Button
                 variant="ghost"
                 size="default"
                 onClick={() => setOpenedPopover(false)}
               >
-                Close popover
+                {t('sections.popover.close')}
               </Button>
             </PopoverContent>
           </Popover>
@@ -368,27 +380,39 @@ export default function UIKitPage() {
 
         {/* Select */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Select</Text>
+          <Text size="xl_bold">{t('sections.select.title')}</Text>
           <div className="flex flex-row gap-5">
             <Select defaultValue="apple">
               <SelectTrigger>
-                <SelectValue placeholder="Pick a fruit" />
+                <SelectValue placeholder={t('sections.select.placeholder')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="apple">Apple</SelectItem>
-                <SelectItem value="banana">Banana</SelectItem>
-                <SelectItem value="orange">Orange</SelectItem>
+                <SelectItem value="apple">
+                  {t('sections.select.apple')}
+                </SelectItem>
+                <SelectItem value="banana">
+                  {t('sections.select.banana')}
+                </SelectItem>
+                <SelectItem value="orange">
+                  {t('sections.select.orange')}
+                </SelectItem>
               </SelectContent>
             </Select>
 
             <Select defaultValue="apple">
               <SelectTrigger variant="outline">
-                <SelectValue placeholder="Pick a fruit" />
+                <SelectValue placeholder={t('sections.select.placeholder')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="apple">Apple</SelectItem>
-                <SelectItem value="banana">Banana</SelectItem>
-                <SelectItem value="orange">Orange</SelectItem>
+                <SelectItem value="apple">
+                  {t('sections.select.apple')}
+                </SelectItem>
+                <SelectItem value="banana">
+                  {t('sections.select.banana')}
+                </SelectItem>
+                <SelectItem value="orange">
+                  {t('sections.select.orange')}
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -396,7 +420,7 @@ export default function UIKitPage() {
 
         {/* Separator */}
         <section className="flex w-full flex-col gap-3 p-5">
-          <Text size="xl_bold">Separator</Text>
+          <Text size="xl_bold">{t('sections.separator.title')}</Text>
           <div className="w-full">
             <Separator className="my-6 w-full" />
           </div>
@@ -404,55 +428,77 @@ export default function UIKitPage() {
 
         {/* Tabs */}
         <section className="flex max-w-xl flex-col gap-3 p-5">
-          <Text size="xl_bold">Tabs</Text>
+          <Text size="xl_bold">{t('sections.tabs.title')}</Text>
           <div className="flex flex-row gap-5">
             <div className="border-muted flex-1 border p-3">
-              <p className="text-muted-foreground text-sm">Horizontal</p>
+              <p className="text-muted-foreground text-sm">
+                {t('sections.tabs.horizontal')}
+              </p>
               <Tabs
                 defaultValue="tab1"
                 className="h-full"
               >
                 <TabsList variant="line">
-                  <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-                  <TabsTrigger value="tab2">Tab 2</TabsTrigger>
-                  <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+                  <TabsTrigger value="tab1">
+                    {t('sections.tabs.tab_1')}
+                  </TabsTrigger>
+                  <TabsTrigger value="tab2">
+                    {t('sections.tabs.tab_2')}
+                  </TabsTrigger>
+                  <TabsTrigger value="tab3">
+                    {t('sections.tabs.tab_3')}
+                  </TabsTrigger>
                 </TabsList>
                 <div className="flex h-full flex-col items-center justify-center">
-                  <TabsContent value="tab1">Content for Tab 1</TabsContent>
-                  <TabsContent value="tab2">Content for Tab 2</TabsContent>
-                  <TabsContent value="tab3">Content for Tab 3</TabsContent>
+                  <TabsContent value="tab1">
+                    {t('sections.tabs.content_tab_1')}
+                  </TabsContent>
+                  <TabsContent value="tab2">
+                    {t('sections.tabs.content_tab_2')}
+                  </TabsContent>
+                  <TabsContent value="tab3">
+                    {t('sections.tabs.content_tab_3')}
+                  </TabsContent>
                 </div>
               </Tabs>
             </div>
 
             <div className="border-muted flex-1 border p-3">
-              <p className="text-muted-foreground text-sm">Vertical</p>
+              <p className="text-muted-foreground text-sm">
+                {t('sections.tabs.vertical')}
+              </p>
               <Tabs
                 defaultValue="tab1"
                 orientation="vertical"
               >
                 <TabsList>
-                  <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-                  <TabsTrigger value="tab2">Tab 2</TabsTrigger>
-                  <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+                  <TabsTrigger value="tab1">
+                    {t('sections.tabs.tab_1')}
+                  </TabsTrigger>
+                  <TabsTrigger value="tab2">
+                    {t('sections.tabs.tab_2')}
+                  </TabsTrigger>
+                  <TabsTrigger value="tab3">
+                    {t('sections.tabs.tab_3')}
+                  </TabsTrigger>
                 </TabsList>
                 <TabsContent
                   value="tab1"
                   className="flex items-center justify-center"
                 >
-                  Content for Tab 1
+                  {t('sections.tabs.content_tab_1')}
                 </TabsContent>
                 <TabsContent
                   value="tab2"
                   className="flex items-center justify-center"
                 >
-                  Content for Tab 2
+                  {t('sections.tabs.content_tab_2')}
                 </TabsContent>
                 <TabsContent
                   value="tab3"
                   className="flex items-center justify-center"
                 >
-                  Content for Tab 3
+                  {t('sections.tabs.content_tab_3')}
                 </TabsContent>
               </Tabs>
             </div>
@@ -461,13 +507,13 @@ export default function UIKitPage() {
 
         {/* Textarea */}
         <section className="flex max-w-xl flex-col gap-3 p-5">
-          <Text size="xl_bold">Textarea</Text>
-          <Textarea placeholder="Write something..." />
+          <Text size="xl_bold">{t('sections.textarea.title')}</Text>
+          <Textarea placeholder={t('sections.textarea.placeholder')} />
         </section>
 
         {/* Tooltip */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Tooltip</Text>
+          <Text size="xl_bold">{t('sections.tooltip.title')}</Text>
           <div className="flex flex-row justify-around gap-5">
             <TooltipProvider>
               <Tooltip>
@@ -476,10 +522,12 @@ export default function UIKitPage() {
                     variant="outline"
                     className="w-24"
                   >
-                    Right
+                    {t('sections.tooltip.right')}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent side="right">Tooltip content</TooltipContent>
+                <TooltipContent side="right">
+                  {t('sections.tooltip.content')}
+                </TooltipContent>
               </Tooltip>
 
               <Tooltip>
@@ -488,10 +536,12 @@ export default function UIKitPage() {
                     variant="outline"
                     className="w-24"
                   >
-                    Top
+                    {t('sections.tooltip.top')}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent side="top">Tooltip content</TooltipContent>
+                <TooltipContent side="top">
+                  {t('sections.tooltip.content')}
+                </TooltipContent>
               </Tooltip>
 
               <Tooltip>
@@ -500,10 +550,12 @@ export default function UIKitPage() {
                     variant="outline"
                     className="w-24"
                   >
-                    Bottom
+                    {t('sections.tooltip.bottom')}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent side="bottom">Tooltip content</TooltipContent>
+                <TooltipContent side="bottom">
+                  {t('sections.tooltip.content')}
+                </TooltipContent>
               </Tooltip>
 
               <Tooltip>
@@ -512,10 +564,12 @@ export default function UIKitPage() {
                     variant="outline"
                     className="w-24"
                   >
-                    Left
+                    {t('sections.tooltip.left')}
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent side="left">Tooltip content</TooltipContent>
+                <TooltipContent side="left">
+                  {t('sections.tooltip.content')}
+                </TooltipContent>
               </Tooltip>
             </TooltipProvider>
           </div>
@@ -523,46 +577,42 @@ export default function UIKitPage() {
 
         {/* Sonner */}
         <section className="flex flex-col gap-3 p-5">
-          <Text size="xl_bold">Sonner</Text>
+          <Text size="xl_bold">{t('sections.sonner.title')}</Text>
           <div className="flex flex-row justify-around gap-5">
             <Button
               variant="outline"
               className="w-24"
-              onClick={() => toast('Event has been created')}
+              onClick={() => toast(t('sections.sonner.default_toast'))}
             >
-              Default
+              {t('sections.sonner.default')}
             </Button>
             <Button
               variant="outline"
               className="w-24"
-              onClick={() => toast.success('Event has been created')}
+              onClick={() => toast.success(t('sections.sonner.success_toast'))}
             >
-              Success
+              {t('sections.sonner.success')}
             </Button>
             <Button
               variant="outline"
               className="w-24"
-              onClick={() =>
-                toast.info('Be at the area 10 minutes before the event time')
-              }
+              onClick={() => toast.info(t('sections.sonner.info_toast'))}
             >
-              Info
+              {t('sections.sonner.info')}
             </Button>
             <Button
               variant="outline"
               className="w-24"
-              onClick={() =>
-                toast.warning('Event start time cannot be earlier than 8am')
-              }
+              onClick={() => toast.warning(t('sections.sonner.warning_toast'))}
             >
-              Warning
+              {t('sections.sonner.warning')}
             </Button>
             <Button
               variant="outline"
               className="w-24"
-              onClick={() => toast.error('Event has not been created')}
+              onClick={() => toast.error(t('sections.sonner.error_toast'))}
             >
-              Error
+              {t('sections.sonner.error')}
             </Button>
             <Button
               variant="outline"
@@ -571,17 +621,23 @@ export default function UIKitPage() {
                 toast.promise<{ name: string }>(
                   () =>
                     new Promise((resolve) =>
-                      setTimeout(() => resolve({ name: 'Event' }), 2000),
+                      setTimeout(
+                        () =>
+                          resolve({ name: t('sections.sonner.event_name') }),
+                        2000,
+                      ),
                     ),
                   {
-                    loading: 'Loading...',
-                    success: (data) => `${data.name} has been created`,
-                    error: 'Error',
+                    loading: t('sections.sonner.loading'),
+                    // Виправлено тут: передаємо { name: data.name } безпосередньо у функцію t()
+                    success: (data) =>
+                      t('sections.sonner.promise_success', { name: data.name }),
+                    error: t('sections.sonner.promise_error'),
                   },
                 );
               }}
             >
-              Promise
+              {t('sections.sonner.promise')}
             </Button>
           </div>
         </section>
