@@ -19,12 +19,15 @@ export const Footer = () => {
 
   const isHomePage = pathname === '/';
 
-  const socialLinks = [
-    { name: 'GITHUB', href: '#' },
-    { name: 'LINKEDIN', href: '#' },
-    { name: 'TELEGRAM', href: '#' },
-    { name: 'INSTAGRAM', href: '#' },
-    { name: 'THREADS', href: '#' },
+  const SOCIAL_LINKS = [
+    { name: 'GITHUB', href: 'https://github.com/Vlad1kent1' },
+    {
+      name: 'LINKEDIN',
+      href: 'https://www.linkedin.com/in/vladyslav-karabinovych',
+    },
+    { name: 'TELEGRAM', href: 'https://t.me/JazonK' },
+    { name: 'INSTAGRAM', href: 'https://www.instagram.com/vladkarabinovuch/' },
+    { name: 'THREADS', href: 'https://www.threads.com/@vladkarabinovuch' },
   ];
 
   return (
@@ -65,10 +68,12 @@ export const Footer = () => {
             >
               {t('follow_on')}
             </Text>
-            {socialLinks.map((link) => (
+            {SOCIAL_LINKS.map((link) => (
               <a
                 key={`id-${link.name.toLowerCase()}`}
                 href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:/80 transition-colors"
               >
                 <Text
