@@ -306,7 +306,12 @@
               "phone_placeholder": "+00 000 000 000",
               "message_placeholder": "Il tuo messaggio qui...",
               "reply_notice": "Di solito rispondo entro 24 ore.",
-              "submit": "INVIA RICHIESTA"
+              "submit": "INVIA RICHIESTA",
+              "notifications": {
+                "loading": "Invio del messaggio in corso...",
+                "success": "Messaggio inviato con successo!",
+                "error": "Impossibile inviare il messaggio. Riprova più tardi."
+              }
             }
           }
         }
